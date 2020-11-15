@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Obligatorio Programación IV" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Obligatorio Programación IV" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Obligatorio Programación IV" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="Fecha.cpp" />
+		<Unit filename="Fecha.h" />
+		<Unit filename="Fijo.cpp" />
+		<Unit filename="Fijo.h" />
+		<Unit filename="IteradorSupervisores.cpp" />
+		<Unit filename="IteradorSupervisores.h" />
+		<Unit filename="IteradorVendedores.cpp" />
+		<Unit filename="IteradorVendedores.h" />
+		<Unit filename="Persona.h" />
+		<Unit filename="Personas.cpp" />
+		<Unit filename="String.cpp" />
+		<Unit filename="String.h" />
+		<Unit filename="Supervisor.cpp" />
+		<Unit filename="Supervisor.h" />
+		<Unit filename="Vendedor.cpp" />
+		<Unit filename="Vendedor.h" />
+		<Unit filename="Zafral.cpp" />
+		<Unit filename="Zafral.h" />
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
