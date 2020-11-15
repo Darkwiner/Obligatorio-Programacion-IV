@@ -1,0 +1,58 @@
+# depslib dependency file v1.0
+1605461035 source:c:\users\admin\documents\github\obligatorio-programacion-iv\fecha.cpp
+	"Fecha.h"
+
+1605462141 c:\users\admin\documents\github\obligatorio-programacion-iv\fecha.h
+
+1605465130 source:c:\users\admin\documents\github\obligatorio-programacion-iv\fijo.cpp
+	"Fijo.h"
+
+1605465107 c:\users\admin\documents\github\obligatorio-programacion-iv\fijo.h
+
+1605481696 source:c:\users\admin\documents\github\obligatorio-programacion-iv\main.cpp
+	<iostream>
+
+1605482400 source:c:\users\admin\documents\github\obligatorio-programacion-iv\persona.cpp
+	"Persona.h"
+
+1605482133 c:\users\admin\documents\github\obligatorio-programacion-iv\persona.h
+	"String.h"
+
+1605481704 c:\users\admin\documents\github\obligatorio-programacion-iv\string.h
+	<string.h>
+	<iostream>
+
+1605481603 source:c:\users\admin\documents\github\obligatorio-programacion-iv\string.cpp
+	"String.h"
+
+1605482949 source:c:\users\admin\documents\github\obligatorio-programacion-iv\supervisor.cpp
+	"Supervisor.h"
+
+1605482895 c:\users\admin\documents\github\obligatorio-programacion-iv\supervisor.h
+	"Persona.h"
+
+1605465011 source:c:\users\admin\documents\github\obligatorio-programacion-iv\iteradorsupervisores.cpp
+	"IteradorSupervisores.h"
+
+1605465368 c:\users\admin\documents\github\obligatorio-programacion-iv\iteradorsupervisores.h
+	"Supervisor.h"
+
+1605465065 source:c:\users\admin\documents\github\obligatorio-programacion-iv\iteradorvendedores.cpp
+	"IteradorVendedores.h"
+
+1605465140 c:\users\admin\documents\github\obligatorio-programacion-iv\iteradorvendedores.h
+	"Vendedor.h"
+
+1605465537 c:\users\admin\documents\github\obligatorio-programacion-iv\vendedor.h
+	"Persona.h"
+
+1605460160 source:c:\users\admin\documents\github\obligatorio-programacion-iv\personas.cpp
+
+1605465293 source:c:\users\admin\documents\github\obligatorio-programacion-iv\vendedor.cpp
+	"Vendedor.h"
+
+1605465130 source:c:\users\admin\documents\github\obligatorio-programacion-iv\zafral.cpp
+	"Zafral.h"
+
+1605465107 c:\users\admin\documents\github\obligatorio-programacion-iv\zafral.h
+
