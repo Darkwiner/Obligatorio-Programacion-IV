@@ -17,5 +17,4 @@ public :
     void setManzanas (int);
 };
 
-
 #endif // SUPERVISOR_H_INCLUDED

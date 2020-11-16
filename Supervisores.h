@@ -7,35 +7,31 @@ const int B = 60;
 class Supervisores
 {
 private:
-        struct NodoH{
-                        Mascota * info;
-                        NodoH * sig;
-                        };
-        NodoH * hash[B];
+  struct NodoH {
+      Mascota * info;
+      NodoH * sig;
+  };
+  NodoH * hash[B];
 
-int h (int);  // función de dispersión
-void crearLista (Nodo * &);// crea una lista vacía
-void destruirLista (Nodo * &);// destruye todo el contenido de la lista
-boolean perteneceLista (Nodo *, int);// indica si existe una mascota con el número ingresado
-void insFrontEnLista (Nodo * &, Mascota *);// inserta la mascota al principio de la lista
-Supervisores * obtenerEnLista (Nodo *, int);// obtiene la mascota con el número ingresado
-int cuantosEnLista (Nodo *, float);// cuenta cuántas mascotas poseen el peso ingresado
+  int h (int);  // funciï¿½n de dispersiï¿½n
+  void crearLista (Nodo * &);// crea una lista vacï¿½a
+  void destruirLista (Nodo * &);// destruye todo el contenido de la lista
+  bool perteneceLista (Nodo *, int);// indica si existe una mascota con el nï¿½mero ingresado
+  void insFrontEnLista (Nodo * &, Mascota *);// inserta la mascota al principio de la lista
+  Supervisores * obtenerEnLista (Nodo *, int);// obtiene la mascota con el nï¿½mero ingresado
+  int cuantosEnLista (Nodo *, float);// cuenta cuï¿½ntas mascotas poseen el peso ingresado
 
 public:
-
-Supervisores ();// constructor por defecto
-
+  Supervisores ();// constructor por defecto
 ~ Supervisores ();// destructor
 
-boolean member (int);// indica si la mascota con el número ingresado es miembro de// la colección
+bool member (int);// indica si la mascota con el nï¿½mero ingresado es miembro de// la colecciï¿½n
 
-void insert (Supervisores *);// inserta la nueva mascota a la colección
-// precondición: la mascota no es miembro de la colección
+void insert (Supervisores *);// inserta la nueva mascota a la colecciï¿½n
+// precondiciï¿½n: la mascota no es miembro de la colecciï¿½n
 
-Supervisores * find (int);// retorna la mascota cuyo número es el ingresado
-// precondición: la mascota es miembro de la colección
-
+Supervisores * find (int);// retorna la mascota cuyo nï¿½mero es el ingresado
+// precondiciï¿½n: la mascota es miembro de la colecciï¿½n
 };
-
 
 #endif // SUPERVISORES_H_INCLUDED
