@@ -1,6 +1,7 @@
 #ifndef ZAFRAL_H_INCLUDED
 #define ZAFRAL_H_INCLUDED
 #include "Fecha.h"
+#include "Vendedor.h"
 
 class Zafral : public Vendedor
 {

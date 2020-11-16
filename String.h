@@ -1,6 +1,6 @@
 #ifndef STRING_H_INCLUDED
 #define STRING_H_INCLUDED
-#include <string.h>
+#include "String.h"
 #include <iostream>
 
 using namespace std;
@@ -13,14 +13,14 @@ private:
     char * cadena;
 public:
     String(); //Constructor por defecto.
-    String(char* s); //Constructor común
+    String(char* s); //Constructor comï¿½n
     String(const String &); //Constructor de copia
     ~String(); //Destructor
-    String operator=(const String &); //Sobrecarga de asignación
+    String operator=(const String &); //Sobrecarga de asignaciï¿½n
     bool operator==(String); //Compara dos strings por igualdad.
-    bool operator< (String); //Compara dos strings alfabéticamente
-    String operator+ (String); //Concatenación de strings.
-    void scan(); //Lee un string desde la entrada estándar.
-    void print(); //Muestra un string en la salida estándar
+    bool operator< (String); //Compara dos strings alfabï¿½ticamente
+    String operator+ (String); //Concatenaciï¿½n de strings.
+    void scan(); //Lee un string desde la entrada estï¿½ndar.
+    void print(); //Muestra un string en la salida estï¿½ndar
 };
 #endif // STRING_H_INCLUDED

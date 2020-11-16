@@ -8,18 +8,18 @@ class Supervisores
 {
 private:
   struct NodoH {
-      Mascota * info;
+      Supervisor * info;
       NodoH * sig;
   };
   NodoH * hash[B];
 
   int h (int);  // funci�n de dispersi�n
-  void crearLista (Nodo * &);// crea una lista vac�a
-  void destruirLista (Nodo * &);// destruye todo el contenido de la lista
-  bool perteneceLista (Nodo *, int);// indica si existe una mascota con el n�mero ingresado
-  void insFrontEnLista (Nodo * &, Mascota *);// inserta la mascota al principio de la lista
-  Supervisores * obtenerEnLista (Nodo *, int);// obtiene la mascota con el n�mero ingresado
-  int cuantosEnLista (Nodo *, float);// cuenta cu�ntas mascotas poseen el peso ingresado
+  void crearLista (NodoH * &);// crea una lista vac�a
+  void destruirLista (NodoH * &);// destruye todo el contenido de la lista
+  bool perteneceLista (NodoH *, int);// indica si existe una mascota con el n�mero ingresado
+  void insFrontEnLista (NodoH * &, Supervisor *);// inserta la mascota al principio de la lista
+  Supervisores * obtenerEnLista (NodoH *, int);// obtiene la mascota con el n�mero ingresado
+  int cuantosEnLista (NodoH *, float);// cuenta cu�ntas mascotas poseen el peso ingresado
 
 public:
   Supervisores ();// constructor por defecto

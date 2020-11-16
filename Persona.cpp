@@ -34,8 +34,3 @@ void Persona :: setNombre (String s)
 {
     nombre = s;
 }
-
-Persona :: Persona (const Persona &otro) : nombre(otro.nombre)
-{
-    cedula = otro.cedula;
-}

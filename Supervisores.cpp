@@ -4,13 +4,13 @@ int Supervisores :: h (int num)
 {
     return (num % B);
 }
-void Supervisores :: crearLista (Nodo * &L)
+void Supervisores :: crearLista (NodoH * &L)
 {
     L = NULL;
 }
-void Supervisores :: destruirLista (Nodo * &L)
+void Supervisores :: destruirLista (NodoH * &L)
 {
-    Nodo * aux = L;
+    NodoH * aux = L;
     while (aux != NULL)
     {
         L = aux->sig;
@@ -20,67 +20,74 @@ void Supervisores :: destruirLista (Nodo * &L)
     L = aux;
 }
 
-bool Supervisores :: perteneceLista (Nodo * L, int num)
+// bool Supervisores :: perteneceLista (NodoH * L, int num)
+// {
+//     bool existe = false;
+//     while (!existe && L != NULL)
+//         if (L->info->getNumero() == num)
+//             existe = true;
+//         else
+//             L = L->sig;
+//     return existe;
+// }
+
+void Supervisores :: insFrontEnLista (NodoH * &L, Supervisor * su)
 {
-    bool existe = false;
-    while (!existe && L != NULL)
-        if (L->info->getNumero() == num)
-            existe = true;
-        else
-            L = L->sig;
-    return existe;
-}
-void Supervisores :: insFrontEnLista (Nodo * &L, Mascota * ma)
-{
-    Nodo * aux = new Nodo;
-    aux->info = ma;
+    NodoH * aux = new NodoH;
+    aux->info = su;
     aux->sig = L;
     L = aux;
 }
-Supervisor * Supervisores :: obtenerEnLista (Nodo * L, int num)
-{
-    while (L->info->getNumero() != num)
-        L = L->sig;
-    return (L->info);
-}
-int Supervisores :: cuantosEnLista (Nodo * L, float pe)
-{
-    int cont = 0;
-    while (L != NULL)
-    {
-        if (L->info->getPeso() == pre)
-            cont++;
-        L = L->sig;
-    }
-    return cont;
-}
-/* hasta aquí se implementaron los métodos auxiliares privados. A
-partir de aquí se implementan los métodos públicos de la clase */
+
+// Supervisor * Supervisores :: obtenerEnLista (NodoH * L, int num)
+// {
+//     while (L->info->getNumero() != num)
+//         L = L->sig;
+//     return (L->info);
+// }
+
+// int Supervisores :: cuantosEnLista (NodoH * L, float pe)
+// {
+//     int cont = 0;
+//     while (L != NULL)
+//     {
+//         if (L->info->getPeso() == pre)
+//             cont++;
+//         L = L->sig;
+//     }
+//     return cont;
+// }
+
+/* hasta aquï¿½ se implementaron los mï¿½todos auxiliares privados. A
+partir de aquï¿½ se implementan los mï¿½todos pï¿½blicos de la clase */
+
 Supervisores :: Supervisores ()
 {
     for (int i=0; i < B; i++)
         crearLista(hash[i]);
 }
+
 Supervisores :: ~Supervisores ()
 {
     for (int i=0; i < B; i++)
         destruirLista(hash[i]);
 }
 
-bool Supervisores :: member (int num)
-{
-    int cubeta = h(num);
-    return perteneceLista (hash[cubeta], num);
-}
-void Supervisores :: insert (Mascota * ma)
-{
-    int num = ma->getNumero();
-    int cubeta = h(num);
-    insFrontEnLista (hash[cubeta], ma);
-}
-Supervisores * Supervisores :: find (int num)
-{
-    int cubeta = h(num);
-    return obtenerEnLista (hash[cubeta], num);
-}
+// bool Supervisores :: member (int num)
+// {
+//     int cubeta = h(num);
+//     return perteneceLista (hash[cubeta], num);
+// }
 
+// void Supervisores :: insert (Supervisor * su)
+// {
+//     int num = su->getNumero();
+//     int cubeta = h(num);
+//     insFrontEnLista (hash[cubeta], su);
+// }
+
+// Supervisores * Supervisores :: find (int num)
+// {
+//     int cubeta = h(num);
+//     return obtenerEnLista (hash[cubeta], num);
+// }

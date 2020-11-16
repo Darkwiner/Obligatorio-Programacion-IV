@@ -5,19 +5,14 @@ Fijo :: Fijo ()
   plus = 0;
 }
 
-Fijo :: Fijo (int plus)
+Fijo :: Fijo (int p)
 {
-    plus = plus;
+    plus = p;
 }
 
 Fijo :: Fijo (const Fijo &otro)
 {
   plus = otro.plus;
-}
-
-String Supervisor :: getBarrio ()
-{
-    return barrio;
 }
 
 float Fijo :: sueldoTotal ()

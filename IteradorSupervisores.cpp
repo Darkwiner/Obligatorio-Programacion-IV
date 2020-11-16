@@ -1,4 +1,4 @@
-#include "IteradorSupervisores.h"
+// #include "IteradorSupervisores.h"
 /*
 IteradorSupervisores :: IteradorSupervisores ()
 {

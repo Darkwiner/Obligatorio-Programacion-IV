@@ -1,5 +1,6 @@
 #ifndef FIJO_H_INCLUDED
 #define FIJO_H_INCLUDED
+#include "Vendedor.h"
 
 class Fijo : public Vendedor
 {

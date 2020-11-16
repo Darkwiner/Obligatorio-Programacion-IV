@@ -1,4 +1,4 @@
-#include "IteradorVendedores.h"
+// #include "IteradorVendedores.h"
 /*
 IteradorVendedores :: IteradorVendedores ()
 {
