@@ -2,7 +2,7 @@
 #define ZAFRAL_H_INCLUDED
 #include "Fecha.h"
 
-class Zafral
+class Zafral : public Vendedor
 {
 private:
   int comision;

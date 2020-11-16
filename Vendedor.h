@@ -2,7 +2,7 @@
 #define VENDEDOR_H_INCLUDED
 #include "Persona.h"
 
-class Vendedor
+class Vendedor : public Persona
 {
 private :
     int sueldoBase;

@@ -2,7 +2,7 @@
 #define SUPERVISOR_H_INCLUDED
 #include "Persona.h"
 
-class Supervisor
+class Supervisor : public Persona
 {
 private :
     String barrio;

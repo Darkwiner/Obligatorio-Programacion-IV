@@ -1,7 +1,7 @@
 #ifndef FIJO_H_INCLUDED
 #define FIJO_H_INCLUDED
 
-class Fijo
+class Fijo : public Vendedor
 {
 private:
   int plus;
