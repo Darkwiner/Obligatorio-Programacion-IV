@@ -14,4 +14,5 @@ Preguntas
 - Como hacemos para mostrar los listados que se piden? main?
 - Como hacemos para interactuar con el sistema? main?
 - Error en Vendedor.h "undefined reference to 'vtable for Vendedor'"
+- Punteros? Donde?
 */
