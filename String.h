@@ -1,6 +1,6 @@
 #ifndef STRING_H_INCLUDED
 #define STRING_H_INCLUDED
-#include "String.h"
+#include <string.h>
 #include <iostream>
 
 using namespace std;

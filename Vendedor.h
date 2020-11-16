@@ -12,6 +12,7 @@ public :
     Vendedor (int, int); //Constructor comun
     Vendedor (const Vendedor &);//Constructor de copia
     virtual float sueldoTotal (); // Funcion polimorfica
+    virtual ~Vendedor();
     int getSueldoBase ();
     int getCantVentas ();
     void setSueldoBase (float);

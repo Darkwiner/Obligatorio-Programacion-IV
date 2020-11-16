@@ -30,3 +30,8 @@ void Fijo :: setPlus (int p)
 {
   plus = p;
 }
+
+Fijo :: ~Fijo()
+{
+
+}

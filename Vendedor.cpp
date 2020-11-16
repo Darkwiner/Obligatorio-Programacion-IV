@@ -1,12 +1,12 @@
 #include "Vendedor.h"
 
-Vendedor :: Vendedor ()
+Vendedor :: Vendedor () : Persona ()
 {
     sueldoBase = 0;
     cantVentas = 0;
 }
 
-Vendedor :: Vendedor (int s, int ventas)
+Vendedor :: Vendedor (int s, int ventas) : Persona ()
 {
     sueldoBase = s;
     cantVentas = ventas;
@@ -41,4 +41,9 @@ void Vendedor :: setSueldoBase (float sueldo)
 void Vendedor :: setCantVentas (int ventas)
 {
     cantVentas = ventas;
+}
+
+Vendedor :: ~Vendedor()
+{
+
 }

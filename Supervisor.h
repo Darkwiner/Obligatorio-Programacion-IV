@@ -1,7 +1,6 @@
 #ifndef SUPERVISOR_H_INCLUDED
 #define SUPERVISOR_H_INCLUDED
 #include "Persona.h"
-#include "String.h"
 
 class Supervisor : public Persona
 {

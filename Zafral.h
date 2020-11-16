@@ -3,7 +3,7 @@
 #include "Fecha.h"
 #include "Vendedor.h"
 
-class Zafral : public Vendedor
+class Zafral : public Vendedor, public Fecha
 {
 private:
   int comision;
@@ -17,6 +17,7 @@ public:
   void setComision(int); //Seteo comision
   void setFecha(Fecha); // Selectora fecha
   float sueldoTotal (); // Funcion polimorfica
+  virtual ~Zafral();
 };
 
 #endif // ZAFRAL_H_INCLUDED
