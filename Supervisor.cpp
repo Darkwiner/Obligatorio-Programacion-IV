@@ -5,7 +5,7 @@ Supervisor :: Supervisor () : Persona (), barrio()
     cantManzanas = 0;
 }
 
-Supervisor :: Supervisor (String b, int manzanas) : Persona (), barrio(b)
+Supervisor :: Supervisor (long int ced, String nom, String b, int manzanas) : Persona (ced,nom), barrio(b)
 {
     cantManzanas = manzanas;
 }

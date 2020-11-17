@@ -1,16 +1,16 @@
 #include "Fijo.h"
 
-Fijo :: Fijo ()
+Fijo :: Fijo () : Vendedor()
 {
   plus = 0;
 }
 
-Fijo :: Fijo (int p)
+Fijo :: Fijo (int p) : Vendedor()
 {
     plus = p;
 }
 
-Fijo :: Fijo (const Fijo &otro)
+Fijo :: Fijo (const Fijo &otro) : Vendedor()
 {
   plus = otro.plus;
 }
@@ -33,5 +33,4 @@ void Fijo :: setPlus (int p)
 
 Fijo :: ~Fijo()
 {
-
 }

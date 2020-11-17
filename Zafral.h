@@ -3,7 +3,7 @@
 #include "Fecha.h"
 #include "Vendedor.h"
 
-class Zafral : public Vendedor, public Fecha
+class Zafral : public Vendedor
 {
 private:
   int comision;
