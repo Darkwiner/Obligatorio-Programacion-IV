@@ -9,7 +9,7 @@ private :
     int cantManzanas;
 public :
     Supervisor (); //Constructor por defecto
-    Supervisor (String, int); //Constructor comun
+    Supervisor (long int, String, String, int); //Constructor comun
     Supervisor (const Supervisor &); //Constructor de copia
     String getBarrio ();
     int getManzanas ();

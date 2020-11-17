@@ -9,7 +9,7 @@ private :
     int cantVentas;
 public :
     Vendedor (); //Constructor por defecto
-    Vendedor (int, int); //Constructor comun
+    Vendedor (long int, String, int, int); //Constructor comun
     Vendedor (const Vendedor &);//Constructor de copia
     virtual float sueldoTotal (); // Funcion polimorfica
     virtual ~Vendedor();
