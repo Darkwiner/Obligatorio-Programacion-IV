@@ -46,8 +46,12 @@
 		<Unit filename="String.h" />
 		<Unit filename="Supervisor.cpp" />
 		<Unit filename="Supervisor.h" />
+		<Unit filename="Supervisores.cpp" />
+		<Unit filename="Supervisores.h" />
 		<Unit filename="Vendedor.cpp" />
 		<Unit filename="Vendedor.h" />
+		<Unit filename="Vendedores.cpp" />
+		<Unit filename="Vendedores.h" />
 		<Unit filename="Zafral.cpp" />
 		<Unit filename="Zafral.h" />
 		<Unit filename="main.cpp" />
