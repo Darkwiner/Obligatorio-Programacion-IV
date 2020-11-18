@@ -12,7 +12,7 @@ Vendedor :: Vendedor (long int ced, String nom, int s, int ventas) : Persona (ce
     cantVentas = ventas;
 }
 
-Vendedor :: Vendedor (const Vendedor &otro)
+Vendedor :: Vendedor (const Vendedor &otro) //Preguntar
 {
     sueldoBase = otro.sueldoBase;
     cantVentas = otro.cantVentas;
