@@ -1,13 +1,13 @@
 #ifndef ITERADORPERSONAS_H_INCLUDED
 #define ITERADORPERSONAS_H_INCLUDED
 #include "Persona.h"
-/*
+
 class IteradorPersonas
 {
 private:
     typedef struct nodoP
     {
-        Persona info;
+        Persona * info;
         nodoP *sig;
     } NodoP;
     typedef struct
@@ -15,6 +15,9 @@ private:
         NodoP * prim;
         NodoP * ult;
     } LPPFPersonas;
+
+    ///puntero para ir moviendo ver practico 5
+
 public:
     IteradorPersonas (); //Constructor por defecto
     void insertarPersona (Persona); //Inserta en el iterador

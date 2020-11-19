@@ -10,7 +10,7 @@ Supervisor :: Supervisor (long int ced, String nom, String b, int manzanas) : Pe
     cantManzanas = manzanas;
 }
 
-Supervisor :: Supervisor (const Supervisor &otro) : Persona (), barrio(otro.barrio)
+Supervisor :: Supervisor (const Supervisor &otro) : Persona (otro), barrio(otro.barrio)
 {
     cantManzanas = otro.cantManzanas;
 }

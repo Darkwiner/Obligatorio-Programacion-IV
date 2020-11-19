@@ -15,6 +15,7 @@ public :
     String getNombre (); //Obtengo nombre
     void setCedula (long int); //Seteo cedula
     void setNombre (String); //Seteo nombre
+    virtual String getTipo()=0;//metodo abstracto  //implementar en supervisor. fijo yu zafral
 };
 
 #endif // PERSONA_H_INCLUDED

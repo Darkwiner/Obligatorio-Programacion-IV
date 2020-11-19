@@ -1,11 +1,11 @@
-// #include "IteradorPersonas.h"
-/*
+#include "IteradorPersonas.h"
+
 IteradorPersonas :: IteradorPersonas ()
 {
-    l.prim = NULL;
-    l.ult = NULL;
+    prim = NULL;
+    ult = NULL;
 }
-void IteradorPersonas :: IteradorPersonas (Persona P)
+/*void IteradorPersonas :: IteradorPersonas (Persona P)
 {
     NodoP * nuevo = new nodoP;
     nuevo->info = P;
@@ -20,7 +20,7 @@ void IteradorPersonas :: IteradorPersonas (Persona P)
         l.ult->sig = nuevo;
         l.ult = nuevo;
     }
-}
+}*/// esto no es necesario
 bool IteradorPersonas :: hayMasPersonas()
 {
     return ();
