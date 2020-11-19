@@ -17,7 +17,6 @@ public:
   void setComision(int); //Seteo comision
   void setFecha(Fecha); // Selectora fecha
   float sueldoTotal (); // Funcion polimorfica
-  virtual ~Zafral();
 };
 
 #endif // ZAFRAL_H_INCLUDED

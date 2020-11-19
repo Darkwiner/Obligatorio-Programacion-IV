@@ -36,12 +36,10 @@
 		<Unit filename="Fecha.h" />
 		<Unit filename="Fijo.cpp" />
 		<Unit filename="Fijo.h" />
-		<Unit filename="IteradorSupervisores.cpp" />
-		<Unit filename="IteradorSupervisores.h" />
-		<Unit filename="IteradorVendedores.cpp" />
-		<Unit filename="IteradorVendedores.h" />
+		<Unit filename="IteradorPersonas.cpp" />
+		<Unit filename="IteradorPersonas.h" />
+		<Unit filename="Persona.cpp" />
 		<Unit filename="Persona.h" />
-		<Unit filename="Personas.cpp" />
 		<Unit filename="String.cpp" />
 		<Unit filename="String.h" />
 		<Unit filename="Supervisor.cpp" />
@@ -55,10 +53,6 @@
 		<Unit filename="Zafral.cpp" />
 		<Unit filename="Zafral.h" />
 		<Unit filename="main.cpp" />
-		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
-		</Extensions>
+		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

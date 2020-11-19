@@ -57,3 +57,62 @@
 	"Fecha.h"
 	"Vendedor.h"
 
+1605665568 source:c:\users\sinsausti\documents\obligatorio-programacion-iv\fecha.cpp
+	"Fecha.h"
+
+1605665568 c:\users\sinsausti\documents\obligatorio-programacion-iv\fecha.h
+
+1605754842 source:c:\users\sinsausti\documents\obligatorio-programacion-iv\fijo.cpp
+	"Fijo.h"
+
+1605754779 c:\users\sinsausti\documents\obligatorio-programacion-iv\fijo.h
+	"Vendedor.h"
+
+1605754414 c:\users\sinsausti\documents\obligatorio-programacion-iv\vendedor.h
+	"Persona.h"
+
+1605665568 c:\users\sinsausti\documents\obligatorio-programacion-iv\persona.h
+	"String.h"
+
+1605665568 c:\users\sinsausti\documents\obligatorio-programacion-iv\string.h
+	<string.h>
+	<iostream>
+
+1605665568 source:c:\users\sinsausti\documents\obligatorio-programacion-iv\iteradorpersonas.cpp
+
+1605754779 source:c:\users\sinsausti\documents\obligatorio-programacion-iv\main.cpp
+	<iostream>
+
+1605665568 source:c:\users\sinsausti\documents\obligatorio-programacion-iv\persona.cpp
+	"Persona.h"
+
+1605665568 source:c:\users\sinsausti\documents\obligatorio-programacion-iv\string.cpp
+	"String.h"
+
+1605665568 source:c:\users\sinsausti\documents\obligatorio-programacion-iv\supervisor.cpp
+	"Supervisor.h"
+
+1605754999 c:\users\sinsausti\documents\obligatorio-programacion-iv\supervisor.h
+	"Persona.h"
+
+1605665568 source:c:\users\sinsausti\documents\obligatorio-programacion-iv\supervisores.cpp
+	"Supervisores.h"
+
+1605665568 c:\users\sinsausti\documents\obligatorio-programacion-iv\supervisores.h
+	"Supervisor.h"
+
+1605754265 source:c:\users\sinsausti\documents\obligatorio-programacion-iv\vendedor.cpp
+	"Vendedor.h"
+
+1605665568 source:c:\users\sinsausti\documents\obligatorio-programacion-iv\vendedores.cpp
+	"Vendedores.h"
+
+1605665568 c:\users\sinsausti\documents\obligatorio-programacion-iv\vendedores.h
+
+1605665568 source:c:\users\sinsausti\documents\obligatorio-programacion-iv\zafral.cpp
+	"Zafral.h"
+
+1605665568 c:\users\sinsausti\documents\obligatorio-programacion-iv\zafral.h
+	"Fecha.h"
+	"Vendedor.h"
+

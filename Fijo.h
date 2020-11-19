@@ -11,7 +11,6 @@ public :
   Fijo (int); //Constructor comun
   Fijo (const Fijo &); //Constructor de copia
   float sueldoTotal (); // Funcion polimorfica
-  virtual ~Fijo();
   int getPlus();  // Selectora
   void setPlus (int); //Seteo plus
 };

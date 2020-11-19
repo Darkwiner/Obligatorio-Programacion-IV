@@ -18,7 +18,7 @@ Vendedor :: Vendedor (const Vendedor &otro) //Preguntar
     cantVentas = otro.cantVentas;
 }
 
-float sueldoTotal ()    // armar luego de tener la polimorfica armada...
+float Vendedor :: sueldoTotal ()    // armar luego de tener la polimorfica armada...
 {
     return 0;
 }

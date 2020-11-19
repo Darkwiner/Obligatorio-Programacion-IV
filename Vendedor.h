@@ -12,10 +12,10 @@ public :
     Vendedor (long int, String, int, int); //Constructor comun
     Vendedor (const Vendedor &);//Constructor de copia
     virtual float sueldoTotal (); // Funcion polimorfica
-    virtual ~Vendedor();
     int getSueldoBase ();
     int getCantVentas ();
     void setSueldoBase (float);
     void setCantVentas (int);
+    ~Vendedor();
 };
 #endif // VENDEDOR_H_INCLUDED

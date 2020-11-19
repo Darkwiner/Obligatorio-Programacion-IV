@@ -39,7 +39,3 @@ float Zafral :: sueldoTotal ()
 {
     return 0;
 }
-
-Zafral :: ~Zafral()
-{
-}
