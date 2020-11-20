@@ -18,7 +18,7 @@ bool Vendedores :: perteneceEnArbol (Nodo * a, long int ced)
     while (!encontre && a != NULL)
         if (ced == a->info->getCedula())
             encontre = true;
-        else if (mat < a->info->getCedula())
+        else if (ced < a->info->getCedula())
             a = a->hizq;
         else
             a = a->hder;
@@ -34,13 +34,13 @@ void Vendedores :: insertEnArbol (Nodo * &a, Vendedor * vend)
         a -> hizq = NULL;
         a -> hder = NULL;
     }
-    else if (au->getCedula() < a->info->getCedula())
-        insertEnArbol(a->hizq,e);
+    else if (vend->getCedula() < a->info->getCedula())
+        insertEnArbol(a->hizq,vend);
     else
-        insertEnArbol(a->hder,e);
+        insertEnArbol(a->hder,vend);
 }
 
-Duenio * Vendedores :: obtenerEnArbol (Nodo * a, long int ced)
+Vendedor * Vendedores :: obtenerEnArbol (Nodo * a, long int ced)
 {
     while (ced != a->info->getCedula())
         if (ced < a->info->getCedula())
@@ -55,7 +55,7 @@ void Vendedores :: cargarIterador (Nodo * a, IteradorPersonas &iter)
     if (a != NULL)
     {
         cargarIterador (a->hizq, iter);
-        iter.insertar (a->info);
+        iter.insertarPersona (a->info);
         cargarIterador (a->hder, iter);
     }
 }
@@ -85,7 +85,7 @@ Vendedor * Vendedores :: find (long int ced)
     return obtenerEnArbol (ABB, ced);
 }
 
-void Vendedores :: listarDuenios (IteradorPersonas &iter)
+void Vendedores :: listarVendedores (IteradorPersonas &iter)
 {
     cargarIterador (ABB, iter);
 }

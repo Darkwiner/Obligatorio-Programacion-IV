@@ -21,21 +21,23 @@ bool IteradorPersonas :: estaLlenoPersonas () ///PREGUNTAR SI APLICA AL SER LPPF
     return (bool)(ult->sig != NULL);
 }
 
-// esto no es necesario
-/*void IteradorPersonas :: IteradorPersonas (Persona P)
+void IteradorPersonas :: insertarPersona (Persona * p)
 {
-    NodoP * nuevo = new nodoP;
-    nuevo->info = P;
-    nuevo->sig = NULL;
-    if (l.ult == NULL)
+    nodoP * nuevo = new nodoP;
+    nuevo -> info = p;
+    nuevo -> sig = NULL;
+    if (prim == NULL)
     {
-        l.ult = nuevo;
-        l.prim = nuevo;
+        prim = nuevo;
+        ult = nuevo;
+        actual = nuevo;
     }
     else
     {
-        l.ult->sig = nuevo;
-        l.ult = nuevo;
+        ult -> sig = nuevo;
+        ult = ult -> sig;
     }
-}*/
+}
+
+
 

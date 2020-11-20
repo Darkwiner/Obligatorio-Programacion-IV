@@ -15,7 +15,7 @@ private:
     Nodo * ABB;
     void destruirArbol (Nodo * &);//Destruye todo el contenido del árbol
     bool perteneceEnArbol (Nodo *, long int);//Indica si existe un vendedor con la cédula ingresada
-    void insertEnArbol (Nodo * &, IteradorPersonas *);//Inserta el nuevo vendedor en el árbol
+    void insertEnArbol (Nodo * &, Vendedor *);//Inserta el nuevo vendedor en el árbol
     Vendedor * obtenerEnArbol (Nodo *, long int);//Obtiene el vendedor con la cédula ingresada
     void cargarIterador (Nodo *, IteradorPersonas &);//Carga el iterador recorriendo el árbol en orden
 public:
@@ -26,7 +26,7 @@ public:
     //Precondición: el vendedor no es miembro de la colección
     Vendedor * find (long int);//Retorna al vendedor cuya cédula es la ingresada
     //Precondición: el vendedor es miembro de la colección
-    void listarDuenios (IteradorPersonas &);//Devuelve un iterador conteniendo todos los vendedores a listar
+    void listarVendedores (IteradorPersonas &);//Devuelve un iterador conteniendo todos los vendedores a listar
 };
 
 #endif // VENDEDORES_H_INCLUDED

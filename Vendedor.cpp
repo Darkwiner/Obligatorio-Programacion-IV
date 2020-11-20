@@ -20,7 +20,7 @@ Vendedor :: Vendedor (const Vendedor &otro) //Preguntar
 
 float Vendedor :: sueldoTotal ()    // armar luego de tener la polimorfica armada...
 {
-    return 0;
+    return sueldoBase; ///PREGUNTAR QUE ES LO QUE SE RETORNA
 }
 
 int Vendedor:: getSueldoBase ()
