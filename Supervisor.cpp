@@ -34,3 +34,9 @@ void Supervisor :: setManzanas (int manzanas)
 {
     cantManzanas = manzanas;
 }
+
+String Supervisor :: getTipo()
+{
+    String tipo("Supervisor");
+    return (String) tipo;
+}

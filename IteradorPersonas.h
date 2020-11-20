@@ -5,25 +5,20 @@
 class IteradorPersonas
 {
 private:
-    typedef struct nodoP
+    struct nodoP
     {
         Persona * info;
-        nodoP *sig;
-    } NodoP;
-    typedef struct
-    {
-        NodoP * prim;
-        NodoP * ult;
-    } LPPFPersonas;
-
-    ///puntero para ir moviendo ver practico 5
-
+        nodoP * sig;
+    };
+    nodoP * prim;
+    nodoP * ult;
+    nodoP * actual;
 public:
     IteradorPersonas (); //Constructor por defecto
-    void insertarPersona (Persona); //Inserta en el iterador
+    //void insertarPersona (Persona); //Inserta en el iterador
     bool hayMasPersonas (); //Indica si quedan ms Personas por recorrer
-    Persona proximoPersona (); //Devuelve la proxima Persona por recorrer
+    Persona * proximaPersona (); //Devuelve la proxima Persona por recorrer
     bool estaLlenoPersonas (); //Indica si el iterador esta lleno ///PREGUNTAR SI APLICA AL SER LPPF
 };
-*/
+
 #endif // ITERADORPERSONAS_H_INCLUDED

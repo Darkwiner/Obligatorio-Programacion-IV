@@ -13,6 +13,7 @@ public :
   float sueldoTotal (); // Funcion polimorfica
   int getPlus();  // Selectora
   void setPlus (int); //Seteo plus
+  String getTipo();
 };
 
 #endif // FIJO_H_INCLUDED

@@ -5,6 +5,23 @@ IteradorPersonas :: IteradorPersonas ()
     prim = NULL;
     ult = NULL;
 }
+
+bool IteradorPersonas :: hayMasPersonas()
+{
+    return (bool)(actual != NULL);
+}
+Persona * IteradorPersonas :: proximaPersona ()
+{
+    Persona * resu = actual -> info;
+    actual = actual -> sig;
+    return resu;
+}
+bool IteradorPersonas :: estaLlenoPersonas () ///PREGUNTAR SI APLICA AL SER LPPF
+{
+    return (bool)(ult->sig != NULL);
+}
+
+// esto no es necesario
 /*void IteradorPersonas :: IteradorPersonas (Persona P)
 {
     NodoP * nuevo = new nodoP;
@@ -20,17 +37,5 @@ IteradorPersonas :: IteradorPersonas ()
         l.ult->sig = nuevo;
         l.ult = nuevo;
     }
-}*/// esto no es necesario
-bool IteradorPersonas :: hayMasPersonas()
-{
-    return ();
-}
-Persona IteradorPersonas :: proximoPersona ()
-{
-    return (l->sig->info);
-}
-bool IteradorPersonas :: estaLlenoPersonas () ///PREGUNTAR SI APLICA AL SER LPPF
-{
-    return (l.ult->sig != NULL);
-}
-*/
+}*/
+

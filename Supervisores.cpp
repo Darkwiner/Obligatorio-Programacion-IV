@@ -20,16 +20,16 @@ void Supervisores :: destruirLista (NodoH * &L)
     L = aux;
 }
 
-// bool Supervisores :: perteneceLista (NodoH * L, int num)
-// {
-//     bool existe = false;
-//     while (!existe && L != NULL)
-//         if (L->info->getNumero() == num)
-//             existe = true;
-//         else
-//             L = L->sig;
-//     return existe;
-// }
+bool Supervisores :: perteneceLista (NodoH * L, long int num)
+{
+    bool existe = false;
+    while (!existe && L != NULL)
+        if (L->info->getCedula() == num)
+            existe = true;
+        else
+            L = L->sig;
+    return existe;
+}
 
 void Supervisores :: insFrontEnLista (NodoH * &L, Supervisor * su)
 {
@@ -39,27 +39,12 @@ void Supervisores :: insFrontEnLista (NodoH * &L, Supervisor * su)
     L = aux;
 }
 
-// Supervisor * Supervisores :: obtenerEnLista (NodoH * L, int num)
-// {
-//     while (L->info->getNumero() != num)
-//         L = L->sig;
-//     return (L->info);
-// }
-
-// int Supervisores :: cuantosEnLista (NodoH * L, float pe)
-// {
-//     int cont = 0;
-//     while (L != NULL)
-//     {
-//         if (L->info->getPeso() == pre)
-//             cont++;
-//         L = L->sig;
-//     }
-//     return cont;
-// }
-
-/* hasta aqu� se implementaron los m�todos auxiliares privados. A
-partir de aqu� se implementan los m�todos p�blicos de la clase */
+Supervisor * Supervisores :: obtenerEnLista (NodoH * L, long int ced)
+{
+    while (L->info->getCedula() != ced)
+        L = L->sig;
+    return (L->info);
+}
 
 Supervisores :: Supervisores ()
 {
@@ -73,21 +58,21 @@ Supervisores :: ~Supervisores ()
         destruirLista(hash[i]);
 }
 
-// bool Supervisores :: member (int num)
-// {
-//     int cubeta = h(num);
-//     return perteneceLista (hash[cubeta], num);
-// }
+bool Supervisores :: member (long int ced)
+{
+    int cubeta = h(ced);
+    return perteneceLista (hash[cubeta], ced);
+}
 
-// void Supervisores :: insert (Supervisor * su)
-// {
-//     int num = su->getNumero();
-//     int cubeta = h(num);
-//     insFrontEnLista (hash[cubeta], su);
-// }
+void Supervisores :: insert (Supervisor * su)
+{
+    int ced = su->getCedula();
+    int cubeta = h(ced);
+    insFrontEnLista (hash[cubeta], su);
+}
 
-// Supervisores * Supervisores :: find (int num)
-// {
-//     int cubeta = h(num);
-//     return obtenerEnLista (hash[cubeta], num);
-// }
+Supervisor * Supervisores :: find (long int ced)
+{
+    int cubeta = h(ced);
+    return obtenerEnLista (hash[cubeta], ced);
+}

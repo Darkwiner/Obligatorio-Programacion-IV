@@ -17,6 +17,7 @@ public:
   void setComision(int); //Seteo comision
   void setFecha(Fecha); // Selectora fecha
   float sueldoTotal (); // Funcion polimorfica
+  String getTipo();
 };
 
 #endif // ZAFRAL_H_INCLUDED

@@ -39,3 +39,9 @@ float Zafral :: sueldoTotal ()
 {
     return 0;
 }
+
+String Zafral :: getTipo()
+{
+    String tipo("Zafral");
+    return (String) tipo;
+}

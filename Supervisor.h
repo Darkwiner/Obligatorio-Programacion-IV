@@ -15,6 +15,7 @@ public :
     int getManzanas ();
     void setBarrio (String);
     void setManzanas (int);
+    String getTipo();
 };
 
 #endif // SUPERVISOR_H_INCLUDED

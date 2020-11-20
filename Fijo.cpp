@@ -31,3 +31,9 @@ void Fijo :: setPlus (int p)
   plus = p;
 }
 
+String Fijo :: getTipo()
+{
+    String tipo("Fijo");
+    return (String) tipo;
+}
+
