@@ -42,7 +42,7 @@ comisión por la cantidad de ventas realizadas y sumando el resultado al salario 
 
 float Zafral :: sueldoTotal ()
 {
-    float sueldo = getSueldoBase();
+    float sueldo = Vendedor::sueldoTotal();
     return (sueldo + (comision * getCantVentas()));
 }
 

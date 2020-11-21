@@ -21,7 +21,7 @@ si realizó más de 20 ventas, cobra su salario base mas el doble del plus.*/
 
 float Fijo :: sueldoTotal ()
 {
-    float sueldo = getSueldoBase();
+    float sueldo = Vendedor::sueldoTotal();
     if (getCantVentas() > 10 && getCantVentas() < 20)
         sueldo = sueldo + getPlus();
     else if (getCantVentas() > 20)
