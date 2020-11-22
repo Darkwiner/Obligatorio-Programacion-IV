@@ -6,7 +6,7 @@ Vendedor :: Vendedor () : Persona ()
     cantVentas = 0;
 }
 
-Vendedor :: Vendedor (long int ced, String nom, int s, int ventas) : Persona (ced,nom)
+Vendedor :: Vendedor (int ced, String nom, int s, int ventas) : Persona (ced,nom)
 {
     sueldoBase = s;
     cantVentas = ventas;

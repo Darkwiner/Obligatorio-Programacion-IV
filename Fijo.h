@@ -8,7 +8,7 @@ private:
   int plus;
 public :
   Fijo (); //Constructor por defecto
-  Fijo (int); //Constructor comun
+  Fijo (int, long int, String, int, int); //Constructor comun
   Fijo (const Fijo &); //Constructor de copia
   float sueldoTotal (); // Funcion polimorfica
   int getPlus();  // Selectora

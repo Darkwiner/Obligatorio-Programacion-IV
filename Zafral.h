@@ -10,12 +10,12 @@ private:
   Fecha fechaVto;
 public:
   Zafral (); //Constructor por defecto
-  Zafral (int,Fecha); //Constructor comun
+  Zafral (int,Fecha, long int, String, int, int); //Constructor comun
   Zafral (const Zafral &); //Constructor de copia
   int getComision(); //Selectora comision
   Fecha getFecha(); // Selectora fecha
   void setComision(int); //Seteo comision
-  void setFecha(Fecha); // Selectora fecha
+  void setFecha(Fecha); // Seteo fecha
   float sueldoTotal (); // Funcion polimorfica
   String getTipo();
 };
