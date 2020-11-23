@@ -69,7 +69,6 @@ int main()
     */
     cout << "\n ## E D I T O R I A L ##" << endl;
 
-
     cout << "\nMenu" << endl;
     system("PAUSE");
     system("cls");
@@ -185,8 +184,19 @@ int main()
                 cout << "Ha ocurrido un error, no se ha cargado correctamente el vendedor" << endl;
         }
         else
-
+        {
+            cout << "Ingrese plus: ";
+            int plu;
+            cin >> plu;
+            Fijo * f = new Fijo (plu, cedula, nombre, sueldo, 0);
+            ABBVendedores.insertVendedor(f);
+            if (ABBVendedores.member(cedula))
+                cout << "Vendedor Zafral cargado correctamente." << endl;
+            else
+                cout << "Ha ocurrido un error, no se ha cargado correctamente el vendedor" << endl;
+        }
     }
+
     break;
     case 3:
         break;
