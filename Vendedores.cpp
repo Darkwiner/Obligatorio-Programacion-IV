@@ -70,12 +70,12 @@ Vendedores :: ~Vendedores ()
     destruirArbol(ABB);
 }
 
-bool Vendedores :: member (long int ced)
+bool Vendedores :: member (int ced)
 {
     return perteneceEnArbol (ABB, ced);
 }
 
-void Vendedores :: insert (Vendedor * due)
+void Vendedores :: insertVendedor (Vendedor * due)
 {
     insertEnArbol (ABB, due);
 }

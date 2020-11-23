@@ -58,13 +58,13 @@ Supervisores :: ~Supervisores ()
         destruirLista(hash[i]);
 }
 
-bool Supervisores :: member (long int ced)
+bool Supervisores :: member (int ced)
 {
     int cubeta = h(ced);
     return perteneceLista (hash[cubeta], ced);
 }
 
-void Supervisores :: insert (Supervisor * su)
+void Supervisores :: insertSupervisor (Supervisor * su)
 {
     int ced = su->getCedula();
     int cubeta = h(ced);

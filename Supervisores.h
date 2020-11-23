@@ -24,9 +24,9 @@ private:
 public:
     Supervisores ();//Constructor por defecto
     ~ Supervisores ();//Destructor
-    bool member (long int);//Indica si el supervisor con la cedula dada esta en la coleccion
+    bool member (int);//Indica si el supervisor con la cedula dada esta en la coleccion
     //Precondicion: el supervisor no existe en la coleccion
-    void insert (Supervisor *);//Inserta el supervisor en la coleccion
+    void insertSupervisor (Supervisor *);//Inserta el supervisor en la coleccion
     //Precondicion: el supervisor pertenece a la coleccion
     Supervisor * find (long int);//Retorna al supervisor con la cedula dada
 };
