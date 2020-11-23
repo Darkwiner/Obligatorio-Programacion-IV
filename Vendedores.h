@@ -21,7 +21,7 @@ private:
 public:
     Vendedores ();//Constructor por defecto
     ~Vendedores ();//Destructor
-    bool member (int);//Indica si el vendedor con la cédula ingresada es miembro de la colección
+    bool member (long int);//Indica si el vendedor con la cédula ingresada es miembro de la colección
     void insertVendedor (Vendedor *);//Inserta el nuevo vendedor a la colección
     //Precondición: el vendedor no es miembro de la colección
     Vendedor * find (long int);//Retorna al vendedor cuya cédula es la ingresada
