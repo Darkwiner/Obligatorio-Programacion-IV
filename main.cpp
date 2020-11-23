@@ -61,7 +61,7 @@ bool validoCed (long int ced)
            total=total+arre[i] ;
         res=total%10;
         res=10-res;
-        if(res!=arre[7])
+        if(res!=arre[TAM-1])
             valida=false;
     }
     return(valida);
@@ -159,12 +159,12 @@ int main()
         }
         long int cedula;
         istringstream(ced)>>cedula;
-        /*if (!validoCed(cedula))
+        if (!validoCed(cedula))
         {
             cout << "Cedula no valida. Compruebe el digito verificador y si el numero esta entre 500.000 y 7.000.000. " << endl;
         }
         else
-        {*/
+        {
             cout << "Ingrese nombre: ";
             char cadena[80];
             cin >> cadena;
@@ -188,7 +188,7 @@ int main()
                 cout << "Supervisor cargado correctamente." << endl;
             else
                 cout << "Ha ocurrido un error, no se ha cargado correctamente el supervisor." << endl;
-        //}
+        }
         system("PAUSE");
     }
     break;
