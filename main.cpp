@@ -125,8 +125,8 @@ int main()
 
     do
     {
-    cout << "\n ## E D I T O R I A L ##" << endl;
-    cout << "\nMenu\n" << endl;
+    cout << "\n                                     ## E D I T O R I A L ##" << endl;
+    cout << "\n   Menu Principal" << endl;
     cout << "\n1. Ingresar supervisor" << endl;
     cout << "\n2. Ingresar vendedor" << endl;
     cout << "\n3. Listar supervisores" << endl;
@@ -190,6 +190,7 @@ int main()
                 cout << "Ha ocurrido un error, no se ha cargado correctamente el supervisor." << endl;
         }
         system("PAUSE");
+        system("cls");
     }
     break;
     case 2:
@@ -277,10 +278,12 @@ int main()
         break;
     case 8:
         break;
-    default:
+    default: cout << endl << "No es una opcion valida, ingrese nuevamente." << endl;
+             system("PAUSE");
+             system("cls");
         break;
     }
     }while(opcion != 0);
     system("cls");
-    cout << "Gracias. Vuelva pronto." << endl;
+    cout << "¡Hasta la proxima!." << endl;
 }
