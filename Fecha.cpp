@@ -58,7 +58,6 @@ void Fecha :: incrementar ()
     }
 }
 
-
 Fecha :: Fecha ()
 {
     aa = 2000;
@@ -173,19 +172,31 @@ bool Fecha :: esValida ()
         case 8:
         case 10:
         case 12:
-            es = (dd < 1 || dd > 31);
-                 break;
+                if(dd < 1 || dd > 31)
+                    es=false;
+                break;
         case 4:
         case 6:
         case 9:
         case 11:
-            es = (dd < 1 || dd > 30);
-                 break;
+                if(dd < 1 || dd > 30)
+                    es=false;
+                break;
         case 2:
-            if (((aa % 4 == 0) && (aa % 100 != 0)) || (aa % 400 == 0))
-                es = (dd < 1 || dd > 29);
-            else
-                es = (dd < 1 || dd > 28);
+                if (((aa % 4 == 0) && (aa % 100 != 0)) || (aa % 400 == 0))
+                {
+                    if(dd < 1 || dd > 29)
+                        es=false;
+                }
+                else
+                {
+                    if(dd < 1 || dd > 28)
+                        es=false;
+                }
+                break;
+        default:
+                es=false;
+                break;
         }
     }
     return es;

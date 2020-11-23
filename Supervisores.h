@@ -1,6 +1,7 @@
 #ifndef SUPERVISORES_H_INCLUDED
 #define SUPERVISORES_H_INCLUDED
 #include "Supervisor.h"
+#include "IteradorPersonas.h"
 
 const int B = 60;
 
@@ -18,17 +19,15 @@ private:
     void crearLista (NodoH * &);//Crea una lista vacia
     void destruirLista (NodoH * &);//Destruye todo el contenido de la lista
     bool perteneceLista (NodoH *, long int);//Indica si existe el supervisor con la cedula dada
-    void insFrontEnLista (NodoH * &, Supervisor *);//Inserta la mascota al principio de la lista
+    void insFrontEnLista (NodoH * &, Supervisor *);//Inserta el supervisor al principio de la lista
     Supervisor * obtenerEnLista (NodoH *, long int);//Obtiene al supervisor con el numero de cedula dado
-    //int cuantosEnLista (NodoH *, float);// cuenta cuantas mascotas poseen el peso ingresado
 public:
     Supervisores ();//Constructor por defecto
     ~ Supervisores ();//Destructor
     bool member (int);//Indica si el supervisor con la cedula dada esta en la coleccion
-    //Precondicion: el supervisor no existe en la coleccion
     void insertSupervisor (Supervisor *);//Inserta el supervisor en la coleccion
-    //Precondicion: el supervisor pertenece a la coleccion
     Supervisor * find (long int);//Retorna al supervisor con la cedula dada
+    Supervisor * recorrerLista ();
 };
 
 #endif // SUPERVISORES_H_INCLUDED

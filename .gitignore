@@ -4,8 +4,12 @@
 obj/
 bin/
 
-Obligatorio Programación IV.layout
+Obligatorio Programaciï¿½n IV.layout
 
-Obligatorio Programación IV.cbp
+Obligatorio Programaciï¿½n IV.cbp
 
-Obligatorio Programación IV.depend
+Obligatorio Programaciï¿½n IV.depend
+*.exe
+*.o
+*.cbp
+*.depend

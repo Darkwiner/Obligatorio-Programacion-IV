@@ -34,4 +34,3 @@ void Persona :: setNombre (String s)
 {
     nombre = s;
 }
-

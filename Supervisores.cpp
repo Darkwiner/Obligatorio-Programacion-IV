@@ -76,3 +76,10 @@ Supervisor * Supervisores :: find (long int ced)
     int cubeta = h(ced);
     return obtenerEnLista (hash[cubeta], ced);
 }
+
+/*
+IteradorPersonas recorrerLista (NodoH * &L)
+{
+
+}
+*/
