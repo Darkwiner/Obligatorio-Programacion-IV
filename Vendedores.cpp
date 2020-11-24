@@ -86,7 +86,7 @@ Vendedor * Vendedores :: find (long int ced)
 }
 
 /*///CONSULTAR SI ES ASI
-void Vendedores :: listarVendedores (Nodo * ABB, IteradorPersonas &iter)
+IteradorPersonas Vendedores :: listarVendedores (Nodo * ABB, IteradorPersonas &iter)
 {
     if (ABB != NULL)
     {
@@ -94,6 +94,7 @@ void Vendedores :: listarVendedores (Nodo * ABB, IteradorPersonas &iter)
         cargarIterador (ABB->info, iter);
         listarVendedores (ABB->hder, iter)
     }
+    return iter;
 }*/
 
 /*
