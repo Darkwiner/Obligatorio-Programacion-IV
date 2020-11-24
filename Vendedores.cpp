@@ -49,7 +49,7 @@ Vendedor * Vendedores :: obtenerEnArbol (Nodo * a, long int ced)
             a = a->hder;
     return (a->info);
 }
-
+/*
 void Vendedores :: cargarIterador (Nodo * a, IteradorPersonas &iter)
 {
     if (a != NULL)
@@ -58,7 +58,7 @@ void Vendedores :: cargarIterador (Nodo * a, IteradorPersonas &iter)
         iter.insertarPersona (a->info);
         cargarIterador (a->hder, iter);
     }
-}
+}*/
 
 Vendedores :: Vendedores ()
 {

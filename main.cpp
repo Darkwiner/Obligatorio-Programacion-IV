@@ -11,6 +11,13 @@
 #include <stdlib.h>
 #include "Supervisor.h"
 #include "Supervisores.h"
+#include "CapaLogica.h"
+
+bool validoCed(long int cedula)
+{
+    if (cedula > 0)
+        return true;
+}
 
 //AYUDA CON ITERADOR, COMO SE LISTAN LOS OBJETOS
 //String, usar como esta o usar constructor de String, etc
@@ -23,53 +30,6 @@
 //COMPARAR FECHA EN REQUERIMIENTO 8 DE VENDEDOR A ZAFRAL
 
 using namespace std;
-
-bool validoCed (long int ced)
-{
-    bool valida=true;
-    if(ced<5000000 || ced>70000000)
-    {
-        valida=false;
-    }
-    else
-    {
-        long int aux=ced;
-        int i=1,res=0,total=0,TAM=0;
-        do
-        {
-            aux=aux/10;
-            i++;
-        }
-        while(aux/10>0);
-
-        TAM=i;
-        int arre[TAM];
-
-        aux=ced;
-
-        for (i=TAM-1; i>=0; i--)
-        {
-            arre[i]=aux%10;
-            aux=aux/10;
-        }
-
-        arre[0]=arre[0]*2;
-        arre[1]=arre[1]*9;
-        arre[2]=arre[2]*8;
-        arre[3]=arre[3]*7;
-        arre[4]=arre[4]*6;
-        arre[5]=arre[5]*3;
-        if (TAM==8)
-            arre[6]=arre[6]*4;
-        for(i=0; i<TAM-1; i++)
-            total=total+arre[i] ;
-        res=total%10;
-        res=10-res;
-        if(res!=arre[TAM-1])
-            valida=false;
-    }
-    return(valida);
-}
 
 int main()
 {
@@ -361,3 +321,81 @@ cout << " Nombre: " << nombre;
 cout << " Sueldo: " << f->getSueldoBase() << " Cantidad de ventas: " << f->getCantVentas() << endl;
 
 */
+/*
+case 1:
+{
+    system("cls");
+    cout << "\n1. Ingresar supervisor\n" << endl;
+    int i;
+    string ced;
+    while(true)
+    {
+        cout << "Introduce una cedula: ";
+        getline(cin, ced);
+        stringstream mystream(ced);
+        if(mystream >> i) break;
+        cout << "Cedula no valida, solo se permiten numeros. " << endl;
+    }
+    long int cedula;
+    istringstream(ced)>>cedula;
+    cout << "Ingrese nombre: ";
+    char cadena[80];
+    cin >> cadena;
+    char * nombre = new char[strlen(cadena)+1];
+    nombre = cadena;
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+    cout << "Ingrese barrio: ";
+    char cadenaBarrio[80];
+    cin >> cadenaBarrio;
+    char * barrio = new char[strlen(cadenaBarrio)+1];
+    barrio = cadenaBarrio;
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+    cout << "Ingrese cantidad de manzanas: ";
+    int cantManzanas;
+    cin >> cantManzanas;
+    Supervisor s;
+    int codigo;
+    CapaLogica.registrarSupervisor(s,codigo,cedula,nombre,barrio,cantManzanas)
+    switch(codigo)
+    {
+    case 1 : cout << "ERROR: Cedula invalida." << endl;
+        break;
+    case 2 : cout << "ERROR: Nombre invalido." << endl;
+        break;
+    case 3 : cout << "ERROR: Sueldo base invalido." << endl;
+        break;
+    case 4 : cout << "ERROR: Cantidad de ventas invalida." << endl;
+        break;
+    case 5 : cout << "ERROR: Cantidad de manzanas invalida." << endl;
+        break;
+    case 200 : cout << "Supervisor cargado correctamente en el sistema." << endl;
+        break;
+    case 201 : cout << "ERROR: Cedula invalida." << endl;
+        break;
+    case 400 : cout << "ERROR: Cedula invalida." << endl;
+        break;
+    case 401 : cout << "ERROR: Cedula invalida." << endl;
+        break;
+    }
+
+    if (!validoCed(cedula))
+    {
+        cout << "Cedula no valida. Compruebe el digito verificador y si el numero esta entre 500.000 y 7.000.000. " << endl;
+    }
+    else if (HashSupervisores.member(cedula))
+        cout << "El supervisor ya esta registrado." << endl;
+    else
+    {
+
+        Supervisor * s = new Supervisor (cedula, nombre, barrio, cantManzanas);
+        HashSupervisores.insertSupervisor(s);
+        if (HashSupervisores.member(cedula))
+            cout << "Supervisor cargado correctamente." << endl;
+        else
+            cout << "Ha ocurrido un error, no se ha cargado correctamente el supervisor." << endl;
+    }
+    system("PAUSE");
+    system("cls");
+}*/
