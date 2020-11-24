@@ -77,7 +77,19 @@ Supervisor * Supervisores :: find (long int ced)
     return obtenerEnLista (hash[cubeta], ced);
 }
 
-IteradorPersonas listarSupervisores ()
+/*///VER SI ES ASI
+IteradorPersonas Supervisores :: listarSupervisores (IteradorPersonas iter)
 {
+        for (int i=0; i<B; i++)
+        {
+            Lista aux = H[i];
+            while (aux != NULL)
+            {
+                cargarIterador (aux->info, iter)
+                aux = aux->sig;
+            }
+        }
+        return iter;
+    }
+}*/
 
-}

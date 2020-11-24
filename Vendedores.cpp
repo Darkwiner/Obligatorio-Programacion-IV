@@ -85,10 +85,17 @@ Vendedor * Vendedores :: find (long int ced)
     return obtenerEnArbol (ABB, ced);
 }
 
-void Vendedores :: listarVendedores (IteradorPersonas &iter)
+/*///CONSULTAR SI ES ASI
+void Vendedores :: listarVendedores (Nodo * ABB, IteradorPersonas &iter)
 {
-    cargarIterador (ABB, iter);
-}
+    if (ABB != NULL)
+    {
+        listarVendedores (ABB->hizq, iter)
+        cargarIterador (ABB->info, iter);
+        listarVendedores (ABB->hder, iter)
+    }
+}*/
+
 /*
 int Vendedores :: buscarZafrales (Nodo * a, Fecha f)
 {

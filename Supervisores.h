@@ -27,7 +27,7 @@ public:
     bool member (long int);//Indica si el supervisor con la cedula dada esta en la coleccion
     void insertSupervisor (Supervisor *);//Inserta el supervisor en la coleccion
     Supervisor * find (long int);//Retorna al supervisor con la cedula dada
-    IteradorPersonas * listarSupervisores ();
+    IteradorPersonas * listarSupervisores (IteradorPersonas);
 };
 
 #endif // SUPERVISORES_H_INCLUDED
