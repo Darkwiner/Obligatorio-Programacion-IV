@@ -58,7 +58,7 @@ Supervisores :: ~Supervisores ()
         destruirLista(hash[i]);
 }
 
-bool Supervisores :: member (int ced)
+bool Supervisores :: member (long int ced)
 {
     int cubeta = h(ced);
     return perteneceLista (hash[cubeta], ced);

@@ -10,7 +10,7 @@ private:
   Fecha fechaVto;
 public:
   Zafral (); //Constructor por defecto
-  Zafral (int,Fecha, int, String, int, int); //Constructor comun
+  Zafral (int,Fecha, int, String, int, int, Supervisor *); //Constructor comun
   Zafral (const Zafral &); //Constructor de copia
   int getComision(); //Selectora comision
   Fecha getFecha(); // Selectora fecha

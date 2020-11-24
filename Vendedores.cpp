@@ -89,7 +89,7 @@ void Vendedores :: listarVendedores (IteradorPersonas &iter)
 {
     cargarIterador (ABB, iter);
 }
-
+/*
 int Vendedores :: buscarZafrales (Nodo * a, Fecha f)
 {
     int cont = 0;
@@ -100,6 +100,6 @@ int Vendedores :: buscarZafrales (Nodo * a, Fecha f)
         buscarZafrales()r (a->hder, f);
     }
 return cont;
-}
+}*/
 
 

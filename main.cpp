@@ -14,10 +14,13 @@
 
 //AYUDA CON ITERADOR, COMO SE LISTAN LOS OBJETOS
 //String, usar como esta o usar constructor de String, etc
+//COMO HACER FACHADA
 //Sacar procedimientos fuera de los case?
 //Validaciones en el main?
 //Procedimiento Print de String, como se usa
 //Validar int sin pasarlo a string?
+//COMO SABER SI SUPERVISOR QUEDO CARGADO BIEN AL CREAR VENDEDOR - esta en Vendedor, Fijo y Zafral
+//COMPARAR FECHA EN REQUERIMIENTO 8 DE VENDEDOR A ZAFRAL
 
 using namespace std;
 
@@ -70,54 +73,6 @@ bool validoCed (long int ced)
 
 int main()
 {
-    //Test vendedor zafral
-    /*
-    int i;
-    string ced;
-
-    while(true) {
-        cout << "Introduce una cedula: ";
-        getline(cin, ced);
-        stringstream mystream(ced);
-        if(mystream >> i) break;
-        cout << "Cedula no valida, solo se permiten numeros. " << endl;
-    }
-    int cedula;
-    istringstream(ced)>>cedula;
-    cout<< "Ingrese el sueldo base: " <<endl;
-    float sueldo;
-    cin>>sueldo;
-    cout<< "Ingrese la cantidad de ventas: " <<endl;
-    int ventas;
-    cin>>ventas;
-    Fecha f = Fecha (22, 11, 2020);
-    cout<< "Ingrese el nombre del vendedor: " <<endl;
-    char cadena[80];
-    cin >> cadena;
-    char * nombre = new char[strlen(cadena)+1];
-    nombre = cadena;
-    cin.clear();
-    cin.ignore(numeric_limits<streamsize>::max(),'\n');
-    Zafral * v = new Zafral (ventas, f, cedula, nombre, sueldo, ventas);
-    cout << "Nombre: " << nombre << endl;
-    cout << "Fecha fin de contrato: " << f.getDia() << "/" << f.getMes() << "/" << f.getAnio() << endl; ///CONSULTAR PRINT DEL STRING PARA MOSTRAR EL NOMBRE
-    cout << "Cedula: " << v->getCedula() << " Sueldo: " << v->getSueldoBase() << " Ventas: " << v->getCantVentas() << endl;
-
-    ///Test vendedor Fijo
-    char cadena[80];
-    cout << "Ingrese nombre: " << endl;
-    cin >> cadena;
-    char * nombre = new char [strlen(cadena)+1];
-    nombre = cadena;
-    cin.clear();
-    cin.ignore(numeric_limits<streamsize>::max(),'\n');
-    Fijo * f = new Fijo (5, 53573642, nombre, 12000, 10);
-    cout << "Plus: " << f->getPlus() << " Cedula: " << f->getCedula();
-    cout << " Nombre: " << nombre;
-    cout << " Sueldo: " << f->getSueldoBase() << " Cantidad de ventas: " << f->getCantVentas() << endl;
-
-    */
-
     Supervisores HashSupervisores;
     Supervisores();
     Vendedores ABBVendedores;
@@ -164,6 +119,8 @@ int main()
             {
                 cout << "Cedula no valida. Compruebe el digito verificador y si el numero esta entre 500.000 y 7.000.000. " << endl;
             }
+            else if (HashSupervisores.member(cedula))
+                cout << "El supervisor ya esta registrado." << endl;
             else
             {
                 cout << "Ingrese nombre: ";
@@ -197,82 +154,107 @@ int main()
         case 2:
         {
             system("cls");
-            cout << "\n2. Ingresar vendedor" << endl;
-            int i;
-            string ced;
-            while(true)
             {
-                cout << "Introduce una cedula: ";
-                getline(cin, ced);
-                stringstream mystream(ced);
-                if(mystream >> i) break;
-                cout << "Cedula no valida, solo se permiten numeros. " << endl;
-            }
-            int cedula;
-            istringstream(ced)>>cedula;
-            cout << "Ingrese nombre: ";
-            char cadena[80];
-            cin >> cadena;
-            char * nombre = new char[strlen(cadena)+1];
-            nombre = cadena;
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(),'\n');
-            cout<< "Ingrese el sueldo base: ";
-            float sueldo;
-            cin>>sueldo;
-            cout << "Desea registrar un vendedor Zafral o Fijo? Z/F: ";
-            char opcionReq2;
-            cin >> opcionReq2;
-            if (opcionReq2 == 'z' || opcionReq2 == 'Z')
-            {
-                int comision,dd,mm,aa;
-                cout << "Ingrese comision: ";
-                cin >> comision;
-                cout << "Ingrese fecha fin de contrato" << endl;
-                cout << "Ingrese dia: ";
-                cin >> dd;
-                cout << "Ingrese mes: ";
-                cin >> mm;
-                cout << "Ingrese anio: ";
-                cin >> aa;
-                Fecha f = Fecha (dd,mm,aa);
-                if (f.esValida())
+                int i;
+                string cedSup;
+                while(true)
                 {
-                    Zafral * z = new Zafral (comision, f, cedula, nombre, sueldo, 0);
-                    ABBVendedores.insertVendedor(z);
+                    cout << "Introduce la cedula del supervisor: ";
+                    getline(cin, cedSup);
+                    stringstream mystream(cedSup);
+                    if(mystream >> i) break;
+                    cout << "Cedula no valida, solo se permiten numeros. " << endl;
+                }
+                long int cedulaSupervisor;
+                istringstream(cedSup)>>cedulaSupervisor;
+                if (!HashSupervisores.member(cedulaSupervisor))
+                    cout << "El supervisor no esta registrado en el sistema." << endl;
+                else
+                {
+                    Supervisor * sup = HashSupervisores.find(cedulaSupervisor);
+                    cout << "\nIngresar vendedor" << endl;
+                    int i;
+                    string ced;
+                    while(true)
+                    {
+                        cout << "Introduce la cedula del vendedor: ";
+                        getline(cin, ced);
+                        stringstream mystream(ced);
+                        if(mystream >> i) break;
+                        cout << "Cedula no valida, solo se permiten numeros. " << endl;
+                    }
+                    long int cedula;
+                    istringstream(ced)>>cedula;
                     if (ABBVendedores.member(cedula))
-                        cout << "Vendedor Zafral cargado correctamente." << endl;
+                        cout << "El vendedor ya esta registrado. " << endl;
                     else
-                        cout << "Ha ocurrido un error, no se ha cargado correctamente el vendedor." << endl;
+                    {
+                        cout << "Ingrese nombre: ";
+                        char cadena[80];
+                        cin >> cadena;
+                        char * nombre = new char[strlen(cadena)+1];
+                        nombre = cadena;
+                        cin.clear();
+                        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                        cout<< "Ingrese el sueldo base: ";
+                        float sueldo;
+                        cin>>sueldo;
+                        cout << "Desea registrar un vendedor Zafral o Fijo? Z/F: ";
+                        char opcionReq2;
+                        cin >> opcionReq2;
+                        if (opcionReq2 == 'z' || opcionReq2 == 'Z')
+                        {
+                            int comision,dd,mm,aa;
+                            cout << "Ingrese comision: ";
+                            cin >> comision;
+                            cout << "Ingrese fecha fin de contrato" << endl;
+                            cout << "Ingrese dia: ";
+                            cin >> dd;
+                            cout << "Ingrese mes: ";
+                            cin >> mm;
+                            cout << "Ingrese anio: ";
+                            cin >> aa;
+                            Fecha f = Fecha (dd,mm,aa);
+                            if (f.esValida())
+                            {
+                                Zafral * z = new Zafral (comision, f, cedula, nombre, sueldo, 0, sup);
+                                ABBVendedores.insertVendedor(z);
+                                if (ABBVendedores.member(cedula))
+                                    cout << "Vendedor Zafral cargado correctamente." << endl;
+                                else
+                                    cout << "Ha ocurrido un error, no se ha cargado correctamente el vendedor." << endl;
+                            }
+                            else
+                            {
+                                cout << "Fecha incorrecta." << endl;
+                                system("PAUSE");
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            cout << "Ingrese plus: ";
+                            int plu;
+                            cin >> plu;
+                            Fijo * f = new Fijo (plu, cedula, nombre, sueldo, 0, sup);
+                            ABBVendedores.insertVendedor(f);
+                            if (ABBVendedores.member(cedula))
+                                cout << "Vendedor Fijo cargado correctamente." << endl;
+                            else
+                                cout << "Ha ocurrido un error, no se ha cargado correctamente el vendedor" << endl;
+                        }
+                    }
                 }
-                else
-                {
-                    cout << "Fecha incorrecta." << endl;
-                    system("PAUSE");
-                    break;
-                }
+                system("PAUSE");
+                system("cls");
             }
-            else
-            {
-                cout << "Ingrese plus: ";
-                int plu;
-                cin >> plu;
-                Fijo * f = new Fijo (plu, cedula, nombre, sueldo, 0);
-                ABBVendedores.insertVendedor(f);
-                if (ABBVendedores.member(cedula))
-                    cout << "Vendedor Fijo cargado correctamente." << endl;
-                else
-                    cout << "Ha ocurrido un error, no se ha cargado correctamente el vendedor" << endl;
-            }
-            system("PAUSE");
-            system("cls");
         }
         break;
         case 3:
             break;
         case 4:
             break;
-        case 5:
+        case 5: //Dada la cedula de un vendedor,
             break;
         case 6: //Dada la cédula de un vendedor, registrar la cantidad de ventas que realizó en la semana
         {
@@ -294,7 +276,11 @@ int main()
                 cout << "Cedula no valida. Compruebe el digito verificador y si el numero esta entre 500.000 y 7.000.000. " << endl;
             }
             else if (!ABBVendedores.member(cedula))
+            {
                 cout << "Error: el vendedor no esta registrado." << endl;
+                system("PAUSE");
+                system("cls");
+            }
             else
             {
                 Vendedor * v = ABBVendedores.find(cedula);
@@ -309,11 +295,11 @@ int main()
         case 7:
             break;
         case 8:
-            {
+        {
 
-            }
+        }
 
-            break;
+        break;
         default:
             cout << endl << "No es una opcion valida, ingrese nuevamente." << endl;
             system("PAUSE");
@@ -323,5 +309,55 @@ int main()
     }
     while(opcion != 0);
     system("cls");
-    cout << "¡Hasta la proxima!." << endl;
+    cout << "Hasta la proxima!" << endl;
 }
+
+
+
+//Test vendedor zafral
+/*
+int i;
+string ced;
+
+while(true) {
+    cout << "Introduce una cedula: ";
+    getline(cin, ced);
+    stringstream mystream(ced);
+    if(mystream >> i) break;
+    cout << "Cedula no valida, solo se permiten numeros. " << endl;
+}
+int cedula;
+istringstream(ced)>>cedula;
+cout<< "Ingrese el sueldo base: " <<endl;
+float sueldo;
+cin>>sueldo;
+cout<< "Ingrese la cantidad de ventas: " <<endl;
+int ventas;
+cin>>ventas;
+Fecha f = Fecha (22, 11, 2020);
+cout<< "Ingrese el nombre del vendedor: " <<endl;
+char cadena[80];
+cin >> cadena;
+char * nombre = new char[strlen(cadena)+1];
+nombre = cadena;
+cin.clear();
+cin.ignore(numeric_limits<streamsize>::max(),'\n');
+Zafral * v = new Zafral (ventas, f, cedula, nombre, sueldo, ventas);
+cout << "Nombre: " << nombre << endl;
+cout << "Fecha fin de contrato: " << f.getDia() << "/" << f.getMes() << "/" << f.getAnio() << endl; ///CONSULTAR PRINT DEL STRING PARA MOSTRAR EL NOMBRE
+cout << "Cedula: " << v->getCedula() << " Sueldo: " << v->getSueldoBase() << " Ventas: " << v->getCantVentas() << endl;
+
+///Test vendedor Fijo
+char cadena[80];
+cout << "Ingrese nombre: " << endl;
+cin >> cadena;
+char * nombre = new char [strlen(cadena)+1];
+nombre = cadena;
+cin.clear();
+cin.ignore(numeric_limits<streamsize>::max(),'\n');
+Fijo * f = new Fijo (5, 53573642, nombre, 12000, 10);
+cout << "Plus: " << f->getPlus() << " Cedula: " << f->getCedula();
+cout << " Nombre: " << nombre;
+cout << " Sueldo: " << f->getSueldoBase() << " Cantidad de ventas: " << f->getCantVentas() << endl;
+
+*/

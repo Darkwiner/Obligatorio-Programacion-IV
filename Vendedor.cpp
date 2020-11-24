@@ -4,12 +4,14 @@ Vendedor :: Vendedor () : Persona ()
 {
     sueldoBase = 0;
     cantVentas = 0;
+    sup = NULL;
 }
 
-Vendedor :: Vendedor (int ced, String nom, int s, int ventas) : Persona (ced,nom)
+Vendedor :: Vendedor (int ced, String nom, int s, int ventas, Supervisor * super) : Persona (ced,nom)
 {
     sueldoBase = s;
     cantVentas = ventas;
+    sup = super;
 }
 
 Vendedor :: Vendedor (const Vendedor &otro) //Preguntar
@@ -48,6 +50,7 @@ Vendedor :: ~Vendedor()
 
 }
 
+/*
 bool Vendedor :: esZafral(Fecha f, Vendedor * v)
 {
     bool es = false;
@@ -57,5 +60,5 @@ bool Vendedor :: esZafral(Fecha f, Vendedor * v)
             es = true;
 
     }
-}
+}*/
 

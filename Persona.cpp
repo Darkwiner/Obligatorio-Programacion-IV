@@ -34,3 +34,14 @@ void Persona :: setNombre (String s)
 {
     nombre = s;
 }
+
+/*
+void Persona :: cargarIterador (Nodo * a, Iterador &iter)
+{
+if (a != NULL)
+{
+cargarIterador (a->hizq, iter);
+iter.insertar (a->info);
+cargarIterador (a->hder, iter);
+}
+}*/

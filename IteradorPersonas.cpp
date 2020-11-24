@@ -18,12 +18,6 @@ Persona * IteradorPersonas :: proximaPersona ()
     actual = actual -> sig;
     return resu;
 }
-/*
-bool IteradorPersonas :: estaLlenoPersonas () ///PREGUNTAR SI APLICA AL SER LPPF
-{
-    return (bool)(ult->sig != NULL);
-}
-*/
 
 void IteradorPersonas :: insertarPersona (Persona * p)
 {
@@ -53,3 +47,12 @@ IteradorPersonas :: ~IteradorPersonas()
         aux = prim;
     }
 }
+
+void IteradorPersonas :: cargarIterador (nodoP * persona, IteradorPersonas &iter)
+{
+    insertarPersona (persona->info);
+}
+
+
+
+

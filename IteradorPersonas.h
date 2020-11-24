@@ -20,6 +20,7 @@ public:
     Persona * proximaPersona (); //Devuelve la proxima Persona por recorrer
     //bool estaLlenoPersonas (); //Indica si el iterador esta lleno ///PREGUNTAR SI APLICA AL SER LPPF
     ~IteradorPersonas();
+    void cargarIterador (nodoP *, IteradorPersonas &);
 };
 
 #endif // ITERADORPERSONAS_H_INCLUDED

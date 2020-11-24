@@ -1,15 +1,17 @@
 #ifndef VENDEDOR_H_INCLUDED
 #define VENDEDOR_H_INCLUDED
 #include "Persona.h"
+#include "Supervisor.h"
 
 class Vendedor : public Persona
 {
 private :
     int sueldoBase;
     int cantVentas;
+    Supervisor * sup;
 public :
     Vendedor (); //Constructor por defecto
-    Vendedor (int, String, int, int); //Constructor comun
+    Vendedor (int, String, int, int, Supervisor *); //Constructor comun
     Vendedor (const Vendedor &);//Constructor de copia
     virtual float sueldoTotal (); // Funcion polimorfica
     int getSueldoBase ();
