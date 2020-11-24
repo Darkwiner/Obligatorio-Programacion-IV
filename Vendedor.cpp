@@ -47,3 +47,15 @@ Vendedor :: ~Vendedor()
 {
 
 }
+
+bool Vendedor :: esZafral(Fecha f, Vendedor * v)
+{
+    bool es = false;
+    if(v->getTipo() == "Zafral")
+    {
+        if(v-> > f)
+            es = true;
+
+    }
+}
+

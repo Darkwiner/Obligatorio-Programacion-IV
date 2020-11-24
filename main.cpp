@@ -309,6 +309,10 @@ int main()
         case 7:
             break;
         case 8:
+            {
+
+            }
+
             break;
         default:
             cout << endl << "No es una opcion valida, ingrese nuevamente." << endl;

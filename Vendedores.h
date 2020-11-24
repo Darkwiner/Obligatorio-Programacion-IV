@@ -2,6 +2,8 @@
 #define VENDEDORES_H_INCLUDED
 #include "Vendedor.h"
 #include "IteradorPersonas.h"
+#include "Fecha.h"
+
 
 class Vendedores
 {
@@ -27,6 +29,7 @@ public:
     Vendedor * find (long int);//Retorna al vendedor cuya cédula es la ingresada
     //Precondición: el vendedor es miembro de la colección
     void listarVendedores (IteradorPersonas &);//Devuelve un iterador conteniendo todos los vendedores a listar
+    int buscarZafrales(Nodo *, Fecha);
 };
 
 #endif // VENDEDORES_H_INCLUDED
