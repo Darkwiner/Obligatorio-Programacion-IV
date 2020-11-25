@@ -80,18 +80,17 @@ Supervisor * Supervisores :: find (long int ced)
 }
 
 
-void Supervisores :: listarSupervisores (IteradorPersonas iter)
+void Supervisores :: listarSupervisores (IteradorPersonas &iter)
 {
     for (int i=0; i<B; i++)
-        cargarIterador(hash[i], iter);
+        cargarIteradorSupervisor(hash[i], iter);
 }
 
-void Supervisores :: cargarIterador(NodoH * lista, IteradorPersonas iter)
+void Supervisores :: cargarIteradorSupervisor(NodoH * lista, IteradorPersonas &iter)
 {
-    lista aux;
-    while (aux != NULL)
+    while (lista != NULL)
     {
-        iter.insertarPersona(lista->info, iter);
+        iter.insertarPersona(lista->info);
     }
 }
 

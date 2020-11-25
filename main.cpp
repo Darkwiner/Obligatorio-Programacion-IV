@@ -121,79 +121,80 @@ int main()
                 }
                 long int cedulaSupervisor;
                 istringstream(cedSup)>>cedulaSupervisor;
-                    string ced;
-                    while(true)
+                string ced;
+                while(true)
+                {
+                    cout << "Introduce la cedula del vendedor: ";
+                    getline(cin, ced);
+                    stringstream mystream(ced);
+                    if(mystream >> i) break;
+                    cout << "Cedula no valida, solo se permiten numeros. " << endl;
+                }
+                long int cedula;
+                istringstream(ced)>>cedula;
+                {
+                    cout << "Ingrese nombre: ";
+                    char cadena[80];
+                    cin >> cadena;
+                    char * nombre = new char[strlen(cadena)+1];
+                    nombre = cadena;
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                    cout<< "Ingrese el sueldo base: ";
+                    float sueldo;
+                    cin>>sueldo;
+                    cout << "Desea registrar un vendedor Zafral o Fijo? Z/F: ";
+                    char opcionReq2;
+                    cin >> opcionReq2;
+                    if (opcionReq2 == 'z' || opcionReq2 == 'Z')
                     {
-                        cout << "Introduce la cedula del vendedor: ";
-                        getline(cin, ced);
-                        stringstream mystream(ced);
-                        if(mystream >> i) break;
-                        cout << "Cedula no valida, solo se permiten numeros. " << endl;
-                    }
-                    long int cedula;
-                    istringstream(ced)>>cedula;
-                    {
-                        cout << "Ingrese nombre: ";
-                        char cadena[80];
-                        cin >> cadena;
-                        char * nombre = new char[strlen(cadena)+1];
-                        nombre = cadena;
-                        cin.clear();
-                        cin.ignore(numeric_limits<streamsize>::max(),'\n');
-                        cout<< "Ingrese el sueldo base: ";
-                        float sueldo;
-                        cin>>sueldo;
-                        cout << "Desea registrar un vendedor Zafral o Fijo? Z/F: ";
-                        char opcionReq2;
-                        cin >> opcionReq2;
-                        if (opcionReq2 == 'z' || opcionReq2 == 'Z')
+                        int comision,dd,mm,aa;
+                        cout << "Ingrese comision: ";
+                        cin >> comision;
+                        cout << "Ingrese fecha fin de contrato" << endl;
+                        cout << "Ingrese dia: ";
+                        cin >> dd;
+                        cout << "Ingrese mes: ";
+                        cin >> mm;
+                        cout << "Ingrese anio: ";
+                        cin >> aa;
+                        Fecha f = Fecha (dd,mm,aa);
+                        if (f.esValida())
                         {
-                            int comision,dd,mm,aa;
-                            cout << "Ingrese comision: ";
-                            cin >> comision;
-                            cout << "Ingrese fecha fin de contrato" << endl;
-                            cout << "Ingrese dia: ";
-                            cin >> dd;
-                            cout << "Ingrese mes: ";
-                            cin >> mm;
-                            cout << "Ingrese anio: ";
-                            cin >> aa;
-                            Fecha f = Fecha (dd,mm,aa);
-                            if (f.esValida())
-                            {
-                                Vendedor * vend = new Zafral (comision, f, cedula, nombre, sueldo, 0, NULL);
-                                TipoError error;
-                                Fachada.registrarVendedor(vend,error,cedulaSupervisor);
-                                muestroError (error);
-                            }
-                            else
-                            {
-                                cout << "Fecha incorrecta." << endl;
-                                system("PAUSE");
-                                break;
-                            }
-                        }
-                        else
-                        {
-                            cout << "Ingrese plus: ";
-                            int plu;
-                            cin >> plu;
-                            Vendedor * vend = new Fijo (plu, cedula, nombre, sueldo, 0, NULL);
+                            Vendedor * vend = new Zafral (comision, f, cedula, nombre, sueldo, 0, NULL);
                             TipoError error;
                             Fachada.registrarVendedor(vend,error,cedulaSupervisor);
                             muestroError (error);
                         }
+                        else
+                        {
+                            cout << "Fecha incorrecta." << endl;
+                            system("PAUSE");
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        cout << "Ingrese plus: ";
+                        int plu;
+                        cin >> plu;
+                        Vendedor * vend = new Fijo (plu, cedula, nombre, sueldo, 0, NULL);
+                        TipoError error;
+                        Fachada.registrarVendedor(vend,error,cedulaSupervisor);
+                        muestroError (error);
                     }
                 }
-                system("PAUSE");
-                system("cls");
             }
+            system("PAUSE");
+            system("cls");
+        }
         break;
         case 3:
             break;
         case 4:
             break;
         case 5: //Dada la cedula de un vendedor, listar todos sus datos junto con los datos de su supervisor.
+        {
             cout << "Ingrese cedula de vendedor" << endl;
             int i;
             string ced;
@@ -207,8 +208,8 @@ int main()
             }
             long int cedula;
             istringstream(ced)>>cedula;
-
-            break;
+        }
+        break;
         case 6: //Dada la cédula de un vendedor, registrar la cantidad de ventas que realizó en la semana
         {
             cout << "Ingrese cedula de vendedor" << endl;

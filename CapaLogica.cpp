@@ -106,7 +106,8 @@ bool CapaLogica :: perteneceVendedor (long int ced)
 
 IteradorPersonas CapaLogica :: listarSupervisoresCapa (IteradorPersonas &iter)
 {
-    return supervisores.listarSupervisores(iter);
+    supervisores.listarSupervisores(iter);
+    return  iter;
 }
 
 /*
