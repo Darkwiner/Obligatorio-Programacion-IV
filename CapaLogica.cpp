@@ -104,23 +104,13 @@ bool CapaLogica :: perteneceVendedor (long int ced)
 }
 
 
-IteradorPersonas CapaLogica :: listarSupervisoresCapa ()
+IteradorPersonas CapaLogica :: listarSupervisoresCapa (IteradorPersonas &iter)
 {
-    return supervisores.listarSupervisores();
+    return supervisores.listarSupervisores(iter);
 }
 
 /*
 IteradorPersonas CapaLogica :: listarVendedores ()
-{
-
-}
-
-void CapaLogica :: listarVendedor (long int cedula, TipoError &error)
-{
-
-}
-
-void CapaLogica :: ventasSemanales (Vendedor &v, int ventas, TipoError &error)
 {
 
 }
@@ -140,7 +130,59 @@ float CapaLogica :: sueldoTotal ()
     return total;
 }*/
 
-bool CapaLogica :: validoCed (long int ced)
+void CapaLogica :: listarVendedor (long int cedula, TipoError &error, IteradorPersonas iter)
+{
+    bool valido = true;
+    if (!validoCed(cedula))
+    {
+        error = CEDULANOVALIDA;
+        valido = false;
+    }
+    else if (!vendedores.member(cedula))
+    {
+        error = VENDEDORNOEXISTE;
+        valido = false;
+    }
+    else
+    {
+        Vendedor * v = vendedores.find(cedula);
+        long int cedulaSup = v->getCedulaSup();
+        Supervisor * s = supervisores.find(cedulaSup);
+        iter.insertarPersona(v);
+        iter.insertarPersona(s);
+    }
+}
+
+void CapaLogica :: ventasSemanales (Vendedor * &v, int ventas, TipoError &error)
+{
+    bool valido = true;
+    while (valido)
+    {
+        long int cedula = v->getCedulaVen();
+        if (!validoCed(cedula))
+        {
+            error = CEDULANOVALIDA;
+            valido = false;
+        }
+        else if (!vendedores.member(cedula))
+        {
+            error = VENDEDORNOEXISTE;
+            valido = false;
+        }
+        else
+        {
+            v = vendedores.find(cedula);
+            v->setCantVentas(ventas);
+            error = SETCANTIDADVENTAS;
+            valido = false;
+        }
+    }
+
+}
+
+
+
+    bool CapaLogica :: validoCed (long int ced)
 {
     bool valida=true;
     if(ced<5000000 || ced>70000000)

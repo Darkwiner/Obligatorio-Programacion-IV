@@ -56,6 +56,11 @@ long int Vendedor :: getCedulaVen ()
     return ced;
 }
 
+long int Vendedor :: getCedulaSup ()
+{
+    return sup->getCedula();
+}
+
 void Vendedor :: setSupervisor (Supervisor * super)
 {
     sup = super;

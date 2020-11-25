@@ -21,5 +21,6 @@ public :
     ~Vendedor();
     long int getCedulaVen ();
     void setSupervisor (Supervisor *);
+    long int getCedulaSup ();
 };
 #endif // VENDEDOR_H_INCLUDED

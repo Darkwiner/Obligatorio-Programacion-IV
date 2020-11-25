@@ -193,10 +193,7 @@ int main()
             break;
         case 4:
             break;
-        case 5: //Dada la cedula de un vendedor,
-            break;
-        case 6: //Dada la cédula de un vendedor, registrar la cantidad de ventas que realizó en la semana
-        {/*
+        case 5: //Dada la cedula de un vendedor, listar todos sus datos junto con los datos de su supervisor.
             cout << "Ingrese cedula de vendedor" << endl;
             int i;
             string ced;
@@ -210,26 +207,31 @@ int main()
             }
             long int cedula;
             istringstream(ced)>>cedula;
-            if (!validoCed(cedula))
+
+            break;
+        case 6: //Dada la cédula de un vendedor, registrar la cantidad de ventas que realizó en la semana
+        {
+            cout << "Ingrese cedula de vendedor" << endl;
+            int i;
+            string ced;
+            while(true)
             {
-                cout << "Cedula no valida. Compruebe el digito verificador y si el numero esta entre 500.000 y 7.000.000. " << endl;
+                cout << "Introduce una cedula: ";
+                getline(cin, ced);
+                stringstream mystream(ced);
+                if(mystream >> i) break;
+                cout << "Cedula no valida, solo se permiten numeros. " << endl;
             }
-            else if (!ABBVendedores.member(cedula))
-            {
-                cout << "Error: el vendedor no esta registrado." << endl;
-                system("PAUSE");
-                system("cls");
-            }
-            else
-            {
-                Vendedor * v = ABBVendedores.find(cedula);
-                cout << "Ingrese cantidad de ventas semanal: ";
-                int ventas;
-                cin >> ventas;
-                v->setCantVentas(ventas);
-                cout << "Se setearon " << v->getCantVentas() << " ventas al vendedor con cedula: " << cedula << endl;
-            }
-        */}
+            long int cedula;
+            istringstream(ced)>>cedula;
+            cout << "Ingrese cantidad de ventas semanal: ";
+            int ventas;
+            cin >> ventas;
+            Vendedor * v;
+            TipoError error;
+            Fachada.ventasSemanales(v, ventas, error);
+            muestroError(error);
+        }
         break;
         case 7:
             break;

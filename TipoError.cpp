@@ -64,5 +64,15 @@ void muestroError (TipoError error)
         system("PAUSE");
         system("cls");
         break;
+    case VENDEDORNOEXISTE :
+        cout << "ERROR: Vendedor no registrado en el sistema." << endl;
+        system("PAUSE");
+        system("cls");
+        break;
+    case SETCANTIDADVENTAS :
+        cout << "Cantidad de ventas cargadas correctamente." << endl;
+        system("PAUSE");
+        system("cls");
+        break;
     }
 }
