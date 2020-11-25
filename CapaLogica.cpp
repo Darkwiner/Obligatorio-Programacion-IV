@@ -103,17 +103,23 @@ bool CapaLogica :: perteneceVendedor (long int ced)
     return vendedores.member(ced);
 }
 
-/*
-void CapaLogica :: registrarVendedorFijo (Vendedor * v, TipoError &error)
-{
-
-}
 
 IteradorPersonas CapaLogica :: listarSupervisores ()
 {
-
+    IteradorPersonas iter;
+    for (int i=0; i<B; i++)
+    {
+        NodoP * aux = H[i];
+        while (aux != NULL)
+        {
+            iter.insertarPersona (aux->info)  // cargar en fachada
+            aux = aux->sig;
+        }
+    }
+    return iter;
 }
 
+/*
 IteradorPersonas CapaLogica :: listarVendedores ()
 {
 
@@ -129,16 +135,19 @@ void CapaLogica :: ventasSemanales (Vendedor &v, int ventas, TipoError &error)
 
 }
 
-float CapaLogica :: sueldoTotal ()
-{
-    return 0;
-}
-
 int cantContratadosHasta (Fecha, int &)
 {
     return 0;
 }
 */
+
+float CapaLogica :: sueldoTotal ()
+{
+    float total = 0;
+    {
+        return total;
+    }
+}
 
 bool CapaLogica :: validoCed (long int ced)
 {

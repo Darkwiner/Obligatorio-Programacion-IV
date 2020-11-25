@@ -4,6 +4,7 @@ int Supervisores :: h (int num)
 {
     return (num % B);
 }
+
 void Supervisores :: crearLista (NodoH * &L)
 {
     L = NULL;

@@ -3,6 +3,7 @@
 #include "Supervisores.h"
 #include "Vendedores.h"
 #include "TipoError.h"
+#include "IteradorPersonas.h"
 
 class CapaLogica
 {
