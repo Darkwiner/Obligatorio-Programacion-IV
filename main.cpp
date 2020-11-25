@@ -93,16 +93,7 @@ int main()
                 Supervisor * s = new Supervisor (cedula, nombre, barrio, cantManzanas);
                 TipoError error;
                 Fachada.registrarSupervisor(s,error);
-                if (Fachada.perteneceSupervisor(cedula))
-                {
-                    cout << "Supervisor cargado correctamente." << endl;
-                    system("PAUSE");
-                    system("cls");
-                }
-                else
-                {
-                    muestroError (error);
-                }
+                muestroError (error);
             }
             else
             {
@@ -172,10 +163,7 @@ int main()
                                 Vendedor * vend = new Zafral (comision, f, cedula, nombre, sueldo, 0, NULL);
                                 TipoError error;
                                 Fachada.registrarVendedor(vend,error,cedulaSupervisor);
-                                if (Fachada.perteneceVendedor(cedula))
-                                    cout << "Vendedor Zafral cargado correctamente." << endl;
-                                else
-                                    muestroError (error);
+                                muestroError (error);
                             }
                             else
                             {
@@ -192,10 +180,7 @@ int main()
                             Vendedor * vend = new Fijo (plu, cedula, nombre, sueldo, 0, NULL);
                             TipoError error;
                             Fachada.registrarVendedor(vend,error,cedulaSupervisor);
-                            if (Fachada.perteneceVendedor(cedula))
-                                cout << "Vendedor Fijo cargado correctamente." << endl;
-                            else
-                                muestroError (error);
+                            muestroError (error);
                         }
                     }
                 }

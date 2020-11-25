@@ -46,6 +46,7 @@ void CapaLogica :: registrarSupervisor (Supervisor * s, TipoError &error)
         else
         {
             supervisores.insertSupervisor(s);
+            error = SUPCARGADO;
             valido = false;
         }
     }
@@ -87,18 +88,19 @@ void CapaLogica :: registrarVendedor (Vendedor * v, TipoError &error, long int c
             Supervisor * s = supervisores.find(cedSup);
             v->setSupervisor(s);
             vendedores.insertVendedor(v);
+            error = VENDCARGADO;
         }
     }
 }
 
 bool CapaLogica :: perteneceSupervisor (long int ced)
 {
-    supervisores.member(ced);
+    return supervisores.member(ced);
 }
 
 bool CapaLogica :: perteneceVendedor (long int ced)
 {
-    vendedores.member(ced);
+    return vendedores.member(ced);
 }
 
 /*

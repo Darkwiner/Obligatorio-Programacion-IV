@@ -54,5 +54,15 @@ void muestroError (TipoError error)
         system("PAUSE");
         system("cls");
         break;
+    case SUPCARGADO :
+        cout << "Supervisor registrado en el sistema." << endl;
+        system("PAUSE");
+        system("cls");
+        break;
+    case VENDCARGADO :
+        cout << "Vendedor registrado en el sistema." << endl;
+        system("PAUSE");
+        system("cls");
+        break;
     }
 }
