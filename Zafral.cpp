@@ -5,7 +5,7 @@ Zafral :: Zafral () : Vendedor(),fechaVto()
     comision = 0;
 }
 
-Zafral :: Zafral (int c, Fecha f, int ced, String nombre, int sueldo, int cant, Supervisor * sup) : Vendedor(ced, nombre, sueldo, cant, sup), fechaVto (f)
+Zafral :: Zafral (int c, Fecha f, long int ced, String nombre, int sueldo, int cant, Supervisor * sup) : Vendedor(ced, nombre, sueldo, cant, sup), fechaVto (f)
 {
     comision = c;
 }

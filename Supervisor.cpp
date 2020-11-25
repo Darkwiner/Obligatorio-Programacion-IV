@@ -40,3 +40,9 @@ String Supervisor :: getTipo()
     String tipo("Supervisor");
     return (String) tipo;
 }
+
+long int Supervisor :: getCedulaSup()
+{
+    long int ced = getCedula();
+    return ced;
+}

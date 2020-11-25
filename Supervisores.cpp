@@ -8,6 +8,13 @@ void Supervisores :: crearLista (NodoH * &L)
 {
     L = NULL;
 }
+
+Supervisores :: Supervisores ()
+{
+    for (int i=0; i < B; i++)
+        crearLista(hash[i]);
+}
+
 void Supervisores :: destruirLista (NodoH * &L)
 {
     NodoH * aux = L;
@@ -24,7 +31,7 @@ bool Supervisores :: perteneceLista (NodoH * L, long int num)
 {
     bool existe = false;
     while (!existe && L != NULL)
-        if (L->info->getCedula() == num)
+        if (L->info->getCedulaSup() == num)
             existe = true;
         else
             L = L->sig;
@@ -44,12 +51,6 @@ Supervisor * Supervisores :: obtenerEnLista (NodoH * L, long int ced)
     while (L->info->getCedula() != ced)
         L = L->sig;
     return (L->info);
-}
-
-Supervisores :: Supervisores ()
-{
-    for (int i=0; i < B; i++)
-        crearLista(hash[i]);
 }
 
 Supervisores :: ~Supervisores ()

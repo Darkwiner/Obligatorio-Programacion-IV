@@ -19,5 +19,7 @@ public :
     void setSueldoBase (float);
     void setCantVentas (int);
     ~Vendedor();
+    long int getCedulaVen ();
+    void setSupervisor (Supervisor *);
 };
 #endif // VENDEDOR_H_INCLUDED

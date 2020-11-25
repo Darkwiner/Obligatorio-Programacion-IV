@@ -16,6 +16,7 @@ public :
     void setBarrio (String);
     void setManzanas (int);
     String getTipo();
+    long int getCedulaSup();
 };
 
 #endif // SUPERVISOR_H_INCLUDED

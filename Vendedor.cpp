@@ -50,6 +50,17 @@ Vendedor :: ~Vendedor()
 
 }
 
+long int Vendedor :: getCedulaVen ()
+{
+    long int ced = getCedula();
+    return ced;
+}
+
+void Vendedor :: setSupervisor (Supervisor * super)
+{
+    sup = super;
+}
+
 /*
 bool Vendedor :: esZafral(Fecha f, Vendedor * v)
 {

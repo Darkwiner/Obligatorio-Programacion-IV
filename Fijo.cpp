@@ -5,7 +5,7 @@ Fijo :: Fijo () : Vendedor()
     plus = 0;
 }
 
-Fijo :: Fijo (int p, int ced, String nombre, int sueldo, int cant, Supervisor * sup) : Vendedor(ced, nombre, sueldo, cant, sup)
+Fijo :: Fijo (int p, long int ced, String nombre, int sueldo, int cant, Supervisor * sup) : Vendedor(ced, nombre, sueldo, cant, sup)
 {
     plus = p;
 }
