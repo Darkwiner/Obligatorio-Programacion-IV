@@ -12,6 +12,7 @@
 #include "Supervisor.h"
 #include "Supervisores.h"
 #include "CapaLogica.h"
+//#include "TipoError.h"
 
 //AYUDA CON ITERADOR, COMO SE LISTAN LOS OBJETOS
 //String, usar como esta o usar constructor de String, etc

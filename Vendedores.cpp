@@ -110,4 +110,14 @@ int Vendedores :: buscarZafrales (Nodo * a, Fecha f)
 return cont;
 }*/
 
+float Vendedores :: calcularSueldo (Nodo * a)
+{
+    if (a != NULL)
+    {
+        return (a->info->getSueldoBase() + calcularSueldo(a->hizq) + calcularSueldo(a->hder));
+    }
+    return 0;
+}
+
+
 

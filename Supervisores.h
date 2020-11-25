@@ -21,13 +21,14 @@ private:
     bool perteneceLista (NodoH *, long int);//Indica si existe el supervisor con la cedula dada
     void insFrontEnLista (NodoH * &, Supervisor *);//Inserta el supervisor al principio de la lista
     Supervisor * obtenerEnLista (NodoH *, long int);//Obtiene al supervisor con el numero de cedula dado
+    void cargarIterador(NodoH *, IteradorPersonas &);
 public:
     Supervisores ();//Constructor por defecto
     ~ Supervisores ();//Destructor
     bool member (long int);//Indica si el supervisor con la cedula dada esta en la coleccion
     void insertSupervisor (Supervisor *);//Inserta el supervisor en la coleccion
     Supervisor * find (long int);//Retorna al supervisor con la cedula dada
-    //IteradorPersonas * listarSupervisores (IteradorPersonas);
+    void listarSupervisores (IteradorPersonas);
 };
 
 #endif // SUPERVISORES_H_INCLUDED

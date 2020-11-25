@@ -6,12 +6,12 @@
 class Vendedor : public Persona
 {
 private :
-    int sueldoBase;
+    float sueldoBase;
     int cantVentas;
     Supervisor * sup;
 public :
     Vendedor (); //Constructor por defecto
-    Vendedor (int, String, int, int, Supervisor *); //Constructor comun
+    Vendedor (int, String, float, int, Supervisor *); //Constructor comun
     Vendedor (const Vendedor &);//Constructor de copia
     virtual float sueldoTotal (); // Funcion polimorfica
     int getSueldoBase ();

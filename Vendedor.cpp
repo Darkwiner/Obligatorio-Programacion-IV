@@ -7,7 +7,7 @@ Vendedor :: Vendedor () : Persona ()
     sup = NULL;
 }
 
-Vendedor :: Vendedor (int ced, String nom, int s, int ventas, Supervisor * super) : Persona (ced,nom)
+Vendedor :: Vendedor (int ced, String nom, float s, int ventas, Supervisor * super) : Persona (ced,nom)
 {
     sueldoBase = s;
     cantVentas = ventas;

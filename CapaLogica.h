@@ -14,8 +14,8 @@ public :
     CapaLogica (); //Constructor por defecto
     void registrarSupervisor (Supervisor *, TipoError &);//Registra supervisor en el sistema
     void registrarVendedor (Vendedor *, TipoError &, long int);//Registra vendedor en el sistema
-    IteradorPersonas listarSupervisores (); //Devuelve un iterador con todos los supervisores del sistema
-    IteradorPersonas listarVendedores (); //Devuelve un iterador con todos los vendedores del sistema
+    IteradorPersonas listarSupervisoresCapa (); //Devuelve un iterador con todos los supervisores del sistema
+    IteradorPersonas listarVendedoresCapa (); //Devuelve un iterador con todos los vendedores del sistema
     void listarVendedor (long int, TipoError &); //Dada una cedula devuelve un vendedor y su supervisor
     void ventasSemanales (Vendedor &, int, TipoError &); //Dada una cedula le asigna la cantidad de ventas semanales a un vendedor
     float sueldoTotal (); //Devuelve el sueldo total a pagar

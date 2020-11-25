@@ -30,6 +30,7 @@ public:
     //Precondición: el vendedor es miembro de la colección
     //IteradorPersonas listarVendedores (Nodo *, IteradorPersonas &);//Devuelve un iterador conteniendo todos los vendedores a listar
     //int buscarZafrales(Nodo *, Fecha);
+    float calcularSueldo (Nodo *);
 };
 
 #endif // VENDEDORES_H_INCLUDED

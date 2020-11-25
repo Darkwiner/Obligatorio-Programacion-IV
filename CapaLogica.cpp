@@ -104,19 +104,9 @@ bool CapaLogica :: perteneceVendedor (long int ced)
 }
 
 
-IteradorPersonas CapaLogica :: listarSupervisores ()
+IteradorPersonas CapaLogica :: listarSupervisoresCapa ()
 {
-    IteradorPersonas iter;
-    for (int i=0; i<B; i++)
-    {
-        NodoP * aux = H[i];
-        while (aux != NULL)
-        {
-            iter.insertarPersona (aux->info)  // cargar en fachada
-            aux = aux->sig;
-        }
-    }
-    return iter;
+    return supervisores.listarSupervisores();
 }
 
 /*
@@ -139,15 +129,16 @@ int cantContratadosHasta (Fecha, int &)
 {
     return 0;
 }
-*/
+
 
 float CapaLogica :: sueldoTotal ()
 {
     float total = 0;
     {
-        return total;
+        total = vendedores.calcularSueldo(vendedores.ABB);
     }
-}
+    return total;
+}*/
 
 bool CapaLogica :: validoCed (long int ced)
 {

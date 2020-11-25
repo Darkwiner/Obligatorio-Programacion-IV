@@ -79,19 +79,19 @@ Supervisor * Supervisores :: find (long int ced)
     return obtenerEnLista (hash[cubeta], ced);
 }
 
-/*///VER SI ES ASI
-IteradorPersonas Supervisores :: listarSupervisores (IteradorPersonas iter)
+
+void Supervisores :: listarSupervisores (IteradorPersonas iter)
 {
-        for (int i=0; i<B; i++)
-        {
-            Lista aux = H[i];
-            while (aux != NULL)
-            {
-                cargarIterador (aux->info, iter)
-                aux = aux->sig;
-            }
-        }
-        return iter;
+    for (int i=0; i<B; i++)
+        cargarIterador(hash[i], iter);
+}
+
+void Supervisores :: cargarIterador(NodoH * lista, IteradorPersonas iter)
+{
+    lista aux;
+    while (aux != NULL)
+    {
+        iter.insertarPersona(lista->info, iter);
     }
-}*/
+}
 
