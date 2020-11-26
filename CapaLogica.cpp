@@ -110,6 +110,8 @@ IteradorPersonas CapaLogica :: listarSupervisoresCapa (IteradorPersonas &iter)
     return  iter;
 }
 
+
+
 /*
 IteradorPersonas CapaLogica :: listarVendedores ()
 {
@@ -134,23 +136,23 @@ float CapaLogica :: sueldoTotal ()
 void CapaLogica :: listarVendedor (long int cedula, TipoError &error, IteradorPersonas iter)
 {
     bool valido = true;
-    if (!validoCed(cedula))
+    while (valido)
     {
-        error = CEDULANOVALIDA;
-        valido = false;
-    }
-    else if (!vendedores.member(cedula))
-    {
-        error = VENDEDORNOEXISTE;
-        valido = false;
-    }
-    else
-    {
-        Vendedor * v = vendedores.find(cedula);
-        long int cedulaSup = v->getCedulaSup();
-        Supervisor * s = supervisores.find(cedulaSup);
-        iter.insertarPersona(v);
-        iter.insertarPersona(s);
+        if (!validoCed(cedula))
+        {
+            error = CEDULANOVALIDA;
+            valido = false;
+        }
+        else if (!vendedores.member(cedula))
+        {
+            error = VENDEDORNOEXISTE;
+            valido = false;
+        }
+        else
+        {
+            Vendedor * v = vendedores.find(cedula);
+            iter.insertarPersona(v);
+        }
     }
 }
 
@@ -183,7 +185,7 @@ void CapaLogica :: ventasSemanales (Vendedor * &v, int ventas, TipoError &error)
 
 
 
-    bool CapaLogica :: validoCed (long int ced)
+bool CapaLogica :: validoCed (long int ced)
 {
     bool valida=true;
     if(ced<5000000 || ced>70000000)

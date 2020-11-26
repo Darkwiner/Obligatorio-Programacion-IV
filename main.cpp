@@ -31,6 +31,7 @@ int main()
     Supervisores HashSupervisores;
     Vendedores ABBVendedores;
     CapaLogica Fachada;
+    IteradorPersonas Iterador;
     int opcion;
 
     do
@@ -208,6 +209,16 @@ int main()
             }
             long int cedula;
             istringstream(ced)>>cedula;
+            TipoError error;
+            Fachada.listarVendedor(cedula, error, Iterador);
+            while (Iterador.hayMasPersonas())
+            {
+                Persona p = Iterador.proximaPersona();
+                if (p.getTipo() == "Zafral" || p.getTipo() == "Fijo")
+                    cout << p.getCedula() << p.getNombre() << p.getTipo() << endl;
+                else
+                    cout << p.getCedula() << p.getNombre() << p.getTipo() << endl;
+            }
         }
         break;
         case 6: //Dada la cédula de un vendedor, registrar la cantidad de ventas que realizó en la semana
