@@ -20,9 +20,9 @@ Vendedor :: Vendedor (const Vendedor &otro) //Preguntar
     cantVentas = otro.cantVentas;
 }
 
-float Vendedor :: sueldoTotal ()    // armar luego de tener la polimorfica armada...
+float Vendedor :: sueldoTotal ()
 {
-    return sueldoBase; ///PREGUNTAR QUE ES LO QUE SE RETORNA
+    return sueldoBase;
 }
 
 int Vendedor:: getSueldoBase ()
@@ -64,6 +64,11 @@ long int Vendedor :: getCedulaSup ()
 void Vendedor :: setSupervisor (Supervisor * super)
 {
     sup = super;
+}
+
+Supervisor Vendedor :: getSupervisor ()
+{
+    Supervisor * s = sup;
 }
 
 

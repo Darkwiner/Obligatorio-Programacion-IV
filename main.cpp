@@ -192,9 +192,11 @@ int main()
             while (Iterador.hayMasPersonas())
             {
                 Persona * p = Iterador.proximaPersona();
-                long int cedula = p->getCedula();
-                //cout << ;  <<p->getCedula() << s->getBarrio() << s->getManzanas() << endl;
+                cout <<p->getCedula() << " ";
+                ((Supervisor *) p)->getNombre().print();
                 ((Supervisor *) p)->getBarrio().print(); //Casteo
+                cout <<((Supervisor *) p)->getManzanas() << " ";
+
             }
             break;
         case 4:
@@ -218,7 +220,7 @@ int main()
 
             Vendedor * v;
             Fachada.listarVendedor(cedula,error,v);
-            //Supervisor * sup = v->//AGREGAR GET SUPERVISOR
+            Supervisor * sup = v->getSupervisor;
             //cout << "\nLos datos son: " << v->getCedula() << v->getNombre() << v->getTipo() << endl;
         }
         break;
