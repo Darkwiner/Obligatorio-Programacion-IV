@@ -20,6 +20,7 @@ private:
     void insertEnArbol (Nodo * &, Vendedor *);//Inserta el nuevo vendedor en el árbol
     Vendedor * obtenerEnArbol (Nodo *, long int);//Obtiene el vendedor con la cédula ingresada
     //void cargarIterador (Nodo *, IteradorPersonas &);//Carga el iterador recorriendo el árbol en orden
+    float recorrerArbol (Nodo *);
 public:
     Vendedores ();//Constructor por defecto
     ~Vendedores ();//Destructor
@@ -31,6 +32,7 @@ public:
     //IteradorPersonas listarVendedores (Nodo *, IteradorPersonas &);//Devuelve un iterador conteniendo todos los vendedores a listar
     int buscarZafrales(Nodo *, Fecha);
     float calcularSueldo ();
+    bool esZafral(Vendedor *, Fecha f);
 };
 
 #endif // VENDEDORES_H_INCLUDED

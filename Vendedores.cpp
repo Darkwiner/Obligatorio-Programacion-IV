@@ -111,17 +111,24 @@ int Vendedores :: buscarZafrales (Nodo * a, Fecha f)
 return cont;
 }*/
 
-float Vendedores :: calcularSueldo () //PREGUNTARRRR
+
+float Vendedores :: recorrerArbol (Nodo * a)
 {
     float total = 0;
-    if (this != NULL)
+    if (a != NULL)
     {
-        calcularSueldo(this->);
-        total = total + info->sueldoTotal();
-        calcularSueldo(this->hder);
+        recorrerArbol(a->hizq);
+        total = total + a->info->sueldoTotal();
+        recorrerArbol(a->hder);
     }
     return total;
 }
+
+float Vendedores :: calcularSueldo () //PREGUNTARRRR
+{
+    return recorrerArbol (ABB);
+}
+
 
 
 
