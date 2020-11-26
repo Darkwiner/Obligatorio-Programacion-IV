@@ -1,20 +1,5 @@
 #include "TipoError.h"
 
-void muestroError (TipoPersona tipo)
-{
-    switch(tipo)
-    {
-    case FIJO :
-        cout << "" << endl;
-        system("PAUSE");
-        system("cls");
-        break;
-    case ZAFRAL :
-        break;
-    case SUPERVISOR :
-        break;
-    }
-
 void muestroError (TipoError error)
 {
     switch(error)

@@ -24,72 +24,40 @@ CapaLogica :: CapaLogica () : supervisores (), vendedores ()
 
 void CapaLogica :: registrarSupervisor (Supervisor * s, TipoError &error)
 {
-    long int ced = s->getCedulaSup();
-    bool valido = true;
-    while (valido)
+    long int ced = s->getCedula();
+    if (!validoCed(ced))
+        error = CEDULANOVALIDA;
+    else if (supervisores.member(ced))
+        error = SUPERVISORYAEXISTE;
+    else if (s->getManzanas() < 0)
+        error = MANZANASNOVALIDA;
+    else
     {
-        if (!validoCed(ced))
-        {
-            error = CEDULANOVALIDA;
-            valido = false;
-        }
-        else if (supervisores.member(ced))
-        {
-            error = SUPERVISORYAEXISTE;
-            valido = false;
-        }
-        else if (s->getManzanas() < 0)
-        {
-            error = MANZANASNOVALIDA;
-            valido = false;
-        }
-        else
-        {
-            supervisores.insertSupervisor(s);
-            error = SUPCARGADO;
-            valido = false;
-        }
+        supervisores.insertSupervisor(s);
+        error = SUPCARGADO;
     }
 }
 
+
 void CapaLogica :: registrarVendedor (Vendedor * v, TipoError &error, long int cedSup)
 {
-    long int ced = v->getCedulaVen();
-    bool valido = true;
-    while (valido)
+    long int ced = v->getCedula();
+    if (!validoCed(ced))
+        error = CEDULANOVALIDA;
+    else if (!validoCed(cedSup))
+        error = CEDULANOVALIDA;
+    else if (!supervisores.member(cedSup))
+        error = SUPERVISORNOEXISTE;
+    else if (vendedores.member(ced))
+        error = VENDEDORYAEXISTE;
+    else if (v->getSueldoBase() < 0)
+        error = SUELDONOVALIDO;
+    else
     {
-        if (!validoCed(ced))
-        {
-            error = CEDULANOVALIDA;
-            valido = false;
-        }
-        else if (!validoCed(cedSup))
-        {
-            error = CEDULANOVALIDA;
-            valido = false;
-        }
-        else if (!supervisores.member(cedSup))
-        {
-            error = SUPERVISORNOEXISTE;
-            valido = false;
-        }
-        else if (vendedores.member(ced))
-        {
-            error = VENDEDORYAEXISTE;
-            valido = false;
-        }
-        else if (v->getSueldoBase() < 0)
-        {
-            error = SUELDONOVALIDO;
-            valido = false;
-        }
-        else
-        {
-            Supervisor * s = supervisores.find(cedSup);
-            v->setSupervisor(s);
-            vendedores.insertVendedor(v);
-            error = VENDCARGADO;
-        }
+        Supervisor * s = supervisores.find(cedSup);
+        v->setSupervisor(s);
+        vendedores.insertVendedor(v);
+        error = VENDCARGADO;
     }
 }
 
@@ -121,66 +89,59 @@ IteradorPersonas CapaLogica :: listarVendedores ()
 int cantContratadosHasta (Fecha, int &)
 {
     return 0;
-}
+}*/
 
 
-float CapaLogica :: sueldoTotal ()
+float CapaLogica :: calculoSueldoTotal ()
 {
     float total = 0;
     {
-        total = vendedores.calcularSueldo(vendedores.ABB);
+        total = vendedores.calcularSueldo();
     }
     return total;
-}*/
+}
 
-void CapaLogica :: listarVendedor (long int cedula, TipoError &error, IteradorPersonas iter)
+void CapaLogica :: listarVendedor (long int cedula, TipoError &error, Vendedor *v)
 {
-    bool valido = true;
-    while (valido)
+    if (!validoCed(cedula))
     {
-        if (!validoCed(cedula))
-        {
-            error = CEDULANOVALIDA;
-            valido = false;
-        }
-        else if (!vendedores.member(cedula))
-        {
-            error = VENDEDORNOEXISTE;
-            valido = false;
-        }
-        else
-        {
-            Vendedor * v = vendedores.find(cedula);
-            iter.insertarPersona(v);
-        }
+        error = CEDULANOVALIDA;
+    }
+    else if (!vendedores.member(cedula))
+    {
+        error = VENDEDORNOEXISTE;
+    }
+    else
+    {
+        v = vendedores.find(cedula);
     }
 }
 
 void CapaLogica :: ventasSemanales (Vendedor * &v, int ventas, TipoError &error)
 {
-    bool valido = true;
-    while (valido)
+    long int cedula = v->getCedula();
+    if (!validoCed(cedula))
+        error = CEDULANOVALIDA;
+    else if (!vendedores.member(cedula))
+        error = VENDEDORNOEXISTE;
+    else
     {
-        long int cedula = v->getCedulaVen();
-        if (!validoCed(cedula))
-        {
-            error = CEDULANOVALIDA;
-            valido = false;
-        }
-        else if (!vendedores.member(cedula))
-        {
-            error = VENDEDORNOEXISTE;
-            valido = false;
-        }
-        else
-        {
-            v = vendedores.find(cedula);
-            v->setCantVentas(ventas);
-            error = SETCANTIDADVENTAS;
-            valido = false;
-        }
+        v = vendedores.find(cedula);
+        v->setCantVentas(ventas);
+        error = SETCANTIDADVENTAS;
     }
+}
 
+Supervisor * CapaLogica :: obtengoSupervisor (long int ced)
+{
+    Supervisor * s = supervisores.find(ced);
+    return s;
+}
+
+Vendedor * CapaLogica :: obtengoVendedor (long int ced)
+{
+    Vendedor * v = vendedores.find(ced);
+    return v;
 }
 
 

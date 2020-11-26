@@ -67,14 +67,14 @@ void Vendedor :: setSupervisor (Supervisor * super)
 }
 
 /*
-bool Vendedor :: esZafral(Fecha f, Vendedor * v)
+bool Vendedor :: esZafral(Fecha f)
 {
     bool es = false;
-    if(v->getTipo() == "Zafral")
+    if(getTipo() == "Zafral")
     {
-        if(v-> > f)
+        if (((Zafral*)this)-> getFecha() > f))
             es = true;
-
     }
+    return es
 }*/
 

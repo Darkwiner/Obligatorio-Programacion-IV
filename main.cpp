@@ -15,14 +15,11 @@
 //#include "TipoError.h"
 
 //AYUDA CON ITERADOR, COMO SE LISTAN LOS OBJETOS
-//String, usar como esta o usar constructor de String, etc
-//COMO HACER FACHADA
-//Sacar procedimientos fuera de los case?
-//Validaciones en el main?
-//Procedimiento Print de String, como se usa
-//Validar int sin pasarlo a string?
-//COMO SABER SI SUPERVISOR QUEDO CARGADO BIEN AL CREAR VENDEDOR - esta en Vendedor, Fijo y Zafral
-//COMPARAR FECHA EN REQUERIMIENTO 8 DE VENDEDOR A ZAFRAL
+//CASTEO DE ZAFRAL EN COMPARAR FECHAS
+//COMO MOSTRAR UN STRING CON PRINT
+//COMO MOSTRAR ELEMENTOS DE LOS ITERADORES
+//calcularSueldo PREGUNTARRRR
+
 
 using namespace std;
 
@@ -190,7 +187,15 @@ int main()
             system("cls");
         }
         break;
-        case 3:
+        case 3: //Listado de supervisores registrados. No se pide ningún orden para este listado.
+            Fachada.listarSupervisoresCapa(Iterador);
+            while (Iterador.hayMasPersonas())
+            {
+                Persona * p = Iterador.proximaPersona();
+                long int cedula = p->getCedula();
+                Supervisor * s = Fachada.obtengoSupervisor(cedula);
+                cout << "Hola"; // <<s->getCedula() << s->getNombre() << s->getBarrio() << s->getManzanas() << endl;
+            }
             break;
         case 4:
             break;
@@ -210,15 +215,10 @@ int main()
             long int cedula;
             istringstream(ced)>>cedula;
             TipoError error;
-            Fachada.listarVendedor(cedula, error, Iterador);
-            while (Iterador.hayMasPersonas())
-            {
-                Persona p = Iterador.proximaPersona();
-                if (p.getTipo() == "Zafral" || p.getTipo() == "Fijo")
-                    cout << p.getCedula() << p.getNombre() << p.getTipo() << endl;
-                else
-                    cout << p.getCedula() << p.getNombre() << p.getTipo() << endl;
-            }
+
+            Vendedor * v;
+            Fachada.listarVendedor(cedula,error,v);
+            //cout << "\nLos datos son: " << v->getCedula() << v->getNombre() << v->getTipo() << endl;
         }
         break;
         case 6: //Dada la cédula de un vendedor, registrar la cantidad de ventas que realizó en la semana
@@ -239,19 +239,45 @@ int main()
             cout << "Ingrese cantidad de ventas semanal: ";
             int ventas;
             cin >> ventas;
-            Vendedor * v;
+            Vendedor * v = Fachada.obtengoVendedor(cedula);
             TipoError error;
+            cout << "Antes de setear" << v->getCantVentas();
             Fachada.ventasSemanales(v, ventas, error);
+            cout << "Despues de setear" << v->getCantVentas();
             muestroError(error);
         }
         break;
         case 7:
-            break;
-        case 8:
         {
 
         }
         break;
+        case 8:
+            /*
+               int monto = 0;
+               cout << "Ingrese una fecha para conocer los vendedores zafrales actualmente \n registrados que estarán contratados hasta después de esa fecha." << endl;
+               int dd;
+               cout << "\n Ingrese dia: ";
+               cin >> dd;
+               int mm;
+               cout << "\n Ingrese mes: ";
+               cin >> mm;
+               int aa;
+               cout << "\n Ingrese anio: ";
+               cin >> aa;
+               Fecha fz = Fecha (dd,mm,aa);
+               if (fz.esValida())
+               {
+                   monto = vendedores.buscarZafrales(Fachada.vendedores, fz);
+                   cout << "Cantidad de Vendedores Zafrales: " << monto << endl;
+               }
+               else
+               {
+                   cout << "Fecha incorrecta." << endl;
+                   system("PAUSE");
+                   break;
+               }*/
+            break;
         case 0 :
             break;
         default:
@@ -265,6 +291,9 @@ int main()
     system("cls");
     cout << "Hasta la proxima!" << endl;
 }
+
+
+
 
 
 

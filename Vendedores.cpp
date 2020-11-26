@@ -104,20 +104,26 @@ int Vendedores :: buscarZafrales (Nodo * a, Fecha f)
     if (a != NULL)
     {
         buscarZafrales (a->hizq, f);
-        a->info->esZafral(f, a->info);
+        if(a->info->esZafral(f, a->info))
+            cont++;
         buscarZafrales()r (a->hder, f);
     }
 return cont;
 }*/
 
-float Vendedores :: calcularSueldo (Nodo * a)
+float Vendedores :: calcularSueldo () //PREGUNTARRRR
 {
-    if (a != NULL)
+    float total = 0;
+    if (this != NULL)
     {
-        return (a->info->getSueldoBase() + calcularSueldo(a->hizq) + calcularSueldo(a->hder));
+        calcularSueldo(this->);
+        total = total + info->sueldoTotal();
+        calcularSueldo(this->hder);
     }
-    return 0;
+    return total;
 }
+
+
 
 
 

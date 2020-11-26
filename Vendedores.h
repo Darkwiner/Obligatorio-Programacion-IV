@@ -29,8 +29,8 @@ public:
     Vendedor * find (long int);//Retorna al vendedor cuya cédula es la ingresada
     //Precondición: el vendedor es miembro de la colección
     //IteradorPersonas listarVendedores (Nodo *, IteradorPersonas &);//Devuelve un iterador conteniendo todos los vendedores a listar
-    //int buscarZafrales(Nodo *, Fecha);
-    float calcularSueldo (Nodo *);
+    int buscarZafrales(Nodo *, Fecha);
+    float calcularSueldo ();
 };
 
 #endif // VENDEDORES_H_INCLUDED
