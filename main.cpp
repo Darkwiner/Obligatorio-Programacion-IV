@@ -225,25 +225,52 @@ int main()
             }
             system("cls");
         }break;
-        case 3: //Listado de supervisores registrados. No se pide ningún orden para este listado.
+//        case 3: //Listado de supervisores registrados. No se pide ningún orden para este listado.
+//        {
+//            system("cls");
+//            cout << "3. Listar supervisores\n" << endl;
+//            Fachada.listarSupervisoresCapa(Iterador);
+//            while (Iterador.hayMasPersonas())
+//            {
+//                Persona * p = Iterador.proximaPersona();
+//                cout <<p->getCedula() << " ";
+//                ((Supervisor *) p)->getNombre().print();
+//                ((Supervisor *) p)->getBarrio().print();
+//                cout <<((Supervisor *) p)->getManzanas() << " ";
+//            }
+//        }break;
+
+case 3: //Listado de supervisores registrados. No se pide ningún orden para este listado.
         {
-            Fachada.listarSupervisoresCapa(Iterador);
-            while (Iterador.hayMasPersonas())
+            IteradorPersonas iteradorSupervisores;
+            Fachada.listarSupervisoresCapa(iteradorSupervisores);
+            if (iteradorSupervisores.hayMasPersonas())
             {
-                Persona * p = Iterador.proximaPersona();
-                cout <<p->getCedula() << " ";
-                ((Supervisor *) p)->getNombre().print();
-                ((Supervisor *) p)->getBarrio().print();
-                cout <<((Supervisor *) p)->getManzanas() << " ";
+                cout << "Hola" << endl;
+                system("PAUSE");
+                while (iteradorSupervisores.hayMasPersonas())
+                {
+                    Persona * p = iteradorSupervisores.proximaPersona();
+                    cout << p->getCedula() << " ";
+                    //((Supervisor *) p)->getNombre().print();
+                    //((Supervisor *) p)->getBarrio().print();
+                    //cout <<((Supervisor *) p)->getManzanas() << " ";
+                }
             }
-        }break;
+            else
+                cout << "ERROR: No hay supervisores en el sistema." << endl;
+        }
+        break;
+
         case 4:
         {
-
+            system("cls");
+            cout << "4. Listar vendedores\n" << endl;
         }break;
         case 5: //Dada la cedula de un vendedor, listar todos sus datos junto con los datos de su supervisor.
         {
             system("cls");
+            cout << "5. Listar datos de un vendedor\n" << endl;
             cout << "Ingrese el Vendedor\n" << endl;
             cedula=nuevaCedula();
             Vendedor * v;
@@ -283,6 +310,8 @@ int main()
         }break;
         case 6: //Dada la cédula de un vendedor, registrar la cantidad de ventas que realizó en la semana
         {
+            system("cls");
+            cout << "6. Registrar ventas semanales de un vendedor\n" << endl;
             cout << "Ingrese cedula de vendedor" << endl;
             cedula=nuevaCedula();
 
@@ -298,10 +327,13 @@ int main()
         }break;
         case 7:
         {
-
+            system("cls");
+            cout << "7. Calcular sueldos semanales\n" << endl;
         }break;
         case 8:
         {
+            system("cls");
+            cout << "8. Cantidad de vendedores zafrales por fecha\n" << endl;
             /*
                int monto = 0;
                cout << "Ingrese una fecha para conocer los vendedores zafrales actualmente \n registrados que estarán contratados hasta después de esa fecha." << endl;
@@ -329,7 +361,6 @@ int main()
         }break;
         case 0:
         {
-
         }break;
         default:
         {

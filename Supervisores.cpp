@@ -68,7 +68,7 @@ bool Supervisores :: member (long int ced)
 
 void Supervisores :: insertSupervisor (Supervisor * su)
 {
-    int ced = su->getCedula();
+    long int ced = su->getCedula();
     int cubeta = h(ced);
     insFrontEnLista (hash[cubeta], su);
 }
@@ -83,7 +83,9 @@ Supervisor * Supervisores :: find (long int ced)
 void Supervisores :: listarSupervisores (IteradorPersonas &iter)
 {
     for (int i=0; i<B; i++)
+    {
         cargarIteradorSupervisor(hash[i], iter);
+    }
 }
 
 void Supervisores :: cargarIteradorSupervisor(NodoH * lista, IteradorPersonas &iter)
@@ -91,6 +93,7 @@ void Supervisores :: cargarIteradorSupervisor(NodoH * lista, IteradorPersonas &i
     while (lista != NULL)
     {
         iter.insertarPersona(lista->info);
+        lista=lista->sig;
     }
 }
 

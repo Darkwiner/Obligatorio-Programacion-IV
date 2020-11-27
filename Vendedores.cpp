@@ -75,9 +75,9 @@ bool Vendedores :: member (long int ced)
     return perteneceEnArbol (ABB, ced);
 }
 
-void Vendedores :: insertVendedor (Vendedor * due)
+void Vendedores :: insertVendedor (Vendedor * v)
 {
-    insertEnArbol (ABB, due);
+    insertEnArbol (ABB, v);
 }
 
 Vendedor * Vendedores :: find (long int ced)
