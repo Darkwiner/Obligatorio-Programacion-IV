@@ -258,14 +258,15 @@ int main()
                 cout << "Cantidad de Ventas: " << v->getCantVentas() <<endl;
                 if(v->getTipo()=="Zafral")
                 {
-//                    Fecha f=(Zafral)v->getFecha();
+                    Fecha f=((Zafral *)v)->getFecha();
                     cout << "Zafral\n" << endl;
-//                    cout << "Comision: " << (Zafral) v->getComision() << endl;
+                    cout << "Comision: " << ((Zafral *) v)->getComision() << endl;
+                    f.mostrar();
                 }
                 else
                 {
                     cout << "Fijo\n" << endl;
- //                   cout << "Plus: " << (Fijo) v->getPlus() << endl;
+                    cout << "Plus: " << ((Fijo *) v)->getPlus() << endl;
                 }
                 cout << "\nLos datos de su Supervisor son: \n" << endl;
                 cout << "Cedula: " << v->getSupervisor()->getCedula() << endl;

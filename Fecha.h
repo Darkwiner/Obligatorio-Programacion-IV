@@ -1,5 +1,8 @@
 #ifndef FECHA_H_INCLUDED
 #define FECHA_H_INCLUDED
+#include <iostream>
+
+using namespace std;
 
 class Fecha
 {
@@ -21,6 +24,7 @@ public:
     int getDia ();
     int getMes ();
     int getAnio ();
+    void mostrar ();
 };
 
 #endif // FECHA_H_INCLUDED
