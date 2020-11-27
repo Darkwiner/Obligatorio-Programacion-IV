@@ -7,6 +7,7 @@ class Supervisor : public Persona
 private :
     String barrio;
     int cantManzanas;
+
 public :
     Supervisor (); //Constructor por defecto
     Supervisor (long int, String, String, int); //Constructor comun

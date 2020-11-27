@@ -124,13 +124,7 @@ float Vendedores :: recorrerArbol (Nodo * a)
     return total;
 }
 
-float Vendedores :: calcularSueldo () //PREGUNTARRRR
+float Vendedores :: calcularSueldo ()
 {
     return recorrerArbol (ABB);
 }
-
-
-
-
-
-

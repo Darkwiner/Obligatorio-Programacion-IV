@@ -7,6 +7,7 @@ class Persona
 private :
     long int cedula;
     String nombre;
+
 public :
     Persona (); //Constructor por defecto
     Persona (long int, String); //Constructor comun

@@ -51,13 +51,3 @@ String Zafral :: getTipo()
     String tipo("Zafral");
     return (String) tipo;
 }
-
-
-
-
-
-
-
-
-
-

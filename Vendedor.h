@@ -9,6 +9,7 @@ private :
     float sueldoBase;
     int cantVentas;
     Supervisor * sup;
+
 public :
     Vendedor (); //Constructor por defecto
     Vendedor (int, String, float, int, Supervisor *); //Constructor comun
@@ -18,10 +19,10 @@ public :
     int getCantVentas ();
     void setSueldoBase (float);
     void setCantVentas (int);
-    ~Vendedor();
     long int getCedulaVen ();
     void setSupervisor (Supervisor *);
     long int getCedulaSup ();
     Supervisor * getSupervisor ();
+    ~Vendedor();
 };
 #endif // VENDEDOR_H_INCLUDED

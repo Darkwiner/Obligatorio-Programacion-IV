@@ -25,9 +25,7 @@ CapaLogica :: CapaLogica () : supervisores (), vendedores ()
 void CapaLogica :: registrarSupervisor (Supervisor * s, TipoError &error)
 {
     long int ced = s->getCedula();
-    if (!validoCed(ced))
-        error = CEDULANOVALIDA;
-    else if (supervisores.member(ced))
+    if (supervisores.member(ced))
         error = SUPERVISORYAEXISTE;
     else if (s->getManzanas() < 0)
         error = MANZANASNOVALIDA;
@@ -38,15 +36,10 @@ void CapaLogica :: registrarSupervisor (Supervisor * s, TipoError &error)
     }
 }
 
-
 void CapaLogica :: registrarVendedor (Vendedor * v, TipoError &error, long int cedSup)
 {
     long int ced = v->getCedula();
-    if (!validoCed(ced))
-        error = CEDULANOVALIDA;
-    else if (!validoCed(cedSup))
-        error = CEDULANOVALIDA;
-    else if (!supervisores.member(cedSup))
+    if (!supervisores.member(cedSup))
         error = SUPERVISORNOEXISTE;
     else if (vendedores.member(ced))
         error = VENDEDORYAEXISTE;
@@ -78,8 +71,6 @@ IteradorPersonas CapaLogica :: listarSupervisoresCapa (IteradorPersonas &iter)
     return  iter;
 }
 
-
-
 /*
 IteradorPersonas CapaLogica :: listarVendedores ()
 {
@@ -101,28 +92,10 @@ float CapaLogica :: calculoSueldoTotal ()
     return total;
 }
 
-void CapaLogica :: listarVendedor (long int cedula, TipoError &error, Vendedor *v)
-{
-    if (!validoCed(cedula))
-    {
-        error = CEDULANOVALIDA;
-    }
-    else if (!vendedores.member(cedula))
-    {
-        error = VENDEDORNOEXISTE;
-    }
-    else
-    {
-        v = vendedores.find(cedula);
-    }
-}
-
 void CapaLogica :: ventasSemanales (Vendedor * &v, int ventas, TipoError &error)
 {
     long int cedula = v->getCedula();
-    if (!validoCed(cedula))
-        error = CEDULANOVALIDA;
-    else if (!vendedores.member(cedula))
+    if (!vendedores.member(cedula))
         error = VENDEDORNOEXISTE;
     else
     {
@@ -143,53 +116,3 @@ Vendedor * CapaLogica :: obtengoVendedor (long int ced)
     Vendedor * v = vendedores.find(ced);
     return v;
 }
-
-
-
-bool CapaLogica :: validoCed (long int ced)
-{
-    bool valida=true;
-    if(ced<5000000 || ced>70000000)
-    {
-        valida=false;
-    }
-    else
-    {
-        long int aux=ced;
-        int i=1,res=0,total=0,TAM=0;
-        do
-        {
-            aux=aux/10;
-            i++;
-        }
-        while(aux/10>0);
-
-        TAM=i;
-        int arre[TAM];
-
-        aux=ced;
-
-        for (i=TAM-1; i>=0; i--)
-        {
-            arre[i]=aux%10;
-            aux=aux/10;
-        }
-
-        arre[0]=arre[0]*2;
-        arre[1]=arre[1]*9;
-        arre[2]=arre[2]*8;
-        arre[3]=arre[3]*7;
-        arre[4]=arre[4]*6;
-        arre[5]=arre[5]*3;
-        if (TAM==8)
-            arre[6]=arre[6]*4;
-        for(i=0; i<TAM-1; i++)
-            total=total+arre[i] ;
-        res=total%10;
-        res=10-res;
-        if(res!=arre[TAM-1])
-            valida=false;
-    }
-    return(valida);
-}
-

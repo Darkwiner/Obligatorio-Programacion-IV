@@ -13,14 +13,14 @@ private:
     nodoP * prim;
     nodoP * ult;
     nodoP * actual;
+
 public:
     IteradorPersonas (); //Constructor por defecto
     void insertarPersona (Persona *); //Inserta en el iterador
     bool hayMasPersonas (); //Indica si quedan ms Personas por recorrer
     Persona * proximaPersona (); //Devuelve la proxima Persona por recorrer
-    //bool estaLlenoPersonas (); //Indica si el iterador esta lleno ///PREGUNTAR SI APLICA AL SER LPPF
-    ~IteradorPersonas();
     void cargarIterador (nodoP *, IteradorPersonas &);
+    ~IteradorPersonas();
 };
 
 #endif // ITERADORPERSONAS_H_INCLUDED

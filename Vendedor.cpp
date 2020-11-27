@@ -66,11 +66,7 @@ void Vendedor :: setSupervisor (Supervisor * super)
     sup = super;
 }
 
-Supervisor Vendedor :: getSupervisor ()
+Supervisor * Vendedor :: getSupervisor ()
 {
-    Supervisor * s = sup;
+    return  sup;
 }
-
-
-
-

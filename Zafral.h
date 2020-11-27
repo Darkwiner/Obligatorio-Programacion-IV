@@ -8,6 +8,7 @@ class Zafral : public Vendedor
 private:
   int comision;
   Fecha fechaVto;
+
 public:
   Zafral (); //Constructor por defecto
   Zafral (int,Fecha, long int, String, int, int, Supervisor *); //Constructor comun

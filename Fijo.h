@@ -6,6 +6,7 @@ class Fijo : public Vendedor
 {
 private:
   int plus;
+
 public :
   Fijo (); //Constructor por defecto
   Fijo (int, long int, String, int, int, Supervisor *); //Constructor comun

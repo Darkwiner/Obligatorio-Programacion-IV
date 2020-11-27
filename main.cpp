@@ -12,16 +12,86 @@
 #include "Supervisor.h"
 #include "Supervisores.h"
 #include "CapaLogica.h"
-//#include "TipoError.h"
 
 //AYUDA CON ITERADOR, COMO SE LISTAN LOS OBJETOS
 //CASTEO DE ZAFRAL EN COMPARAR FECHAS
-//COMO MOSTRAR UN STRING CON PRINT
 //COMO MOSTRAR ELEMENTOS DE LOS ITERADORES
 //calcularSueldo PREGUNTARRRR
 
+// Pasar TipoError a validoCedula?
+// Declarar variables arriba del todo? Ahora esta declarado 50 veces long int cedula por ejemplo
+// Revisar comentarios
 
 using namespace std;
+
+bool validoCed (long int ced)
+{
+    bool valida=true;
+    if(ced<5000000 || ced>70000000)
+    {
+        valida=false;
+    }
+    else
+    {
+        long int aux=ced;
+        int i=1,res=0,total=0,TAM=0;
+        do
+        {
+            aux=aux/10;
+            i++;
+        }
+        while(aux/10>0);
+
+        TAM=i;
+        int arre[TAM];
+
+        aux=ced;
+
+        for (i=TAM-1; i>=0; i--)
+        {
+            arre[i]=aux%10;
+            aux=aux/10;
+        }
+
+        arre[0]=arre[0]*2;
+        arre[1]=arre[1]*9;
+        arre[2]=arre[2]*8;
+        arre[3]=arre[3]*7;
+        arre[4]=arre[4]*6;
+        arre[5]=arre[5]*3;
+        if (TAM==8)
+            arre[6]=arre[6]*4;
+        for(i=0; i<TAM-1; i++)
+            total=total+arre[i] ;
+        res=total%10;
+        res=10-res;
+        if(res!=arre[TAM-1])
+            valida=false;
+    }
+    return(valida);
+}
+
+long int nuevaCedula ()
+{
+            int i;
+            string ced;
+            long int cedula;
+            do
+            {
+                while(true)
+                {
+                    cout << "Ingrese la cedula: ";
+                    getline(cin, ced);
+                    stringstream mystream(ced);
+                    if(mystream >> i) break;
+                    cout << "Cedula no valida. Solo se permiten numeros. Intente nuevamente.\n" << endl;
+                }
+                istringstream(ced)>>cedula;
+                if(!validoCed(cedula))
+                    cout << "Cedula no valida. Por favor compruebe el digito verificador y vuelva a intentarlo.\n" << endl;
+            }while(!validoCed(cedula));
+            return cedula;
+}
 
 int main()
 {
@@ -30,6 +100,7 @@ int main()
     CapaLogica Fachada;
     IteradorPersonas Iterador;
     int opcion;
+    long int cedula,cedulaSupervisor;
 
     do
     {
@@ -49,24 +120,14 @@ int main()
         cin >> opcion;
         cin.ignore(numeric_limits<streamsize>::max(),'\n');
 
-        switch (opcion)
+        switch(opcion)
         {
         case 1:
         {
             system("cls");
             cout << "\n1. Ingresar supervisor\n" << endl;
-            int i;
-            string ced;
-            while(true)
-            {
-                cout << "Introduce una cedula: ";
-                getline(cin, ced);
-                stringstream mystream(ced);
-                if(mystream >> i) break;
-                cout << "Cedula no valida, solo se permiten numeros. " << endl;
-            }
-            long int cedula;
-            istringstream(ced)>>cedula;
+            cedula=nuevaCedula();
+
             cout << "Ingrese nombre: ";
             char cadena[80];
             cin >> cadena;
@@ -84,6 +145,7 @@ int main()
             cout << "Ingrese cantidad de manzanas: ";
             int cantManzanas;
             cin >> cantManzanas;
+
             cout << "Confirma los datos ingresados? S/N: ";
             char confirma;
             cin >> confirma;
@@ -100,145 +162,129 @@ int main()
                 system("PAUSE");
                 system("cls");
             }
-
-        }
-        break;
+        }break;
         case 2:
         {
             system("cls");
+            cout << "\n2. Ingresar Vendedor\n" << endl;
+            cout << "\nIngrese el Supervisor\n";
+            cedulaSupervisor=nuevaCedula();
+
+            cout << "\nIngrese el Vendedor\n";
+            cedula=nuevaCedula();
+
+            cout << "Ingrese nombre: ";
+            char cadena[80];
+            cin >> cadena;
+            char * nombre = new char[strlen(cadena)+1];
+            nombre = cadena;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+            cout<< "Ingrese el sueldo base: ";
+            float sueldo;
+            cin>>sueldo;
+            cout << "Desea registrar un vendedor Zafral o Fijo? Z/F: ";
+            char opcionReq2;
+            cin >> opcionReq2;
+            if (opcionReq2 == 'z' || opcionReq2 == 'Z')
             {
-                int i;
-                string cedSup;
-                while(true)
+                int comision,dd,mm,aa;
+                cout << "\nIngrese comision: ";
+                cin >> comision;
+                cout << "\nIngrese fecha fin de contrato" << endl;
+                cout << "Ingrese dia: ";
+                cin >> dd;
+                cout << "Ingrese mes: ";
+                cin >> mm;
+                cout << "Ingrese anio: ";
+                cin >> aa;
+                Fecha f = Fecha (dd,mm,aa);
+                if (f.esValida())
                 {
-                    cout << "Introduce la cedula del supervisor: ";
-                    getline(cin, cedSup);
-                    stringstream mystream(cedSup);
-                    if(mystream >> i) break;
-                    cout << "Cedula no valida, solo se permiten numeros. " << endl;
+                    Vendedor * vend = new Zafral (comision, f, cedula, nombre, sueldo, 0, NULL);
+                    TipoError error;
+                    Fachada.registrarVendedor(vend,error,cedulaSupervisor);
+                    muestroError (error);
                 }
-                long int cedulaSupervisor;
-                istringstream(cedSup)>>cedulaSupervisor;
-                string ced;
-                while(true)
+                else
                 {
-                    cout << "Introduce la cedula del vendedor: ";
-                    getline(cin, ced);
-                    stringstream mystream(ced);
-                    if(mystream >> i) break;
-                    cout << "Cedula no valida, solo se permiten numeros. " << endl;
-                }
-                long int cedula;
-                istringstream(ced)>>cedula;
-                {
-                    cout << "Ingrese nombre: ";
-                    char cadena[80];
-                    cin >> cadena;
-                    char * nombre = new char[strlen(cadena)+1];
-                    nombre = cadena;
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(),'\n');
-                    cout<< "Ingrese el sueldo base: ";
-                    float sueldo;
-                    cin>>sueldo;
-                    cout << "Desea registrar un vendedor Zafral o Fijo? Z/F: ";
-                    char opcionReq2;
-                    cin >> opcionReq2;
-                    if (opcionReq2 == 'z' || opcionReq2 == 'Z')
-                    {
-                        int comision,dd,mm,aa;
-                        cout << "Ingrese comision: ";
-                        cin >> comision;
-                        cout << "Ingrese fecha fin de contrato" << endl;
-                        cout << "Ingrese dia: ";
-                        cin >> dd;
-                        cout << "Ingrese mes: ";
-                        cin >> mm;
-                        cout << "Ingrese anio: ";
-                        cin >> aa;
-                        Fecha f = Fecha (dd,mm,aa);
-                        if (f.esValida())
-                        {
-                            Vendedor * vend = new Zafral (comision, f, cedula, nombre, sueldo, 0, NULL);
-                            TipoError error;
-                            Fachada.registrarVendedor(vend,error,cedulaSupervisor);
-                            muestroError (error);
-                        }
-                        else
-                        {
-                            cout << "Fecha incorrecta." << endl;
-                            system("PAUSE");
-                            break;
-                        }
-                    }
-                    else
-                    {
-                        cout << "Ingrese plus: ";
-                        int plu;
-                        cin >> plu;
-                        Vendedor * vend = new Fijo (plu, cedula, nombre, sueldo, 0, NULL);
-                        TipoError error;
-                        Fachada.registrarVendedor(vend,error,cedulaSupervisor);
-                        muestroError (error);
-                    }
+                    cout << "Fecha incorrecta." << endl;
+                    system("PAUSE");
+                    break;
                 }
             }
-            system("PAUSE");
+            else
+            {
+                cout << "\nIngrese plus: ";
+                int plu;
+                cin >> plu;
+                Vendedor * vend = new Fijo (plu, cedula, nombre, sueldo, 0, NULL);
+                TipoError error;
+                Fachada.registrarVendedor(vend,error,cedulaSupervisor);
+                muestroError (error);
+            }
             system("cls");
-        }
-        break;
+        }break;
         case 3: //Listado de supervisores registrados. No se pide ningún orden para este listado.
+        {
             Fachada.listarSupervisoresCapa(Iterador);
             while (Iterador.hayMasPersonas())
             {
                 Persona * p = Iterador.proximaPersona();
                 cout <<p->getCedula() << " ";
                 ((Supervisor *) p)->getNombre().print();
-                ((Supervisor *) p)->getBarrio().print(); //Casteo
+                ((Supervisor *) p)->getBarrio().print();
                 cout <<((Supervisor *) p)->getManzanas() << " ";
-
             }
-            break;
+        }break;
         case 4:
-            break;
+        {
+
+        }break;
         case 5: //Dada la cedula de un vendedor, listar todos sus datos junto con los datos de su supervisor.
         {
-            cout << "Ingrese cedula de vendedor" << endl;
-            int i;
-            string ced;
-            while(true)
-            {
-                cout << "Introduce una cedula: ";
-                getline(cin, ced);
-                stringstream mystream(ced);
-                if(mystream >> i) break;
-                cout << "Cedula no valida, solo se permiten numeros. " << endl;
-            }
-            long int cedula;
-            istringstream(ced)>>cedula;
-            TipoError error;
-
+            system("cls");
+            cout << "Ingrese el Vendedor\n" << endl;
+            cedula=nuevaCedula();
             Vendedor * v;
-            Fachada.listarVendedor(cedula,error,v);
-            Supervisor * sup = v->getSupervisor;
-            //cout << "\nLos datos son: " << v->getCedula() << v->getNombre() << v->getTipo() << endl;
-        }
-        break;
+            if(Fachada.perteneceVendedor(cedula))
+            {
+                v=Fachada.obtengoVendedor(cedula);
+                cout << "\nLos datos del Vendedor son: \n" << endl;
+                cout << "Cedula: " << v->getCedula() << endl;
+                cout << "Nombre: " ;
+                v->getNombre().print();
+                cout << "\nSueldo Base: " << v->getSueldoBase() <<endl;
+                cout << "Cantidad de Ventas: " << v->getCantVentas() <<endl;
+                if(v->getTipo()=="Zafral")
+                {
+//                    Fecha f=(Zafral)v->getFecha();
+                    cout << "Zafral\n" << endl;
+//                    cout << "Comision: " << (Zafral) v->getComision() << endl;
+                }
+                else
+                {
+                    cout << "Fijo\n" << endl;
+ //                   cout << "Plus: " << (Fijo) v->getPlus() << endl;
+                }
+                cout << "\nLos datos de su Supervisor son: \n" << endl;
+                cout << "Cedula: " << v->getSupervisor()->getCedula() << endl;
+                cout << "Nombre: " ;
+                v->getSupervisor()->getNombre().print();
+                cout << "\nBarrio: " ;
+                v->getSupervisor()->getBarrio().print();
+                cout << "\nManzana: " << v->getSupervisor()->getManzanas() << endl;
+            }
+            else
+                cout << "\nNo se encuentra el vendedor. Intente nuevamente." << endl;
+            system("PAUSE");
+            system("cls");
+        }break;
         case 6: //Dada la cédula de un vendedor, registrar la cantidad de ventas que realizó en la semana
         {
             cout << "Ingrese cedula de vendedor" << endl;
-            int i;
-            string ced;
-            while(true)
-            {
-                cout << "Introduce una cedula: ";
-                getline(cin, ced);
-                stringstream mystream(ced);
-                if(mystream >> i) break;
-                cout << "Cedula no valida, solo se permiten numeros. " << endl;
-            }
-            long int cedula;
-            istringstream(ced)>>cedula;
+            cedula=nuevaCedula();
+
             cout << "Ingrese cantidad de ventas semanal: ";
             int ventas;
             cin >> ventas;
@@ -248,14 +294,13 @@ int main()
             Fachada.ventasSemanales(v, ventas, error);
             cout << "Despues de setear" << v->getCantVentas();
             muestroError(error);
-        }
-        break;
+        }break;
         case 7:
         {
 
-        }
-        break;
+        }break;
         case 8:
+        {
             /*
                int monto = 0;
                cout << "Ingrese una fecha para conocer los vendedores zafrales actualmente \n registrados que estarán contratados hasta después de esa fecha." << endl;
@@ -280,23 +325,19 @@ int main()
                    system("PAUSE");
                    break;
                }*/
-            break;
-        case 0 :
-            break;
+        }break;
+        case 0:
+        {
+
+        }break;
         default:
-            cout << endl << "No es una opcion valida, ingrese nuevamente." << endl;
-            system("PAUSE");
-            system("cls");
-            break;
+        {
+                cout << endl << "Opcion no valida. Intente nuevamente." << endl;
+                system("PAUSE");
+                system("cls");
+        }break;
         }
-    }
-    while(opcion != 0);
+    }while(opcion != 0);
     system("cls");
     cout << "Hasta la proxima!" << endl;
 }
-
-
-
-
-
-

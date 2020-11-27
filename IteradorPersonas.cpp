@@ -52,7 +52,3 @@ void IteradorPersonas :: cargarIterador (nodoP * persona, IteradorPersonas &iter
 {
     insertarPersona (persona->info);
 }
-
-
-
-

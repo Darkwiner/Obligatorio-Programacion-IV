@@ -6,6 +6,7 @@ class Fecha
 private:
     int dd, mm, aa;
     void incrementar (); // M�todo auxiliar, incrementa 1 d�a la fecha
+
 public:
     Fecha (); //Constructor por defecto
     Fecha (int, int, int); //Constructor com�n
@@ -17,7 +18,6 @@ public:
     Fecha operator++ (int); //Operador postfijo de incremento
     int operator- (Fecha); //Devuelve la diferencia en d�as entre 2 fechas
     bool esValida (); //Validacion de la fecha
-    //Selectoras del tipo fecha
     int getDia ();
     int getMes ();
     int getAnio ();

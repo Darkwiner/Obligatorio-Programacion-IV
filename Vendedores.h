@@ -21,18 +21,17 @@ private:
     Vendedor * obtenerEnArbol (Nodo *, long int);//Obtiene el vendedor con la cédula ingresada
     //void cargarIterador (Nodo *, IteradorPersonas &);//Carga el iterador recorriendo el árbol en orden
     float recorrerArbol (Nodo *);
+
 public:
     Vendedores ();//Constructor por defecto
-    ~Vendedores ();//Destructor
     bool member (long int);//Indica si el vendedor con la cédula ingresada es miembro de la colección
     void insertVendedor (Vendedor *);//Inserta el nuevo vendedor a la colección
-    //Precondición: el vendedor no es miembro de la colección
     Vendedor * find (long int);//Retorna al vendedor cuya cédula es la ingresada
-    //Precondición: el vendedor es miembro de la colección
     //IteradorPersonas listarVendedores (Nodo *, IteradorPersonas &);//Devuelve un iterador conteniendo todos los vendedores a listar
     int buscarZafrales(Nodo *, Fecha);
     float calcularSueldo ();
     bool esZafral(Vendedor *, Fecha f);
+    ~Vendedores ();//Destructor
 };
 
 #endif // VENDEDORES_H_INCLUDED
