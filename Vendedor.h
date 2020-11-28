@@ -2,6 +2,7 @@
 #define VENDEDOR_H_INCLUDED
 #include "Persona.h"
 #include "Supervisor.h"
+#include "Fecha.h"
 
 class Vendedor : public Persona
 {

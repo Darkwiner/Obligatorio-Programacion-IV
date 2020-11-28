@@ -80,12 +80,15 @@ Supervisor * Supervisores :: find (long int ced)
 }
 
 
-void Supervisores :: listarSupervisores (IteradorPersonas &iter)
+IteradorPersonas Supervisores :: listarSupervisores ()
+
 {
+    IteradorPersonas iter;
     for (int i=0; i<B; i++)
     {
         cargarIteradorSupervisor(hash[i], iter);
     }
+    return iter;
 }
 
 void Supervisores :: cargarIteradorSupervisor(NodoH * lista, IteradorPersonas &iter)

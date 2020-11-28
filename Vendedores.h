@@ -19,7 +19,7 @@ private:
     bool perteneceEnArbol (Nodo *, long int);//Indica si existe un vendedor con la cédula ingresada
     void insertEnArbol (Nodo * &, Vendedor *);//Inserta el nuevo vendedor en el árbol
     Vendedor * obtenerEnArbol (Nodo *, long int);//Obtiene el vendedor con la cédula ingresada
-    //void cargarIterador (Nodo *, IteradorPersonas &);//Carga el iterador recorriendo el árbol en orden
+    void cargarIteradorVendedor (Nodo *, IteradorPersonas &);//Carga el iterador recorriendo el árbol en orden
     float recorrerArbol (Nodo *);
 
 public:
@@ -27,7 +27,8 @@ public:
     bool member (long int);//Indica si el vendedor con la cédula ingresada es miembro de la colección
     void insertVendedor (Vendedor *);//Inserta el nuevo vendedor a la colección
     Vendedor * find (long int);//Retorna al vendedor cuya cédula es la ingresada
-    //IteradorPersonas listarVendedores (Nodo *, IteradorPersonas &);//Devuelve un iterador conteniendo todos los vendedores a listar
+    IteradorPersonas listarVendedores (IteradorPersonas &);//Devuelve un iterador conteniendo todos los vendedores a listar
+    int buscarZafralesVendedores (Fecha);
     int buscarZafrales(Nodo *, Fecha);
     float calcularSueldo ();
     bool esZafral(Vendedor *, Fecha f);

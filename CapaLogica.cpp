@@ -65,21 +65,20 @@ bool CapaLogica :: perteneceVendedor (long int ced)
 }
 
 
-IteradorPersonas CapaLogica :: listarSupervisoresCapa (IteradorPersonas &iter)
+IteradorPersonas CapaLogica :: listarSupervisoresCapa ()
 {
-    supervisores.listarSupervisores(iter);
-    return  iter;
+    return supervisores.listarSupervisores();
 }
 
+
+IteradorPersonas CapaLogica :: listarVendedoresCapa ()
+{
+    return vendedores.listarVendedores();
+}
 /*
-IteradorPersonas CapaLogica :: listarVendedores ()
+int cantContratadosHasta (Fecha f, int & error)
 {
-
-}
-
-int cantContratadosHasta (Fecha, int &)
-{
-    return 0;
+    return vendedores.buscarZafralesVendedores();
 }*/
 
 

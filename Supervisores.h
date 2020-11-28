@@ -3,7 +3,7 @@
 #include "Supervisor.h"
 #include "IteradorPersonas.h"
 
-const int B = 60;
+const int B = 2;
 
 class Supervisores
 {
@@ -28,7 +28,7 @@ public:
     bool member (long int);//Indica si el supervisor con la cedula dada esta en la coleccion
     void insertSupervisor (Supervisor *);//Inserta el supervisor en la coleccion
     Supervisor * find (long int);//Retorna al supervisor con la cedula dada
-    void listarSupervisores (IteradorPersonas &);
+    IteradorPersonas listarSupervisores ();
     ~Supervisores ();//Destructor
 };
 

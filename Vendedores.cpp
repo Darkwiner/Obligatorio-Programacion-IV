@@ -49,16 +49,21 @@ Vendedor * Vendedores :: obtenerEnArbol (Nodo * a, long int ced)
             a = a->hder;
     return (a->info);
 }
-/*
-void Vendedores :: cargarIterador (Nodo * a, IteradorPersonas &iter)
+
+IteradorPersonas Vendedores :: listarVendedores ()
+{
+    cargarIteradorVendedor (ABB, iter);
+}
+
+IteradorPersonas Vendedores :: cargarIteradorVendedor (Nodo * a, IteradorPersonas &iter)
 {
     if (a != NULL)
     {
-        cargarIterador (a->hizq, iter);
+        cargarIteradorVendedor (a->hizq, iter);
         iter.insertarPersona (a->info);
-        cargarIterador (a->hder, iter);
+        cargarIteradorVendedor (a->hder, iter);
     }
-}*/
+}
 
 Vendedores :: Vendedores ()
 {
@@ -84,20 +89,12 @@ Vendedor * Vendedores :: find (long int ced)
 {
     return obtenerEnArbol (ABB, ced);
 }
-
-/*///CONSULTAR SI ES ASI
-IteradorPersonas Vendedores :: listarVendedores (Nodo * ABB, IteradorPersonas &iter)
-{
-    if (ABB != NULL)
-    {
-        listarVendedores (ABB->hizq, iter)
-        cargarIterador (ABB->info, iter);
-        listarVendedores (ABB->hder, iter)
-    }
-    return iter;
-}*/
-
 /*
+int Vendedores :: buscarZafralesVendedores (Fecha f)
+{
+    buscarZafrales(ABB, f);
+}
+
 int Vendedores :: buscarZafrales (Nodo * a, Fecha f)
 {
     int cont = 0;
@@ -110,7 +107,6 @@ int Vendedores :: buscarZafrales (Nodo * a, Fecha f)
     }
 return cont;
 }*/
-
 
 float Vendedores :: recorrerArbol (Nodo * a)
 {

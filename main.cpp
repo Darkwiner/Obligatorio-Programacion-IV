@@ -100,7 +100,7 @@ int main()
     CapaLogica Fachada;
     IteradorPersonas Iterador;
     int opcion;
-    long int cedula,cedulaSupervisor;
+    long int cedula, cedulaSupervisor;
 
     do
     {
@@ -155,6 +155,7 @@ int main()
                 TipoError error;
                 Fachada.registrarSupervisor(s,error);
                 muestroError (error);
+                cout << "Supervisor cargado con cedula: " << s->getCedula() << endl;
             }
             else
             {
@@ -240,21 +241,19 @@ int main()
 //            }
 //        }break;
 
-case 3: //Listado de supervisores registrados. No se pide ningún orden para este listado.
+        case 3: //Listado de supervisores registrados. No se pide ningún orden para este listado.
         {
-            IteradorPersonas iteradorSupervisores;
-            Fachada.listarSupervisoresCapa(iteradorSupervisores);
+            IteradorPersonas iteradorSupervisores = Fachada.listarSupervisoresCapa();
             if (iteradorSupervisores.hayMasPersonas())
             {
-                cout << "Hola" << endl;
                 system("PAUSE");
                 while (iteradorSupervisores.hayMasPersonas())
                 {
-                    Persona * p = iteradorSupervisores.proximaPersona();
+                    Persona * p = (Supervisor *) iteradorSupervisores.proximaPersona();
                     cout << p->getCedula() << " ";
-                    //((Supervisor *) p)->getNombre().print();
-                    //((Supervisor *) p)->getBarrio().print();
-                    //cout <<((Supervisor *) p)->getManzanas() << " ";
+                    ((Supervisor *) p)->getNombre().print();
+                    ((Supervisor *) p)->getBarrio().print();
+                    cout <<((Supervisor *) p)->getManzanas() << " ";
                 }
             }
             else
@@ -266,12 +265,29 @@ case 3: //Listado de supervisores registrados. No se pide ningún orden para este
         {
             system("cls");
             cout << "4. Listar vendedores\n" << endl;
+            IteradorPersonas iteradorVendedores;
+            Fachada.listarVendedoresCapa(iteradorVendedores);
+            if (iteradorVendedores.hayMasPersonas())
+            {
+                system("PAUSE");
+                while (iteradorVendedores.hayMasPersonas())
+                {
+                    Persona * p = iteradorVendedores.proximaPersona();
+                    cout << p->getCedula() << " ";
+                    //((Supervisor *) p)->getNombre().print();
+                    //((Supervisor *) p)->getBarrio().print();
+                    //cout <<((Supervisor *) p)->getManzanas() << " ";
+                }
+            }
+            else
+                cout << "ERROR: No hay supervisores en el sistema." << endl;
         }break;
         case 5: //Dada la cedula de un vendedor, listar todos sus datos junto con los datos de su supervisor.
         {
             system("cls");
             cout << "5. Listar datos de un vendedor\n" << endl;
             cout << "Ingrese el Vendedor\n" << endl;
+
             cedula=nuevaCedula();
             Vendedor * v;
             if(Fachada.perteneceVendedor(cedula))
@@ -329,12 +345,12 @@ case 3: //Listado de supervisores registrados. No se pide ningún orden para este
         {
             system("cls");
             cout << "7. Calcular sueldos semanales\n" << endl;
+            int totalSueldos = 0;
         }break;
         case 8:
         {
             system("cls");
             cout << "8. Cantidad de vendedores zafrales por fecha\n" << endl;
-            /*
                int monto = 0;
                cout << "Ingrese una fecha para conocer los vendedores zafrales actualmente \n registrados que estarán contratados hasta después de esa fecha." << endl;
                int dd;
@@ -347,9 +363,10 @@ case 3: //Listado de supervisores registrados. No se pide ningún orden para este
                cout << "\n Ingrese anio: ";
                cin >> aa;
                Fecha fz = Fecha (dd,mm,aa);
+               TipoError error;
                if (fz.esValida())
                {
-                   monto = vendedores.buscarZafrales(Fachada.vendedores, fz);
+                   //monto = cantContratadosHasta(fz, error);
                    cout << "Cantidad de Vendedores Zafrales: " << monto << endl;
                }
                else
@@ -357,7 +374,7 @@ case 3: //Listado de supervisores registrados. No se pide ningún orden para este
                    cout << "Fecha incorrecta." << endl;
                    system("PAUSE");
                    break;
-               }*/
+               }
         }break;
         case 0:
         {
