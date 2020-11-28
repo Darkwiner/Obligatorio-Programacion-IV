@@ -52,10 +52,12 @@ Vendedor * Vendedores :: obtenerEnArbol (Nodo * a, long int ced)
 
 IteradorPersonas Vendedores :: listarVendedores ()
 {
+    IteradorPersonas iter;
     cargarIteradorVendedor (ABB, iter);
+    return iter;
 }
 
-IteradorPersonas Vendedores :: cargarIteradorVendedor (Nodo * a, IteradorPersonas &iter)
+void Vendedores :: cargarIteradorVendedor (Nodo * a, IteradorPersonas &iter)
 {
     if (a != NULL)
     {
@@ -89,24 +91,24 @@ Vendedor * Vendedores :: find (long int ced)
 {
     return obtenerEnArbol (ABB, ced);
 }
-/*
+
 int Vendedores :: buscarZafralesVendedores (Fecha f)
 {
-    buscarZafrales(ABB, f);
+    int total = 0;
+    buscarZafrales(ABB, f, total);
+    return total;
 }
 
-int Vendedores :: buscarZafrales (Nodo * a, Fecha f)
+void Vendedores :: buscarZafrales (Nodo * a, Fecha f, int &total)
 {
-    int cont = 0;
     if (a != NULL)
     {
-        buscarZafrales (a->hizq, f);
-        if(a->info->esZafral(f, a->info))
-            cont++;
-        buscarZafrales()r (a->hder, f);
+        buscarZafrales (a->hizq, f, total);
+        if(a->info->esZafral(f))
+            total = total + 1;
+        buscarZafrales (a->hder, f, total);
     }
-return cont;
-}*/
+}
 
 float Vendedores :: recorrerArbol (Nodo * a)
 {
@@ -122,5 +124,17 @@ float Vendedores :: recorrerArbol (Nodo * a)
 
 float Vendedores :: calcularSueldo ()
 {
-    return recorrerArbol (ABB);
+    float total;
+    calcularSueldoVendedores (ABB, total);
+    return total;
+}
+
+void Vendedores :: calcularSueldoVendedores (Nodo * a, float & total)
+{
+    if (a != NULL)
+    {
+        calcularSueldoVendedores (a->hizq, total);
+        total = total + a->info->sueldoTotal();
+        calcularSueldoVendedores (a->hder, total);
+    }
 }

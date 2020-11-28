@@ -51,3 +51,11 @@ String Zafral :: getTipo()
     String tipo("Zafral");
     return (String) tipo;
 }
+
+bool Zafral :: comparoFecha (Fecha f)
+{
+    if (getFecha > f)
+        return true;
+    else
+        return false;
+}

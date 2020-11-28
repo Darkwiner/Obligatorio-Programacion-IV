@@ -75,11 +75,13 @@ IteradorPersonas CapaLogica :: listarVendedoresCapa ()
 {
     return vendedores.listarVendedores();
 }
-/*
-int cantContratadosHasta (Fecha f, int & error)
+
+int CapaLogica :: cantContratadosHasta (Fecha f, TipoError &error)
 {
-    return vendedores.buscarZafralesVendedores();
-}*/
+    int total;
+    vendedores.buscarZafralesVendedores(f);
+    return total;
+}
 
 
 float CapaLogica :: calculoSueldoTotal ()

@@ -19,6 +19,7 @@ public:
   void setFecha(Fecha); // Seteo fecha
   float sueldoTotal (); // Funcion polimorfica
   String getTipo();
+  bool comparoFecha (Fecha);
 };
 
 #endif // ZAFRAL_H_INCLUDED

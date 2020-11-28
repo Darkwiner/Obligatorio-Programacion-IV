@@ -265,18 +265,17 @@ int main()
         {
             system("cls");
             cout << "4. Listar vendedores\n" << endl;
-            IteradorPersonas iteradorVendedores;
-            Fachada.listarVendedoresCapa(iteradorVendedores);
+            IteradorPersonas iteradorVendedores = Fachada.listarVendedoresCapa();
             if (iteradorVendedores.hayMasPersonas())
             {
                 system("PAUSE");
                 while (iteradorVendedores.hayMasPersonas())
                 {
                     Persona * p = iteradorVendedores.proximaPersona();
-                    cout << p->getCedula() << " ";
-                    //((Supervisor *) p)->getNombre().print();
-                    //((Supervisor *) p)->getBarrio().print();
-                    //cout <<((Supervisor *) p)->getManzanas() << " ";
+                    cout << p->getCedula() << " - ";
+                    ((Vendedor *)p)->getNombre().print();
+                    cout << " - ";
+                    ((Vendedor *)p)->getTipo().print();
                 }
             }
             else
@@ -336,22 +335,21 @@ int main()
             cin >> ventas;
             Vendedor * v = Fachada.obtengoVendedor(cedula);
             TipoError error;
-            cout << "Antes de setear" << v->getCantVentas();
             Fachada.ventasSemanales(v, ventas, error);
-            cout << "Despues de setear" << v->getCantVentas();
             muestroError(error);
         }break;
         case 7:
         {
             system("cls");
             cout << "7. Calcular sueldos semanales\n" << endl;
-            int totalSueldos = 0;
+            float totalSueldos = Fachada.calculoSueldoTotal();
+            cout << "El total de sueldos a pagar en la semana es: $" << totalSueldos << endl;
+
         }break;
         case 8:
         {
             system("cls");
             cout << "8. Cantidad de vendedores zafrales por fecha\n" << endl;
-               int monto = 0;
                cout << "Ingrese una fecha para conocer los vendedores zafrales actualmente \n registrados que estarán contratados hasta después de esa fecha." << endl;
                int dd;
                cout << "\n Ingrese dia: ";
@@ -366,8 +364,8 @@ int main()
                TipoError error;
                if (fz.esValida())
                {
-                   //monto = cantContratadosHasta(fz, error);
-                   cout << "Cantidad de Vendedores Zafrales: " << monto << endl;
+                   int total = Fachada.cantContratadosHasta(fz, error);
+                   cout << "Cantidad de Vendedores Zafrales: " << total << endl;
                }
                else
                {
@@ -375,6 +373,7 @@ int main()
                    system("PAUSE");
                    break;
                }
+               muestroError(error);
         }break;
         case 0:
         {

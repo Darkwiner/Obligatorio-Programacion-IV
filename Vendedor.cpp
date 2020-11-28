@@ -25,7 +25,7 @@ float Vendedor :: sueldoTotal ()
     return sueldoBase;
 }
 
-int Vendedor:: getSueldoBase ()
+float Vendedor:: getSueldoBase ()
 {
     return sueldoBase;
 }
@@ -71,14 +71,14 @@ Supervisor * Vendedor :: getSupervisor ()
     return  sup;
 }
 
-/*
+
 bool Vendedor :: esZafral(Fecha f)
 {
     bool es = false;
     if(getTipo() == "Zafral")
     {
-        if (((Zafral*)this)-> getFecha() > f))
+        if ()
             es = true;
     }
-    return es
-}*/
+    return es;
+}

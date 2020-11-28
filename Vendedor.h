@@ -16,7 +16,7 @@ public :
     Vendedor (int, String, float, int, Supervisor *); //Constructor comun
     Vendedor (const Vendedor &);//Constructor de copia
     virtual float sueldoTotal (); // Funcion polimorfica
-    int getSueldoBase ();
+    float getSueldoBase ();
     int getCantVentas ();
     void setSueldoBase (float);
     void setCantVentas (int);
@@ -25,5 +25,6 @@ public :
     long int getCedulaSup ();
     Supervisor * getSupervisor ();
     ~Vendedor();
+    bool esZafral (Fecha);
 };
 #endif // VENDEDOR_H_INCLUDED
