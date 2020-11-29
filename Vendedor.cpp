@@ -49,12 +49,12 @@ Vendedor :: ~Vendedor()
 {
 
 }
-
+/*
 long int Vendedor :: getCedulaVen ()
 {
     long int ced = getCedula();
     return ced;
-}
+}*/
 
 long int Vendedor :: getCedulaSup ()
 {

@@ -11,10 +11,10 @@ public :
   Fijo (); //Constructor por defecto
   Fijo (int, long int, String, int, int, Supervisor *); //Constructor comun
   Fijo (const Fijo &); //Constructor de copia
-  float sueldoTotal (); // Funcion polimorfica
-  int getPlus();  // Selectora
+  float sueldoTotal (); //Funcion polimorfica
+  int getPlus();  //Selectora
   void setPlus (int); //Seteo plus
-  String getTipo();
+  String getTipo(); //Selectora tipo de vendedor
 };
 
 #endif // FIJO_H_INCLUDED

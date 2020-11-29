@@ -1,120 +1,13 @@
-#include "Vendedor.h"
-#include "Vendedores.h"
-#include "Zafral.h"
-#include "Fijo.h"
-#include "Fecha.h"
-#include <limits>
-#include "String.h"
 #include <sstream>
 #include <iostream>
 #include <string>
 #include <stdlib.h>
+#include <limits>
 #include "Supervisor.h"
-#include "Supervisores.h"
 #include "CapaLogica.h"
+#include "Validaciones.h"
 
 using namespace std;
-
-bool validoCed (long int ced)
-{
-    bool valida=true;
-    if(ced<5000000 || ced>70000000)
-    {
-        valida=false;
-    }
-    else
-    {
-        long int aux=ced;
-        int i=1,res=0,total=0,TAM=0;
-        do
-        {
-            aux=aux/10;
-            i++;
-        }
-        while(aux/10>0);
-
-        TAM=i;
-        int arre[TAM];
-
-        aux=ced;
-
-        for (i=TAM-1; i>=0; i--)
-        {
-            arre[i]=aux%10;
-            aux=aux/10;
-        }
-
-        arre[0]=arre[0]*2;
-        arre[1]=arre[1]*9;
-        arre[2]=arre[2]*8;
-        arre[3]=arre[3]*7;
-        arre[4]=arre[4]*6;
-        arre[5]=arre[5]*3;
-        if (TAM==8)
-            arre[6]=arre[6]*4;
-        for(i=0; i<TAM-1; i++)
-            total=total+arre[i] ;
-        res=total%10;
-        res=10-res;
-        if(res!=arre[TAM-1])
-            valida=false;
-    }
-    return(valida);
-}
-
-long int nuevaCedula ()
-{
-            int i;
-            string ced;
-            long int cedula;
-            do
-            {
-                while(true)
-                {
-                    cout << "Ingrese la cedula: ";
-                    getline(cin, ced);
-                    stringstream mystream(ced);
-                    if(mystream >> i) break;
-                    cout << "Cedula no valida. Solo se permiten numeros. Intente nuevamente.\n" << endl;
-                }
-                istringstream(ced)>>cedula;
-                if(!validoCed(cedula))
-                    cout << "Cedula no valida. Por favor compruebe el digito verificador y vuelva a intentarlo.\n" << endl;
-            }while(!validoCed(cedula));
-            return cedula;
-}
-
-int validarNum ()
-{
-            int i;
-            string num;
-            int numero;
-            while(true)
-            {
-                getline(cin, num);
-                stringstream mystream(num);
-                if(mystream >> i) break;
-                cout << "Entrada no valida. Solo se permiten numeros. \nIntente nuevamente: ";
-            }
-            istringstream(num)>>numero;
-            return numero;
-}
-
-float validarFloat ()
-{
-            int i;
-            string num;
-            float numero;
-            while(true)
-            {
-                getline(cin, num);
-                stringstream mystream(num);
-                if(mystream >> i) break;
-                cout << "Entrada no valida. Solo se permiten numeros. \nIntente nuevamente: ";
-            }
-            istringstream(num)>>numero;
-            return numero;
-}
 
 int main()
 {
@@ -150,7 +43,6 @@ int main()
             system("cls");
             cout << "\n1. Ingresar supervisor\n" << endl;
             cedula=nuevaCedula();
-
             cout << "Ingrese nombre: ";
             char cadena[80];
             cin >> cadena;
@@ -174,9 +66,8 @@ int main()
             {
                 Supervisor * s = new Supervisor (cedula, nombre, barrio, cantManzanas);
                 TipoError error;
-                Fachada.registrarSupervisor(s,error); //
+                Fachada.registrarSupervisor(s,error);
                 muestroError (error);
-                cout << "Supervisor cargado con cedula: " << s->getCedula() << endl;
             }
             else
             {
@@ -191,10 +82,8 @@ int main()
             cout << "\n2. Ingresar Vendedor\n" << endl;
             cout << "\nIngrese el Supervisor\n";
             cedulaSupervisor=nuevaCedula();
-
             cout << "\nIngrese el Vendedor\n";
             cedula=nuevaCedula();
-
             cout << "Ingrese nombre: ";
             char cadena[80];
             cin >> cadena;
@@ -207,6 +96,8 @@ int main()
             cout << "Desea registrar un vendedor Zafral o Fijo? Z/F: ";
             char opcionReq2;
             cin >> opcionReq2;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
             if (opcionReq2 == 'z' || opcionReq2 == 'Z')
             {
                 int comision,dd,mm,aa;
@@ -214,11 +105,11 @@ int main()
                 comision=validarNum();
                 cout << "\nIngrese fecha fin de contrato" << endl;
                 cout << "Ingrese dia: ";
-                cin >> dd;
+                dd = validarNum();
                 cout << "Ingrese mes: ";
-                cin >> mm;
+                mm = validarNum();
                 cout << "Ingrese anio: ";
-                cin >> aa;
+                aa = validarNum();
                 Fecha f = Fecha (dd,mm,aa);
                 if (f.esValida())
                 {
@@ -237,7 +128,7 @@ int main()
             else
             {
                 cout << "\nIngrese plus: ";
-                int plu=validarNum();
+                int plu = validarNum();
                 Vendedor * vend = new Fijo (plu, cedula, nombre, sueldo, 0, NULL);
                 TipoError error;
                 Fachada.registrarVendedor(vend,error,cedulaSupervisor); //
@@ -338,12 +229,11 @@ int main()
             cout << "6. Registrar ventas semanales de un vendedor\n" << endl;
             cout << "Ingrese cedula de vendedor:" << endl;
             cedula=nuevaCedula();
-
             cout << "\nIngrese cantidad de ventas semanal: ";
             int ventas=validarNum();
-            Vendedor * v = Fachada.obtengoVendedor(cedula); //
             TipoError error;
-            Fachada.ventasSemanales(v, ventas, error); //
+            Vendedor * v = Fachada.obtengoVendedorCapa(cedula, error);
+            Fachada.ventasSemanales(v, ventas, error);
             muestroError(error);
         }break;
         case 7: //Calcular el monto total de sueldos a pagar a los vendedores en la semana. Recordar que el cálculo del sueldo de cada vendedor depende del tipo de vendedor.
@@ -361,11 +251,11 @@ int main()
             int dd,mm,aa;
             cout << "8. Cantidad de vendedores zafrales por fecha\n" << endl;
             cout << "\nIngrese dia: ";
-            cin >> dd;
+            dd = validarNum();
             cout << "Ingrese mes: ";
-            cin >> mm;
+            mm = validarNum();
             cout << "Ingrese anio: ";
-            cin >> aa;
+            aa = validarNum();
             Fecha fz = Fecha (dd,mm,aa);
             TipoError error;
             if (fz.esValida()) //

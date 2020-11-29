@@ -1,22 +1,5 @@
 #include "CapaLogica.h"
 
-/* ********* Estandar de errores ***********
-Codigos:
-1- Cedula invalida
-2- Nombre invalido
-3- Sueldo base invalido
-4- Cantidad de ventas invalida
-5- Cantidad de manzanas invalia
-6- Comision invalida
-7- Fecha invalida
-200- Supervisor creado correctamente
-201- Vendedor creado correctamente
-400- Supervisor ya existe
-401- Vendedor ya existe
-500- Supervisor no registrado en el sistema
-*/
-
-
 CapaLogica :: CapaLogica () : supervisores (), vendedores ()
 {
     //N/A
@@ -77,10 +60,10 @@ int CapaLogica :: cantContratadosHasta (Fecha f, TipoError &error)
 float CapaLogica :: calculoSueldoTotal ()
 {
     float total = 0;
-    {
+    if (!vendedores.esVacio())
         total = vendedores.calcularSueldo();
-    }
-    return total;
+    else
+        return total;
 }
 
 void CapaLogica :: ventasSemanales (Vendedor * &v, int ventas, TipoError &error)
@@ -94,6 +77,14 @@ void CapaLogica :: ventasSemanales (Vendedor * &v, int ventas, TipoError &error)
         v->setCantVentas(ventas);
         error = SETCANTIDADVENTAS;
     }
+}
+
+Vendedor * CapaLogica :: obtengoVendedorCapa (long int cedula, TipoError &error)
+{
+    if (!perteneceVendedor(cedula))
+        error = VENDEDORNOEXISTE;
+    else
+        return obtengoVendedor(cedula);
 }
 
 Vendedor * CapaLogica :: obtengoVendedor (long int ced)

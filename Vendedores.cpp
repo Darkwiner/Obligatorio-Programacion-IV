@@ -113,7 +113,7 @@ void Vendedores :: buscarZafrales (Nodo * a, Fecha f, int &total)
 
 float Vendedores :: calcularSueldo ()
 {
-    float total;
+    float total = 0;
     calcularSueldoVendedores (ABB, total);
     return total;
 }
@@ -126,4 +126,12 @@ void Vendedores :: calcularSueldoVendedores (Nodo * a, float & total)
         total = total + a->info->sueldoTotal();
         calcularSueldoVendedores (a->hder, total);
     }
+}
+
+bool Vendedores :: esVacio ()
+{
+    if (ABB == NULL)
+        return true;
+    else
+        return false;
 }

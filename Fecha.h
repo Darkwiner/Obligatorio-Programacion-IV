@@ -21,10 +21,10 @@ public:
     Fecha operator++ (int); //Operador postfijo de incremento
     int operator- (Fecha); //Devuelve la diferencia en d�as entre 2 fechas
     bool esValida (); //Validacion de la fecha
-    int getDia ();
-    int getMes ();
-    int getAnio ();
-    void mostrar ();
+    int getDia (); //Selectora de dia
+    int getMes (); //Selectora de mes
+    int getAnio (); //Selectora de anio
+    void mostrar (); //Muestra la fecha
 };
 
 #endif // FECHA_H_INCLUDED

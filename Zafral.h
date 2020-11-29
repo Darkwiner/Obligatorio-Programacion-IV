@@ -18,8 +18,8 @@ public:
   void setComision(int); //Seteo comision
   void setFecha(Fecha); // Seteo fecha
   float sueldoTotal (); // Funcion polimorfica
-  String getTipo();
-  bool comparoFecha (Fecha);
+  String getTipo(); //Selectora tipo de vendedor
+  bool comparoFecha (Fecha); //Compara la fecha de contrato y la fecha dada
 };
 
 #endif // ZAFRAL_H_INCLUDED
