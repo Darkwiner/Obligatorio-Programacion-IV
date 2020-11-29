@@ -3,7 +3,8 @@
 #include "Vendedor.h"
 #include "IteradorPersonas.h"
 #include "Fecha.h"
-
+#include "Fijo.h"
+#include "Zafral.h"
 
 class Vendedores
 {
@@ -32,7 +33,7 @@ public:
     int buscarZafralesVendedores (Fecha f);
     float calcularSueldo ();
     void calcularSueldoVendedores (Nodo *, float &);
-    bool esZafral(Vendedor *, Fecha f);
+    //bool esZafral(Vendedor *, Fecha f);
     ~Vendedores ();//Destructor
 };
 

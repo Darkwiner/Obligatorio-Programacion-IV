@@ -78,9 +78,7 @@ IteradorPersonas CapaLogica :: listarVendedoresCapa ()
 
 int CapaLogica :: cantContratadosHasta (Fecha f, TipoError &error)
 {
-    int total;
-    vendedores.buscarZafralesVendedores(f);
-    return total;
+    return(vendedores.buscarZafralesVendedores(f));
 }
 
 

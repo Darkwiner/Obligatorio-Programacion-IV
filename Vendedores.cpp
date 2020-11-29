@@ -99,13 +99,26 @@ int Vendedores :: buscarZafralesVendedores (Fecha f)
     return total;
 }
 
+//void Vendedores :: buscarZafrales (Nodo * a, Fecha f, int &total)
+//{
+//    if (a != NULL)
+//    {
+//        buscarZafrales (a->hizq, f, total);
+//        //if(a->info->esZafral(f))
+//        if((a->info->getTipo()=="Zafral")&&((Zafral*)a->info->getFecha()<f))
+//            total = total + 1;
+//        buscarZafrales (a->hder, f, total);
+//    }
+//}
+
 void Vendedores :: buscarZafrales (Nodo * a, Fecha f, int &total)
 {
     if (a != NULL)
     {
         buscarZafrales (a->hizq, f, total);
-        if(a->info->esZafral(f))
-            total = total + 1;
+        if(a->info->getTipo()=="Zafral")
+             if(((Zafral *)a->info)->getFecha() < f)
+                total = total + 1;
         buscarZafrales (a->hder, f, total);
     }
 }
