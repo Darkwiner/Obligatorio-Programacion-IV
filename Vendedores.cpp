@@ -117,7 +117,7 @@ void Vendedores :: buscarZafrales (Nodo * a, Fecha f, int &total)
     {
         buscarZafrales (a->hizq, f, total);
         if(a->info->getTipo()=="Zafral")
-             if(((Zafral *)a->info)->getFecha() < f)
+             if(f<((Zafral *)a->info)->getFecha())
                 total = total + 1;
         buscarZafrales (a->hder, f, total);
     }

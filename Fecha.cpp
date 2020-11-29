@@ -204,5 +204,5 @@ bool Fecha :: esValida ()
 
 void Fecha :: mostrar ()
 {
-    cout << getDia() << "/" << getMes() << "/" << getAnio() << "/" << endl;
+    cout << getDia() << "/" << getMes() << "/" << getAnio() << endl;
 }

@@ -70,15 +70,3 @@ Supervisor * Vendedor :: getSupervisor ()
 {
     return  sup;
 }
-
-
-//bool Vendedor :: esZafral(Fecha f)
-//{
-//    bool es = false;
-//    if(getTipo() == "Zafral")
-//    {
-//        if ()
-//            es = true;
-//    }
-//    return es;
-//}

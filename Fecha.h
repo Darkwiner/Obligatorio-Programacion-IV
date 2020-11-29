@@ -8,7 +8,7 @@ class Fecha
 {
 private:
     int dd, mm, aa;
-    void incrementar (); // M�todo auxiliar, incrementa 1 d�a la fecha
+    void incrementar (); // Metodo auxiliar, incrementa 1 dia la fecha
 
 public:
     Fecha (); //Constructor por defecto

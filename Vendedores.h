@@ -16,24 +16,23 @@ private:
         Nodo * hder;
     };
     Nodo * ABB;
-    void destruirArbol (Nodo * &);//Destruye todo el contenido del árbol
-    bool perteneceEnArbol (Nodo *, long int);//Indica si existe un vendedor con la cédula ingresada
-    void insertEnArbol (Nodo * &, Vendedor *);//Inserta el nuevo vendedor en el árbol
-    Vendedor * obtenerEnArbol (Nodo *, long int);//Obtiene el vendedor con la cédula ingresada
-    void cargarIteradorVendedor (Nodo *, IteradorPersonas &);//Carga el iterador recorriendo el árbol en orden
+    void destruirArbol (Nodo * &); //Destruye todo el contenido del árbol
+    bool perteneceEnArbol (Nodo *, long int); //Indica si existe un vendedor con la cédula ingresada
+    void insertEnArbol (Nodo * &, Vendedor *); //Inserta el nuevo vendedor en el árbol
+    Vendedor * obtenerEnArbol (Nodo *, long int); //Obtiene el vendedor con la cédula ingresada
+    void cargarIteradorVendedor (Nodo *, IteradorPersonas &); //Carga el iterador recorriendo el árbol en orden
     float recorrerArbol (Nodo *);
-    void buscarZafrales(Nodo *, Fecha, int &);
+    void buscarZafrales(Nodo *, Fecha, int &); //Procedimiento privado para buscar Vendedores zafrales
 
 public:
-    Vendedores ();//Constructor por defecto
-    bool member (long int);//Indica si el vendedor con la cédula ingresada es miembro de la colección
+    Vendedores (); //Constructor por defecto
+    bool member (long int); //Indica si el vendedor con la cédula ingresada es miembro de la colección
     void insertVendedor (Vendedor *);//Inserta el nuevo vendedor a la colección
     Vendedor * find (long int);//Retorna al vendedor cuya cédula es la ingresada
     IteradorPersonas listarVendedores ();//Devuelve un iterador conteniendo todos los vendedores a listar
     int buscarZafralesVendedores (Fecha f);
     float calcularSueldo ();
     void calcularSueldoVendedores (Nodo *, float &);
-    //bool esZafral(Vendedor *, Fecha f);
     ~Vendedores ();//Destructor
 };
 
