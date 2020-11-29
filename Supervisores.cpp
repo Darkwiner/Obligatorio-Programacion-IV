@@ -79,9 +79,7 @@ Supervisor * Supervisores :: find (long int ced)
     return obtenerEnLista (hash[cubeta], ced);
 }
 
-
 IteradorPersonas Supervisores :: listarSupervisores ()
-
 {
     IteradorPersonas iter;
     for (int i=0; i<B; i++)

@@ -20,9 +20,7 @@ public :
     void ventasSemanales (Vendedor * &, int, TipoError &); //Dada una cedula le asigna la cantidad de ventas semanales a un vendedor
     float calculoSueldoTotal (); //Devuelve el sueldo total a pagar
     int cantContratadosHasta (Fecha, TipoError &); //Devuelve el numero de vendedores zafrales que poseen contrato con fecha mayor a la dada
-    bool perteneceSupervisor (long int);
     bool perteneceVendedor (long int);
-    Supervisor * obtengoSupervisor (long int);
     Vendedor * obtengoVendedor (long int);
 };
 

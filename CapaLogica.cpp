@@ -54,22 +54,15 @@ void CapaLogica :: registrarVendedor (Vendedor * v, TipoError &error, long int c
     }
 }
 
-bool CapaLogica :: perteneceSupervisor (long int ced)
-{
-    return supervisores.member(ced);
-}
-
 bool CapaLogica :: perteneceVendedor (long int ced)
 {
     return vendedores.member(ced);
 }
 
-
 IteradorPersonas CapaLogica :: listarSupervisoresCapa ()
 {
     return supervisores.listarSupervisores();
 }
-
 
 IteradorPersonas CapaLogica :: listarVendedoresCapa ()
 {
@@ -80,7 +73,6 @@ int CapaLogica :: cantContratadosHasta (Fecha f, TipoError &error)
 {
     return(vendedores.buscarZafralesVendedores(f));
 }
-
 
 float CapaLogica :: calculoSueldoTotal ()
 {
@@ -102,12 +94,6 @@ void CapaLogica :: ventasSemanales (Vendedor * &v, int ventas, TipoError &error)
         v->setCantVentas(ventas);
         error = SETCANTIDADVENTAS;
     }
-}
-
-Supervisor * CapaLogica :: obtengoSupervisor (long int ced)
-{
-    Supervisor * s = supervisores.find(ced);
-    return s;
 }
 
 Vendedor * CapaLogica :: obtengoVendedor (long int ced)

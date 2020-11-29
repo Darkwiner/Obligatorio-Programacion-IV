@@ -21,7 +21,6 @@ private:
     void insertEnArbol (Nodo * &, Vendedor *); //Inserta el nuevo vendedor en el árbol
     Vendedor * obtenerEnArbol (Nodo *, long int); //Obtiene el vendedor con la cédula ingresada
     void cargarIteradorVendedor (Nodo *, IteradorPersonas &); //Carga el iterador recorriendo el árbol en orden
-    float recorrerArbol (Nodo *);
     void buscarZafrales(Nodo *, Fecha, int &); //Procedimiento privado para buscar Vendedores zafrales
 
 public:

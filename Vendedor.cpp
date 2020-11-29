@@ -14,7 +14,7 @@ Vendedor :: Vendedor (int ced, String nom, float s, int ventas, Supervisor * sup
     sup = super;
 }
 
-Vendedor :: Vendedor (const Vendedor &otro) //Preguntar
+Vendedor :: Vendedor (const Vendedor &otro)
 {
     sueldoBase = otro.sueldoBase;
     cantVentas = otro.cantVentas;

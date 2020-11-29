@@ -99,18 +99,6 @@ int Vendedores :: buscarZafralesVendedores (Fecha f)
     return total;
 }
 
-//void Vendedores :: buscarZafrales (Nodo * a, Fecha f, int &total)
-//{
-//    if (a != NULL)
-//    {
-//        buscarZafrales (a->hizq, f, total);
-//        //if(a->info->esZafral(f))
-//        if((a->info->getTipo()=="Zafral")&&((Zafral*)a->info->getFecha()<f))
-//            total = total + 1;
-//        buscarZafrales (a->hder, f, total);
-//    }
-//}
-
 void Vendedores :: buscarZafrales (Nodo * a, Fecha f, int &total)
 {
     if (a != NULL)
@@ -121,18 +109,6 @@ void Vendedores :: buscarZafrales (Nodo * a, Fecha f, int &total)
                 total = total + 1;
         buscarZafrales (a->hder, f, total);
     }
-}
-
-float Vendedores :: recorrerArbol (Nodo * a)
-{
-    float total = 0;
-    if (a != NULL)
-    {
-        recorrerArbol(a->hizq);
-        total = total + a->info->sueldoTotal();
-        recorrerArbol(a->hder);
-    }
-    return total;
 }
 
 float Vendedores :: calcularSueldo ()

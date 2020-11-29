@@ -13,10 +13,6 @@
 #include "Supervisores.h"
 #include "CapaLogica.h"
 
-// Revisar comentarios
-// Controlar tipos de datos ingresados
-// Limpiar
-
 using namespace std;
 
 bool validoCed (long int ced)
@@ -88,6 +84,38 @@ long int nuevaCedula ()
             return cedula;
 }
 
+int validarNum ()
+{
+            int i;
+            string num;
+            int numero;
+            while(true)
+            {
+                getline(cin, num);
+                stringstream mystream(num);
+                if(mystream >> i) break;
+                cout << "Entrada no valida. Solo se permiten numeros. \nIntente nuevamente: ";
+            }
+            istringstream(num)>>numero;
+            return numero;
+}
+
+float validarFloat ()
+{
+            int i;
+            string num;
+            float numero;
+            while(true)
+            {
+                getline(cin, num);
+                stringstream mystream(num);
+                if(mystream >> i) break;
+                cout << "Entrada no valida. Solo se permiten numeros. \nIntente nuevamente: ";
+            }
+            istringstream(num)>>numero;
+            return numero;
+}
+
 int main()
 {
     Supervisores HashSupervisores;
@@ -138,9 +166,7 @@ int main()
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(),'\n');
             cout << "Ingrese cantidad de manzanas: ";
-            int cantManzanas;
-            cin >> cantManzanas;
-
+            int cantManzanas=validarNum();
             cout << "\nConfirma los datos ingresados? S/N: ";
             char confirma;
             cin >> confirma;
@@ -148,7 +174,7 @@ int main()
             {
                 Supervisor * s = new Supervisor (cedula, nombre, barrio, cantManzanas);
                 TipoError error;
-                Fachada.registrarSupervisor(s,error);
+                Fachada.registrarSupervisor(s,error); //
                 muestroError (error);
                 cout << "Supervisor cargado con cedula: " << s->getCedula() << endl;
             }
@@ -177,8 +203,7 @@ int main()
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(),'\n');
             cout<< "Ingrese el sueldo base: ";
-            float sueldo;
-            cin>>sueldo;
+            float sueldo=validarFloat();
             cout << "Desea registrar un vendedor Zafral o Fijo? Z/F: ";
             char opcionReq2;
             cin >> opcionReq2;
@@ -186,7 +211,7 @@ int main()
             {
                 int comision,dd,mm,aa;
                 cout << "\nIngrese comision: ";
-                cin >> comision;
+                comision=validarNum();
                 cout << "\nIngrese fecha fin de contrato" << endl;
                 cout << "Ingrese dia: ";
                 cin >> dd;
@@ -199,7 +224,7 @@ int main()
                 {
                     Vendedor * vend = new Zafral (comision, f, cedula, nombre, sueldo, 0, NULL);
                     TipoError error;
-                    Fachada.registrarVendedor(vend,error,cedulaSupervisor);
+                    Fachada.registrarVendedor(vend,error,cedulaSupervisor); //
                     muestroError (error);
                 }
                 else
@@ -212,11 +237,10 @@ int main()
             else
             {
                 cout << "\nIngrese plus: ";
-                int plu;
-                cin >> plu;
+                int plu=validarNum();
                 Vendedor * vend = new Fijo (plu, cedula, nombre, sueldo, 0, NULL);
                 TipoError error;
-                Fachada.registrarVendedor(vend,error,cedulaSupervisor);
+                Fachada.registrarVendedor(vend,error,cedulaSupervisor); //
                 muestroError (error);
             }
             system("cls");
@@ -225,10 +249,10 @@ int main()
         {
             system("cls");
             cout << "3. Listar supervisores\n" << endl;
-            IteradorPersonas iteradorSupervisores = Fachada.listarSupervisoresCapa();
-            if (iteradorSupervisores.hayMasPersonas())
+            IteradorPersonas iteradorSupervisores = Fachada.listarSupervisoresCapa(); //
+            if (iteradorSupervisores.hayMasPersonas()) //
             {
-                while (iteradorSupervisores.hayMasPersonas())
+                while (iteradorSupervisores.hayMasPersonas()) //
                 {
                     Persona * p = (Supervisor *) iteradorSupervisores.proximaPersona();
                     cout << p->getCedula() << " - ";
@@ -248,12 +272,12 @@ int main()
         {
             system("cls");
             cout << "4. Listar vendedores\n" << endl;
-            IteradorPersonas iteradorVendedores = Fachada.listarVendedoresCapa();
-            if (iteradorVendedores.hayMasPersonas())
+            IteradorPersonas iteradorVendedores = Fachada.listarVendedoresCapa(); //
+            if (iteradorVendedores.hayMasPersonas()) //
             {
-                while (iteradorVendedores.hayMasPersonas())
+                while (iteradorVendedores.hayMasPersonas()) //
                 {
-                    Persona * p = iteradorVendedores.proximaPersona();
+                    Persona * p = iteradorVendedores.proximaPersona(); //
                     cout << p->getCedula() << " - ";
                     ((Vendedor *)p)->getNombre().print();
                     cout << " - ";
@@ -273,9 +297,9 @@ int main()
 
             cedula=nuevaCedula();
             Vendedor * v;
-            if(Fachada.perteneceVendedor(cedula))
+            if(Fachada.perteneceVendedor(cedula)) //
             {
-                v=Fachada.obtengoVendedor(cedula);
+                v=Fachada.obtengoVendedor(cedula); //
                 cout << "\nLos datos del Vendedor son: \n" << endl;
                 cout << "Cedula: " << v->getCedula() << endl;
                 cout << "Nombre: " ;
@@ -316,18 +340,17 @@ int main()
             cedula=nuevaCedula();
 
             cout << "\nIngrese cantidad de ventas semanal: ";
-            int ventas;
-            cin >> ventas;
-            Vendedor * v = Fachada.obtengoVendedor(cedula);
+            int ventas=validarNum();
+            Vendedor * v = Fachada.obtengoVendedor(cedula); //
             TipoError error;
-            Fachada.ventasSemanales(v, ventas, error);
+            Fachada.ventasSemanales(v, ventas, error); //
             muestroError(error);
         }break;
         case 7: //Calcular el monto total de sueldos a pagar a los vendedores en la semana. Recordar que el cálculo del sueldo de cada vendedor depende del tipo de vendedor.
         {
             system("cls");
             cout << "7. Calcular sueldos semanales\n" << endl;
-            float totalSueldos = Fachada.calculoSueldoTotal();
+            float totalSueldos = Fachada.calculoSueldoTotal(); //
             cout << "El total de sueldos a pagar en la semana es: $" << totalSueldos << endl;
             system("PAUSE");
             system("cls");
@@ -345,9 +368,9 @@ int main()
             cin >> aa;
             Fecha fz = Fecha (dd,mm,aa);
             TipoError error;
-            if (fz.esValida())
+            if (fz.esValida()) //
             {
-                int total = Fachada.cantContratadosHasta(fz, error);
+                int total = Fachada.cantContratadosHasta(fz, error); //
                 cout << "\nCantidad de Vendedores Zafrales: " << total << endl;
             }
             else

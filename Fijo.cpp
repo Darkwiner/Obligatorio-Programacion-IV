@@ -15,10 +15,6 @@ Fijo :: Fijo (const Fijo &otro) : Vendedor()
     plus = otro.plus;
 }
 
-/*Vendedor fijo: Si realizó menos de 10 ventas en la semana, cobra únicamente su salario
-base. Si realizó entre 10 y 20, cobra su salario base mas el valor del plus, y
-si realizó más de 20 ventas, cobra su salario base mas el doble del plus.*/
-
 float Fijo :: sueldoTotal ()
 {
     float sueldo = Vendedor::sueldoTotal();

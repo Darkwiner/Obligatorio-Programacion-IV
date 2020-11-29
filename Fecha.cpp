@@ -156,7 +156,7 @@ int Fecha :: operator- (Fecha f)
     return (signo * cont);
 }
 
-bool Fecha :: esValida ()
+bool Fecha :: esValida () //
 {
     bool es = true;
     if (aa < 1900 || aa > 2099)
