@@ -236,7 +236,7 @@ int main()
                     cout << " - ";
                     ((Supervisor *) p)->getBarrio().print();
                     cout << " - ";
-                    cout <<((Supervisor *) p)->getManzanas() << endl;
+                    cout <<((Supervisor *) p)->getManzanas() << endl << endl;
                 }
             }
             else
@@ -258,12 +258,12 @@ int main()
                     ((Vendedor *)p)->getNombre().print();
                     cout << " - ";
                     ((Vendedor *)p)->getTipo().print();
-                    cout << endl;
+                    cout << endl << endl;
                 }
             }
             else
                 cout << "ERROR: No hay supervisores en el sistema." << endl;
-            system("PAUSE");
+        system("PAUSE");
         }break;
         case 5: //Dada la cédula de un vendedor, listar todos sus datos junto con los datos de su supervisor.
         {
@@ -328,7 +328,7 @@ int main()
             system("cls");
             cout << "7. Calcular sueldos semanales\n" << endl;
             float totalSueldos = Fachada.calculoSueldoTotal();
-            cout << "\nEl total de sueldos a pagar en la semana es: $" << totalSueldos << endl;
+            cout << "El total de sueldos a pagar en la semana es: $" << totalSueldos << endl;
             system("PAUSE");
             system("cls");
         }break;
